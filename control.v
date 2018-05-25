@@ -1,6 +1,7 @@
 module control(
     input [5:0] op,
     input [5:0] funct,
+    input [5:0] rt,
     output branch,
     output mem_to_reg,
     output [3:0] alu_control,

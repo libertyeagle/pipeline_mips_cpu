@@ -12,7 +12,8 @@ module id_stage(
     assign funct = if_id_instruction[];
     assign shamt = if_id_instruction[];
 
-    control CPU_CONTROL(op, branch, mem_to_reg, alu_control, mem_write, alu_src, reg_write, jump, reg_dst);
+    control CPU_CONTROL
+    (op, branch, mem_to_reg, alu_control, mem_write, alu_src, reg_write, jump, reg_dst);
 
     always @(*)
         if (if_id_instruction[15] == 1'b1) imm_sign_extended = 32'hffff0000 + if_id_instruction[15:0];
@@ -20,7 +21,7 @@ module id_stage(
 
     // stall one cycle for lw hazard
     // if last insturction is LW and the register re
-    assign stall = (id_ex_ctrl_mem_read) && (id_ex_rt == rs || id_ex_rt == rt) 
+    assign stall = (id_ex_ctrl_mem_to_reg) && (id_ex_rt == rs || id_ex_rt == rt) 
 
     always @(posedge clk or negedge rst_n)
     begin
