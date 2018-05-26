@@ -16,6 +16,7 @@ module control(
     output [2:0] load_type,
     output [1:0] store_type
 );
+
     parameter BRANCH_BEQ = 3'd0;
     parameter BRANCH_BGEZ = 3'd1; 
     parameter BRANCH_BGTZ = 3'd2;

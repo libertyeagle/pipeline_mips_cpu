@@ -1,15 +1,16 @@
 module forwarding_alu(
-    input [5:0] id_ex_rs;
-    input [5:0] id_ex_rt;
-    input [5:0] ex_mem_rd;
-    input [5:0] mem_wb_rd;
-    input ex_mem_reg_write;
-    input [31:0] reg_a_data;
-    input [31:0] reg_b_data;
-    input [31:0] ex_mem_alu_result;
-    input [31:0] mem_wb_data;
-    output [31:0] alu_src_a;
-    output [31:0] alu_src_b_reg;
+    input [5:0] id_ex_rs,
+    input [5:0] id_ex_rt,
+    input [5:0] ex_mem_rd,
+    input [5:0] mem_wb_rd,
+    input ex_mem_reg_write,
+    input mem_wb_reg_write,
+    input [31:0] reg_a_data,
+    input [31:0] reg_b_data,
+    input [31:0] ex_mem_alu_result,
+    input [31:0] mem_wb_data,
+    output [31:0] alu_src_a,
+    output [31:0] alu_src_b_reg
 );
     wire bypass_a_from_mem;
     wire bypass_a_from_wb;
@@ -38,7 +39,6 @@ module forwarding_alu(
     assign bypass_b_from_mem = (id_ex_rt == ex_mem_rd) && (id_ex_rt != 5'd0) && (ex_mem_reg_write == 1'b1);
     assign bypass_a_from_wb = (id_ex_rs == mem_wb_rd) && (id_ex_rs != 5'd0) && (mem_wb_reg_write == 1'b1);
     assign bypass_b_from_wb = (id_ex_rt == mem_wb_rd) && (id_ex_rt != 5'd0) && (mem_wb_reg_write == 1'b1);
-
 
     assign forward_a = forward_sig(bypass_a_from_mem, bypass_a_from_wb);
     assign forward_b = forward_sig(bypass_b_from_mem, bypass_b_from_wb);

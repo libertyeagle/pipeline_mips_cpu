@@ -1,45 +1,94 @@
 module mem_stage(
-    output branch_eq_taken,
-    output branch_neq_taken,
-    output jump_taken,
-    output pc_jump,
-    output pc_branch
+    input clk,
+    input rst_n,
+    input ex_mem_alu_beq_sig,
+    input ex_mem_alu_bgez_sig,
+    input ex_mem_alu_bgtz_sig,
+    input ex_mem_alu_blez_sig,
+    input ex_mem_alu_bltz_sig,
+    input ex_mem_alu_bne_sig,
+    input [31:0] ex_mem_alu_out,
+    input ex_mem_ctrl_branch,
+    input [2:0] ex_mem_ctrl_branch_type,
+    input ex_mem_ctrl_jump,
+    input ex_mem_ctrl_jump_reg,
+    input [2:0] ex_mem_ctrl_load_type,
+    input ex_mem_ctrl_mem_to_reg,
+    input ex_mem_ctrl_mem_write,
+    input ex_mem_ctrl_reg_write,
+    input [1:0] ex_mem_ctrl_store_type,
+    input [31:0] ex_mem_pc_branch,
+    input [31:0] ex_mem_pc_jump,
+    input [4:0] ex_mem_rd,
+    input [31:0] ex_mem_reg_b_data,
+    output branch_taken,
+    output jump_taken
 );
 
-    assign branch_eq_taken = ex_mem_ctrl_branch_eq && ex_mem_alu_zero;
-    assign branch_neq_taken = ex_mem_ctrl_branch_neq && ~ex_mem_alu_zero;
+    parameter BRANCH_BEQ = 3'd0;
+    parameter BRANCH_BGEZ = 3'd1; 
+    parameter BRANCH_BGTZ = 3'd2;
+    parameter BRANCH_BLEZ = 3'd3;
+    parameter BRANCH_BLTZ = 3'd4;
+    parameter BRANCH_BNE = 3'd5;
 
-    assign jump_taken = ex_mem_ctrl_jump;
+    wire [31:0] data_mem_read;
+    wire [31:0] split_data_write;
 
-    assign pc_jump = ex_mem_pc_jump;
-    assign pc_branch = ex_mem_pc_branch;
+    split_word_store split_word_store_module(
+        ex_mem_reg_b_data,
+        data_mem_read,
+        ex_mem_ctrl_store_type,
+        ex_mem_alu_out[1:0],
+        split_word_write
+    );
+
+	data_memory data_mem (
+        .a(ex_mem_alu_out),
+        .d(split_data_write),
+        .clk(clk),
+        .we(ex_mem_ctrl_mem_write),
+        .spo(data_mem_read)
+    );
+
+    always @(*)
+    begin
+        case(ex_mem_ctrl_branch)
+            BRANCH_BEQ:
+                branch_taken = ex_mem_ctrl_branch && ex_mem_alu_beq_sig;
+            BRANCH_BGEZ:
+                branch_taken = ex_mem_ctrl_branch && ex_mem_alu_bgez_sig;
+            BRANCH_BGTZ:
+                branch_taken = ex_mem_ctrl_branch && ex_mem_alu_bgtz_sig;
+            BRANCH_BLEZ:
+                branch_taken = ex_mem_ctrl_branch && ex_mem_alu_blez_sig;
+            BRANCH_BLTZ:
+                branch_taken = ex_mem_ctrl_branch && ex_mem_alu_bltz_sig;
+            BRANCH_BNE:
+                branch_taken = ex_mem_ctrl_branch && ex_mem_alu_bne_sig;
+            default:
+                branch_taken = 1'b0;
+    end
+
+    assign jump_taken = ex_mem_ctrl_jump || ex_mem_ctrl_jump_reg;
 
     always @(posedge clk or negedge rst_n)
     begin
         if (~rst_n)
         begin
             mem_wb_ctrl_reg_write <= 1'b0;
-            
-            mem_wb_data <= 32'b0;
-            
-            mem_wb_write_reg_dst <= 5'b0;
+            mem_wb_ctrl_load_type <= 1'b0;
+
+            mem_wb_data = 32'b0
+            mem_wb_rd = 5'b0;
         end
         else
         begin
             mem_wb_ctrl_reg_write <= ex_mem_ctrl_reg_write;
-            
-            if (ex_mem_ctrl_mem_to_reg) mem_wb_data <= data_mem_read;
-            else mem_wb_data <= ex_mem_alu_out;
+            mem_wb_ctrl_load_type <= ex_mem_ctrl_load_type;
 
-            mem_wb_write_reg_dst <= ex_mem_write_reg_dst;
-        end        
+            mem_wb_data = (ex_mem_ctrl_mem_to_reg) ? data_mem_read : ex_mem_alu_out;
+            mem_wb_rd = ex_mem_rd;
+        end
     end
-
-	 data_memory data_mem (
-        .a(ex_mem_alu_out),
-        .d(ex_mem_reg_b_data),
-        .clk(clk),
-        .we(ex_mem_ctrl_mem_write),
-        .spo(data_mem_read)
-    );
 endmodule

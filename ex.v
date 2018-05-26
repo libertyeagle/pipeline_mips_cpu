@@ -24,6 +24,7 @@ module ex_stage(
     input id_ex_ctrl_reg_write,
     input [31:0] mem_wb_data,
     input [4:0] mem_wb_rd,
+    input mem_wb_ctrl_reg_write,
     output ex_mem_alu_beq_sig,
     output ex_mem_alu_bgez_sig,
     output ex_mem_alu_bgtz_sig,
@@ -44,7 +45,6 @@ module ex_stage(
     output [31:0] ex_mem_pc_jump,
     output [4:0] ex_mem_rd,
     output [31:0] ex_mem_reg_b_data,
-    output ex_mem_reg_write
 );
 
     wire [31:0] alu_src_a_reg;
@@ -56,7 +56,8 @@ module ex_stage(
         id_ex_rt,
         ex_mem_rd,
         mem_wb_rd,
-        ex_mem_reg_write,
+        ex_mem_ctrl_reg_write,
+        mem_wb_ctrl_reg_write,
         id_ex_reg_a_data, 
         id_ex_reg_b_data, 
         ex_mem_alu_out, 
