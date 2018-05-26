@@ -1,7 +1,17 @@
 module if_stage(
-  
+    input clk,
+    input rst_n,
+    input jump_taken,
+    input branch_taken,
+    input [31:0] pc_jump,
+    input [31:0] pc_branch,
+    output reg [31:0] if_id_instruction,
+    output reg [31:0] if_id_pc_next,
 );
 
+    reg [31:0] pc;
+    wire [31:0] instruction;
+    
     initial
         pc <= 32'b0;
 
@@ -11,7 +21,7 @@ module if_stage(
         begin
             if (stall) pc <= pc;
             else if (jump_taken) pc <= pc_jump;
-            else if (branch_eq_taken || branch_neq_taken) pc <= pc_branch;
+            else if (branch_taken) pc <= pc_branch;
             else pc <= pc + 32'h4;
         end
 

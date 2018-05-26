@@ -1,4 +1,6 @@
 module ex_stage(
+    input clk,
+    input rst_n,
     input [4:0] id_ex_rs,
     input [4:0] id_ex_rt,
     input [4:0] id_ex_rd,
