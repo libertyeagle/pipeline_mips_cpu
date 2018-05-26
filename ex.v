@@ -1,6 +1,53 @@
 module ex_stage(
-  
+    input [4:0] id_ex_rs,
+    input [4:0] id_ex_rt,
+    input [4:0] id_ex_rd,
+    input [31:0] id_ex_imm_sign_extended,
+    input [4:0] id_ex_shamt,
+    input [31:0] id_ex_reg_a_data,
+    input [31:0] id_ex_reg_b_data,
+    input [31:0] id_ex_pc_next,
+    input [3:0] id_ex_ctrl_alu_control,
+    input id_ex_ctrl_alu_src,
+    input id_ex_ctrl_alu_shift_shamt,
+    input id_ex_ctrl_branch,
+    input id_ex_ctrl_jump,
+    input id_ex_ctrl_jump_reg,
+    input [2:0] id_ex_ctrl_load_type,
+    input [1:0] id_ex_ctrl_store_type,
+    input [2:0] id_ex_ctrl_branch_type,
+    input id_ex_ctrl_mem_to_reg,
+    input id_ex_ctrl_mem_write,
+    input id_ex_ctrl_reg_dst,
+    input id_ex_ctrl_reg_write,
+    input [31:0] mem_wb_data,
+    input [4:0] mem_wb_rd,
+    output ex_mem_alu_beq_sig,
+    output ex_mem_alu_bgez_sig,
+    output ex_mem_alu_bgtz_sig,
+    output ex_mem_alu_blez_sig,
+    output ex_mem_alu_bltz_sig,
+    output ex_mem_alu_bne_sig,
+    output [31:0] ex_mem_alu_out,
+    output ex_mem_ctrl_branch,
+    output [2:0] ex_mem_ctrl_branch_type,
+    output ex_mem_ctrl_jump,
+    output ex_mem_ctrl_jump_reg,
+    output [2:0] ex_mem_ctrl_load_type,
+    output ex_mem_ctrl_mem_to_reg,
+    output ex_mem_ctrl_mem_write,
+    output ex_mem_ctrl_reg_write,
+    output [1:0] ex_mem_ctrl_store_type,
+    output [31:0] ex_mem_pc_branch,
+    output [31:0] ex_mem_pc_jump,
+    output [4:0] ex_mem_rd,
+    output [31:0] ex_mem_reg_b_data,
+    output ex_mem_reg_write
 );
+
+    wire [31:0] alu_src_a_reg;
+    wire [31:0] alu_src_b_reg;
+    wire [4:0] write_reg_dst;
 
     forwarding_alu CPU_ALU_FORWARDING(
         id_ex_rs,
@@ -10,7 +57,7 @@ module ex_stage(
         ex_mem_reg_write,
         id_ex_reg_a_data, 
         id_ex_reg_b_data, 
-        ex_mem_alu_result, 
+        ex_mem_alu_out, 
         mem_wb_data, 
         alu_src_a_reg,
         alu_src_b_reg
@@ -22,7 +69,7 @@ module ex_stage(
     alu CPU_ALU(
         alu_src_a, 
         alu_src_b, 
-        id_ex_alu_control, 
+        id_ex_ctrl_alu_control, 
         alu_out, 
         alu_beq_sig,
         alu_bgez_sig,
