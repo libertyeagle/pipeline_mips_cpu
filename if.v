@@ -51,5 +51,4 @@ module if_stage(
             if_id_instruction <= instruction;
         end
     end
-
 endmodule

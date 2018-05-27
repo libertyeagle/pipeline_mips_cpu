@@ -10,6 +10,7 @@ module alu(
     output bltz_sig,
     output bne_sig
 );
+
     parameter A_NOP = 4'd00;
     parameter A_ADD = 4'd01;
     parameter A_SUB = 4'd02;
@@ -49,5 +50,4 @@ module alu(
     assign blez_sig = $signed(alu_a) <= 0;
     assign bltz_sig = $signed(alu_a) < 0;
     assign bne_sig = alu_a != alu_b;
-
 endmodule

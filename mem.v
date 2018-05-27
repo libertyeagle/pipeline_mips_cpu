@@ -22,7 +22,12 @@ module mem_stage(
     input [4:0] ex_mem_rd,
     input [31:0] ex_mem_reg_b_data,
     output branch_taken,
-    output jump_taken
+    output jump_taken,
+    output [2:0] mem_wb_ctrl_load_type,
+    output mem_wb_ctrl_reg_write,
+    output [31:0] mem_wb_data,
+    output [4:0] mem_wb_rd,
+    output [1:0] mem_wb_low_two_bits
 );
 
     parameter BRANCH_BEQ = 3'd0;
@@ -78,17 +83,19 @@ module mem_stage(
         begin
             mem_wb_ctrl_reg_write <= 1'b0;
             mem_wb_ctrl_load_type <= 1'b0;
-
-            mem_wb_data = 32'b0
-            mem_wb_rd = 5'b0;
+            
+            mem_wb_low_two_bits <= 2'b00;
+            mem_wb_data <= 32'b0
+            mem_wb_rd <= 5'b0;
         end
         else
         begin
             mem_wb_ctrl_reg_write <= ex_mem_ctrl_reg_write;
             mem_wb_ctrl_load_type <= ex_mem_ctrl_load_type;
 
-            mem_wb_data = (ex_mem_ctrl_mem_to_reg) ? data_mem_read : ex_mem_alu_out;
-            mem_wb_rd = ex_mem_rd;
+            mem_wb_low_two_bits <= ex_mem_alu_out[1:0];
+            mem_wb_data <= (ex_mem_ctrl_mem_to_reg) ? data_mem_read : ex_mem_alu_out;
+            mem_wb_rd <= ex_mem_rd;
         end
     end
 endmodule

@@ -38,6 +38,6 @@ module split_word_store(
                 split_data = original_data;
             default:
                 split_data = original_data;
+        endcase
     end
-
 endmodule
