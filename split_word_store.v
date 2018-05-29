@@ -52,7 +52,7 @@ module split_word_store(
                     split_data = {whole_piece_read[31:16], original_data[15:0]};
                 else // low_bits = 2'b10
                     // address must be aligned, as the case for word
-                    split_data = {original_data[15:0], whole_piece_read[31:16]};
+                    split_data = {original_data[15:0], whole_piece_read[15:0]};
             end
             STORE_SW:
                 split_data = original_data;

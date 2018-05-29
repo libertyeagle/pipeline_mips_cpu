@@ -20,7 +20,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 module CPU(
 	 input clk,
-	 input rst_n
+	 input rst_n,
+	 input [5:0] board_mem_read_addr,
+	 output [31:0] board_mem_read_result
 );
 	  
 	 wire jump_taken;
@@ -212,7 +214,9 @@ module CPU(
     .mem_wb_data(mem_wb_data), 
     .mem_wb_rd(mem_wb_rd), 
     .mem_wb_low_two_bits(mem_wb_low_two_bits),
-	 .mem_wb_ctrl_mem_to_reg(mem_wb_ctrl_mem_to_reg)
+	 .mem_wb_ctrl_mem_to_reg(mem_wb_ctrl_mem_to_reg),
+	 .board_mem_read_addr(board_mem_read_addr),
+	 .board_mem_read_result(board_mem_read_result)
     );
 	 
 	 wb_stage instruction_write_back (

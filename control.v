@@ -100,7 +100,7 @@ module control(
                     6'h24: // and
                         alu_control = A_AND;
                     6'h27: // nor
-                        alu_control = A_XOR;
+                        alu_control = A_NOR;
                     6'h25: // orh
                         alu_control = A_OR;
                     6'h0: // sll

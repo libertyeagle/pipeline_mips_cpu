@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\FPGA\pipeline_mips\top.ncd
+OUTFILE=C:\FPGA\pipeline_mips\top.bit
+FAMILY=Spartan6
+PART=xc6slx25-3csg324
+WORKINGDIR=C:\FPGA\pipeline_mips
+LICENSE=ISE
+USER_INFO=135256_15690819_173552794_661

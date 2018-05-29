@@ -48,7 +48,7 @@ module if_stage(
         end
 
     instr_mem instruction_memory(
-        .a(pc[9:2]),
+        .a(pc[7:2]),
         .spo(instruction)
     );
 

@@ -1,3 +1,23 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    17:07:01 05/28/2018 
+// Design Name: 
+// Module Name:    mem 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
 module mem_stage(
     input clk,
     input rst_n,
@@ -21,13 +41,16 @@ module mem_stage(
     input [31:0] ex_mem_pc_jump,
     input [4:0] ex_mem_rd,
     input [31:0] ex_mem_reg_b_data,
-    output branch_taken,
+	 input [5:0] board_mem_read_addr,
+    output reg branch_taken,
     output jump_taken,
-    output [2:0] mem_wb_ctrl_load_type,
-    output mem_wb_ctrl_reg_write,
-    output [31:0] mem_wb_data,
-    output [4:0] mem_wb_rd,
-    output [1:0] mem_wb_low_two_bits
+    output reg [2:0] mem_wb_ctrl_load_type,
+    output reg mem_wb_ctrl_reg_write,
+	 output reg mem_wb_ctrl_mem_to_reg,
+    output reg [31:0] mem_wb_data,
+    output reg [4:0] mem_wb_rd,
+    output reg [1:0] mem_wb_low_two_bits,
+	 output [31:0] board_mem_read_result
 );
 
     parameter BRANCH_BEQ = 3'd0;
@@ -45,20 +68,22 @@ module mem_stage(
         data_mem_read,
         ex_mem_ctrl_store_type,
         ex_mem_alu_out[1:0],
-        split_word_write
+        split_data_write
     );
 
-	data_memory data_mem (
-        .a(ex_mem_alu_out),
+	 data_mem data_memory (
+        .a(ex_mem_alu_out[7:2]),
         .d(split_data_write),
         .clk(clk),
         .we(ex_mem_ctrl_mem_write),
-        .spo(data_mem_read)
+        .spo(data_mem_read),
+	 	  .dpra(board_mem_read_addr),
+	     .dpo(board_mem_read_result)
     );
-
+	 
     always @(*)
     begin
-        case(ex_mem_ctrl_branch)
+        case(ex_mem_ctrl_branch_type)
             BRANCH_BEQ:
                 branch_taken = ex_mem_ctrl_branch && ex_mem_alu_beq_sig;
             BRANCH_BGEZ:
@@ -73,6 +98,7 @@ module mem_stage(
                 branch_taken = ex_mem_ctrl_branch && ex_mem_alu_bne_sig;
             default:
                 branch_taken = 1'b0;
+		  endcase
     end
 
     assign jump_taken = ex_mem_ctrl_jump || ex_mem_ctrl_jump_reg;
@@ -83,15 +109,17 @@ module mem_stage(
         begin
             mem_wb_ctrl_reg_write <= 1'b0;
             mem_wb_ctrl_load_type <= 1'b0;
-            
+				mem_wb_ctrl_mem_to_reg <= 1'b0;
+
             mem_wb_low_two_bits <= 2'b00;
-            mem_wb_data <= 32'b0
+            mem_wb_data <= 32'b0;
             mem_wb_rd <= 5'b0;
         end
         else
         begin
             mem_wb_ctrl_reg_write <= ex_mem_ctrl_reg_write;
             mem_wb_ctrl_load_type <= ex_mem_ctrl_load_type;
+				mem_wb_ctrl_mem_to_reg <= ex_mem_ctrl_mem_to_reg;
 
             mem_wb_low_two_bits <= ex_mem_alu_out[1:0];
             mem_wb_data <= (ex_mem_ctrl_mem_to_reg) ? data_mem_read : ex_mem_alu_out;
