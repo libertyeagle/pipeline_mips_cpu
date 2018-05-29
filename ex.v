@@ -1,3 +1,23 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    17:07:50 05/28/2018 
+// Design Name: 
+// Module Name:    ex 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
 module ex_stage(
     input clk,
     input rst_n,
@@ -25,31 +45,36 @@ module ex_stage(
     input [31:0] mem_wb_data,
     input [4:0] mem_wb_rd,
     input mem_wb_ctrl_reg_write,
-    output ex_mem_alu_beq_sig,
-    output ex_mem_alu_bgez_sig,
-    output ex_mem_alu_bgtz_sig,
-    output ex_mem_alu_blez_sig,
-    output ex_mem_alu_bltz_sig,
-    output ex_mem_alu_bne_sig,
-    output [31:0] ex_mem_alu_out,
-    output ex_mem_ctrl_branch,
-    output [2:0] ex_mem_ctrl_branch_type,
-    output ex_mem_ctrl_jump,
-    output ex_mem_ctrl_jump_reg,
-    output [2:0] ex_mem_ctrl_load_type,
-    output ex_mem_ctrl_mem_to_reg,
-    output ex_mem_ctrl_mem_write,
-    output ex_mem_ctrl_reg_write,
-    output [1:0] ex_mem_ctrl_store_type,
-    output [31:0] ex_mem_pc_branch,
-    output [31:0] ex_mem_pc_jump,
-    output [4:0] ex_mem_rd,
-    output [31:0] ex_mem_reg_b_data,
+	 input flush_ex,
+    output reg ex_mem_alu_beq_sig,
+    output reg ex_mem_alu_bgez_sig,
+    output reg ex_mem_alu_bgtz_sig,
+    output reg ex_mem_alu_blez_sig,
+    output reg ex_mem_alu_bltz_sig,
+    output reg ex_mem_alu_bne_sig,
+    output reg [31:0] ex_mem_alu_out,
+    output reg ex_mem_ctrl_branch,
+    output reg [2:0] ex_mem_ctrl_branch_type,
+    output reg ex_mem_ctrl_jump,
+    output reg ex_mem_ctrl_jump_reg,
+    output reg [2:0] ex_mem_ctrl_load_type,
+    output reg ex_mem_ctrl_mem_to_reg,
+    output reg ex_mem_ctrl_mem_write,
+    output reg ex_mem_ctrl_reg_write,
+    output reg [1:0] ex_mem_ctrl_store_type,
+    output reg [31:0] ex_mem_pc_branch,
+    output reg [31:0] ex_mem_pc_jump,
+    output reg [4:0] ex_mem_rd,
+    output reg [31:0] ex_mem_reg_b_data
 );
 
     wire [31:0] alu_src_a_reg;
     wire [31:0] alu_src_b_reg;
     wire [4:0] write_reg_dst;
+	 
+	 wire [31:0] alu_src_a;
+	 wire [31:0] alu_src_b;
+	 wire [31:0] alu_out;
 
     forwarding_alu CPU_ALU_FORWARDING(
         id_ex_rs,
@@ -101,7 +126,6 @@ module ex_stage(
 
             ex_mem_alu_out <= 32'b0;
             ex_mem_reg_b_data <= 32'b0;
-            ex_mem_alu_zero <= 32'b0;    
             ex_mem_pc_branch <= 32'd0;
             ex_mem_pc_jump <= 32'd0;   
             ex_mem_rd <= 5'd0;
@@ -127,7 +151,6 @@ module ex_stage(
 
             ex_mem_alu_out <= 32'b0;
             ex_mem_reg_b_data <= 32'b0;
-            ex_mem_alu_zero <= 32'b0;    
             ex_mem_pc_branch <= 32'd0;
             ex_mem_pc_jump <= 32'd0;   
             ex_mem_rd <= 5'd0;
@@ -139,9 +162,10 @@ module ex_stage(
             ex_mem_alu_bltz_sig <= 1'b0;
             ex_mem_alu_bne_sig <= 1'b0;
         end
+		  else
         begin
-            ex_mem_ctrl_reg_write <= id_ex_ctrl_mem_to_reg;
-            ex_mem_ctrl_mem_to_reg <= id_ex_ctrl_reg_write;
+            ex_mem_ctrl_reg_write <= id_ex_ctrl_reg_write;
+            ex_mem_ctrl_mem_to_reg <= id_ex_ctrl_mem_to_reg;
             ex_mem_ctrl_mem_write <= id_ex_ctrl_mem_write;
             ex_mem_ctrl_jump <= id_ex_ctrl_jump;
             ex_mem_ctrl_jump_reg <= id_ex_ctrl_jump_reg;
@@ -152,7 +176,6 @@ module ex_stage(
 
             ex_mem_alu_out <= alu_out;
             ex_mem_reg_b_data <= alu_src_b_reg;
-            ex_mem_alu_zero <= alu_zero;
             ex_mem_pc_branch <= id_ex_pc_next + (id_ex_imm_sign_extended << 2);
             ex_mem_pc_jump <= 
             (id_ex_ctrl_jump_reg) ? alu_src_a : {id_ex_pc_next[31:28], id_ex_imm_sign_extended[25:0], 2'b00};

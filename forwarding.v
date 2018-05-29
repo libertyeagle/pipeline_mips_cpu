@@ -1,16 +1,36 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    17:14:56 05/28/2018 
+// Design Name: 
+// Module Name:    forwarding 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
 module forwarding_alu(
-    input [5:0] id_ex_rs,
-    input [5:0] id_ex_rt,
-    input [5:0] ex_mem_rd,
-    input [5:0] mem_wb_rd,
+    input [4:0] id_ex_rs,
+    input [4:0] id_ex_rt,
+    input [4:0] ex_mem_rd,
+    input [4:0] mem_wb_rd,
     input ex_mem_reg_write,
     input mem_wb_reg_write,
     input [31:0] reg_a_data,
     input [31:0] reg_b_data,
     input [31:0] ex_mem_alu_result,
     input [31:0] mem_wb_data,
-    output [31:0] alu_src_a,
-    output [31:0] alu_src_b_reg
+    output reg [31:0] alu_src_a,
+    output reg [31:0] alu_src_b_reg
 );
     wire bypass_a_from_mem;
     wire bypass_a_from_wb;
@@ -47,19 +67,19 @@ module forwarding_alu(
     always @(*)
         case (forward_a)
             // no forwarding
-            2'd00: alu_src_a = reg_a_data;
+            2'b00: alu_src_a = reg_a_data;
             // forwarding from MEM_WB
-            2'd01: alu_src_a = mem_wb_data;
+            2'b01: alu_src_a = mem_wb_data;
             // forwarding from EX_MEM
-            2'd10: alu_src_a = ex_mem_alu_result;
+            2'b10: alu_src_a = ex_mem_alu_result;
             default: alu_src_a = reg_a_data;
         endcase
 
     always @(*)
         case (forward_b)
-            2'd00: alu_src_b_reg = reg_b_data;
-            2'd01: alu_src_b_reg = mem_wb_data;
-            2'd10: alu_src_b_reg = ex_mem_alu_result;
+            2'b00: alu_src_b_reg = reg_b_data;
+            2'b01: alu_src_b_reg = mem_wb_data;
+            2'b10: alu_src_b_reg = ex_mem_alu_result;
             default: alu_src_b_reg = reg_b_data;
         endcase
 endmodule

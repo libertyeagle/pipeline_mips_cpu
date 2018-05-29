@@ -1,17 +1,36 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:  
+// 
+// Create Date:    17:05:51 05/28/2018 
+// Design Name: 
+// Module Name:    id 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
 module id_stage(
     input clk,
     input rst_n,
     input [31:0] if_id_instruction,
     input [31:0] if_id_pc_next,
-    output [4:0] id_ex_rs,
-    output [4:0] id_ex_rt,
-    output [4:0] id_ex_rd,
-    output [31:0] id_ex_imm_sign_extended,
-    output [4:0] id_ex_shamt,
-    output [31:0] id_ex_reg_a_data,
-    output [31:0] id_ex_reg_b_data,
-    output [31:0] id_ex_pc_next,
-    output [3:0] id_ex_ctrl_alu_control,
+	 input flush_id,
+    output reg [4:0] id_ex_rs,
+    output reg [4:0] id_ex_rt,
+    output reg [4:0] id_ex_rd,
+    output reg [31:0] id_ex_imm_sign_extended,
+    output reg [4:0] id_ex_shamt,
+    output reg [31:0] id_ex_pc_next,
+    output reg [3:0] id_ex_ctrl_alu_control,
     output reg id_ex_ctrl_alu_src,
     output reg id_ex_ctrl_alu_shift_shamt,
     output reg id_ex_ctrl_branch,
@@ -49,7 +68,7 @@ module id_stage(
     wire [2:0] branch_type;
     wire [2:0] load_type;
     wire [1:0] store_type;
-    wire [31:0] imm_sign_extended;
+    reg [31:0] imm_sign_extended;
 
     assign rs = if_id_instruction[25:21];
     assign rt = if_id_instruction[20:16];
@@ -85,7 +104,7 @@ module id_stage(
 
     // stall one cycle for lw hazard
     // if last insturction is LW and the register re
-    assign stall = (id_ex_ctrl_mem_to_reg) && (id_ex_rt == rs || id_ex_rt == rt) 
+    assign stall = (id_ex_ctrl_mem_to_reg) && (id_ex_rt == rs || id_ex_rt == rt);
 
     always @(posedge clk or negedge rst_n)
     begin
@@ -100,7 +119,7 @@ module id_stage(
             id_ex_ctrl_jump <= 1'b0;
             id_ex_ctrl_branch <= 1'b0;
             id_ex_ctrl_jump_reg <= 1'b0;
-            id_ex_ctrl_shift_shamt <= 1'b0;
+            id_ex_ctrl_alu_shift_shamt <= 1'b0;
             id_ex_ctrl_store_type <= 2'b0;
             id_ex_ctrl_load_type <= 2'b0;
             id_ex_ctrl_branch_type <= 2'b0;
@@ -123,7 +142,7 @@ module id_stage(
             id_ex_ctrl_jump <= 1'b0;
             id_ex_ctrl_branch <= 1'b0;
             id_ex_ctrl_jump_reg <= 1'b0;
-            id_ex_ctrl_shift_shamt <= 1'b0;
+            id_ex_ctrl_alu_shift_shamt <= 1'b0;
             id_ex_ctrl_store_type <= 2'b0;
             id_ex_ctrl_load_type <= 2'b0;
             id_ex_ctrl_branch_type <= 2'b0;
@@ -147,7 +166,7 @@ module id_stage(
             id_ex_ctrl_jump <= 1'b0;
             id_ex_ctrl_branch <= 1'b0;
             id_ex_ctrl_jump_reg <= 1'b0;
-            id_ex_ctrl_shift_shamt <= 1'b0;
+            id_ex_ctrl_alu_shift_shamt <= 1'b0;
             id_ex_ctrl_store_type <= 2'b0;
             id_ex_ctrl_load_type <= 2'b0;
             id_ex_ctrl_branch_type <= 2'b0;
@@ -170,7 +189,7 @@ module id_stage(
             id_ex_ctrl_jump <= jump;
             id_ex_ctrl_branch <= branch;
             id_ex_ctrl_jump_reg <= jump_reg;
-            id_ex_ctrl_shift_shamt <= shift_shamt;
+            id_ex_ctrl_alu_shift_shamt <= alu_shift_shamt;
             id_ex_ctrl_store_type <= store_type;
             id_ex_ctrl_load_type <= load_type;
             id_ex_ctrl_branch_type <= branch_type;
@@ -184,5 +203,4 @@ module id_stage(
         end
     end
 
-    // signal `id_ex_reg_a_data` and `id_ex_reg_b_data` comes from register file module
 endmodule

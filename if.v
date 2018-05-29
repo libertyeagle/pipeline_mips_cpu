@@ -1,3 +1,23 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    17:11:34 05/28/2018 
+// Design Name: 
+// Module Name:    if 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
 module if_stage(
     input clk,
     input rst_n,
@@ -5,8 +25,10 @@ module if_stage(
     input branch_taken,
     input [31:0] pc_jump,
     input [31:0] pc_branch,
+	 input flush_if,
+	 input stall,
     output reg [31:0] if_id_instruction,
-    output reg [31:0] if_id_pc_next,
+    output reg [31:0] if_id_pc_next
 );
 
     reg [31:0] pc;
@@ -26,7 +48,7 @@ module if_stage(
         end
 
     instr_mem instruction_memory(
-        .a(pc),
+        .a(pc[9:2]),
         .spo(instruction)
     );
 
@@ -38,8 +60,10 @@ module if_stage(
             if_id_instruction <= 32'b0;
         end
         else if (flush_if)
+		  begin
             if_id_pc_next <= 32'b0;
             if_id_instruction <= 32'b0;
+		  end
         else if (stall)
         begin
             if_id_pc_next <= if_id_pc_next;

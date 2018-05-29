@@ -1,20 +1,40 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    17:15:32 05/28/2018 
+// Design Name: 
+// Module Name:    control 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
 module control(
     input [5:0] op,
     input [5:0] funct,
-    input [5:0] rt,
-    output branch,
-    output mem_to_reg,
-    output [3:0] alu_control,
-    output mem_write,
-    output alu_src,
-    output alu_shift_shamt,
-    output reg_write,
-    output jump,
-    output jump_reg,
-    output reg_dst,
-    output [2:0] branch_type,
-    output [2:0] load_type,
-    output [1:0] store_type
+    input [4:0] rt,
+    output reg branch,
+    output reg mem_to_reg,
+    output reg [3:0] alu_control,
+    output reg mem_write,
+    output reg alu_src,
+    output reg alu_shift_shamt,
+    output reg reg_write,
+    output reg jump,
+    output reg jump_reg,
+    output reg reg_dst,
+    output reg [2:0] branch_type,
+    output reg [2:0] load_type,
+    output reg [1:0] store_type
 );
 
     parameter BRANCH_BEQ = 3'd0;
@@ -111,11 +131,13 @@ module control(
                     6'h26: // xor
                         alu_control = A_XOR;
                     6'h2a: // slt
-                        alu_control = A_SLT:
+                        alu_control = A_SLT;
                     6'h2b: // sltu
                         alu_control = A_SLTU;
                     6'h8: // jr
                         jump_reg = 1'b1;
+						  default:
+								alu_control = A_NOP;
                 endcase
             end
 
@@ -123,7 +145,7 @@ module control(
             begin
                 alu_src = 1'b1;
                 reg_write = 1'b1;
-                alu_control = A_ADD
+                alu_control = A_ADD;
             end
             6'h9: // addiu
             begin
@@ -261,6 +283,9 @@ module control(
             begin
                 jump = 1'b1;
             end
+				default:
+				begin
+				end
         endcase
     end
 endmodule

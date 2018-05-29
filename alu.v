@@ -1,7 +1,27 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    17:08:30 05/28/2018 
+// Design Name: 
+// Module Name:    alu 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
 module alu(
-    input signed [31:0] alu_a,
-    input signed [31:0] alu_b,
-    input [2:0] alu_op,
+    input [31:0] alu_a,
+    input [31:0] alu_b,
+    input [3:0] alu_op,
     output reg [31:0] alu_out,
     output beq_sig,
     output bgez_sig,
@@ -28,18 +48,18 @@ module alu(
     always @(*)
     begin
         case (alu_op)
-            A_ADD : alu_out = alu_a + alu_b;
-            A_SUB : alu_out = alu_a - alu_b;
-            A_AND : alu_out = alu_a & alu_b;
-            A_OR : alu_out = alu_a | alu_b;
-            A_XOR : alu_out = alu_a ^ alu_b;
+            A_ADD: alu_out = alu_a + alu_b;
+            A_SUB: alu_out = alu_a - alu_b;
+            A_AND: alu_out = alu_a & alu_b;
+            A_OR: alu_out = alu_a | alu_b;
+            A_XOR: alu_out = alu_a ^ alu_b;
             A_NOR: alu_out = ~(alu_a | alu_b);
-            A_SLT: ($signed(alu_a) < $signed(alu_b)) ? 32'd1 : 32'd0;
-            A_SLTU: (alu_a < alu_b) ? 32'd1 : 32'd0;
-            A_SLL: alu_b << alu_a[4:0];
-            A_SRA: $signed(alu_b) >>> alu_a[4:0];
-            A_SRL: alu_b >> alu_a[4:0];
-            A_LUI: {alu_b[15:0], 16'b0};
+            A_SLT: alu_out = ($signed(alu_a) < $signed(alu_b)) ? 32'd1 : 32'd0;
+            A_SLTU: alu_out = (alu_a < alu_b) ? 32'd1 : 32'd0;
+            A_SLL: alu_out = alu_b << alu_a[4:0];
+            A_SRA: alu_out = $signed(alu_b) >>> alu_a[4:0];
+            A_SRL: alu_out = alu_b >> alu_a[4:0];
+            A_LUI: alu_out = {alu_b[15:0], 16'b0};
             default: alu_out = 32'h0;
         endcase
     end

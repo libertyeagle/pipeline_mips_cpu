@@ -1,8 +1,28 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    17:13:30 05/28/2018 
+// Design Name: 
+// Module Name:    split_word_load 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
 module split_word_load(
     input [31:0] original_data,
     input [2:0] load_type,
     input [1:0] addr_low_two_bits,
-    output [31:0] split_data
+    output reg [31:0] split_data
 );
 
     parameter LOAD_LB = 3'd0;
@@ -13,14 +33,14 @@ module split_word_load(
 
     always @(*)
     begin
-        case(load_type):
+        case(load_type)
             LOAD_LB:
             begin
                 if (addr_low_two_bits == 2'b00)
                     split_data = $signed(original_data[7:0]);
                 else if (addr_low_two_bits == 2'b01)
                     split_data = $signed(original_data[15:8]);
-                else if (addr_low_two_bits == 2'b10):
+                else if (addr_low_two_bits == 2'b10)
                     split_data = $signed(original_data[23:16]);
                 else
                     split_data = $signed(original_data[31:24]);
@@ -31,21 +51,21 @@ module split_word_load(
                     split_data = original_data[7:0];
                 else if (addr_low_two_bits == 2'b01)
                     split_data = original_data[15:8];
-                else if (addr_low_two_bits == 2'b10):
+                else if (addr_low_two_bits == 2'b10)
                     split_data = original_data[23:16];
                 else
                     split_data = original_data[31:24];
             end
             LOAD_LH:
             begin
-                if (addr_low_two_bits == 2'b00):
+                if (addr_low_two_bits == 2'b00)
                     split_data = $signed(original_data[15:0]);
                 else    // addr_low_two_bits == 2'b10 
                     split_data = $signed(original_data[31:16]);
             end
             LOAD_LHU:
             begin
-                if (addr_low_two_bits == 2'b00):
+                if (addr_low_two_bits == 2'b00)
                     split_data = original_data[15:0];
                 else
                     split_data = original_data[31:15];
