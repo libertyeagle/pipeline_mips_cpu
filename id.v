@@ -114,8 +114,6 @@ module id_stage(
     // if last insturction is LW and the register re
     assign stall = (id_ex_ctrl_mem_to_reg) && (id_ex_rt == rs || id_ex_rt == rt);
 
-    reg continue_en;
-
     initial 
         continue_en <= 1'b0;
 
