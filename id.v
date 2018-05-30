@@ -46,7 +46,7 @@ module id_stage(
     output reg id_ex_ctrl_reg_write,
     output stall,
     output stall_breakpoint,
-    output continue_en
+    output reg continue_en
 );
 
     parameter BREAKPOINT_EN = 1'b1;
