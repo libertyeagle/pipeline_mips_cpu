@@ -20,6 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module CPU(
 	 input clk,
+   input continue_sig,
 	 input rst_n
 );
 	  
@@ -90,6 +91,8 @@ module CPU(
 	 wire flush_id;
 	 wire flush_ex;
 	 wire stall;
+   wire stall_breakpoint;
+   wire continue_en;
 	 
 	 if_stage instruction_fetch (
     .clk(clk), 
@@ -101,7 +104,9 @@ module CPU(
     .if_id_instruction(if_id_instruction), 
     .if_id_pc_next(if_id_pc_next),
 	 .flush_if(flush_if),
-	 .stall(stall)
+	 .stall(stall),
+   .stall_breakpoint(stall_breakpoint),
+   .continue_en(continue_en)
     );
 
 	 id_stage instruction_decode (
@@ -129,7 +134,10 @@ module CPU(
     .id_ex_ctrl_reg_dst(id_ex_ctrl_reg_dst), 
     .id_ex_ctrl_reg_write(id_ex_ctrl_reg_write), 
     .stall(stall),
-	 .flush_id(flush_id)
+	 .flush_id(flush_id),
+   .continue_sig(continue_sig),
+   .continue_en(continue_en),
+   .stall_breakpoint(stall_breakpoint)
     );
 	 
 	 ex_stage instruction_execute (

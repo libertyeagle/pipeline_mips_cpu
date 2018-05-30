@@ -26,22 +26,35 @@ module testbench;
 
 	// Inputs
 	reg clk;
+	reg continue_sig;
 	reg rst_n;
 
 	// Instantiate the Unit Under Test (UUT)
 	CPU uut (
 		.clk(clk), 
-		.rst_n(rst_n)
+		.rst_n(rst_n),
+		.continue_sig(continue_sig)
 	);
 
 	initial begin
 		// Initialize Inputs
 		clk = 0;
 		rst_n = 0;
-
+		continue_sig = 0;
+			
 		// Wait 100 ns for global reset to finish
 		#100;
 		rst_n = 1;
+
+		#5000;
+		continue_sig = 1;
+		#10;
+		continue_sig = 0;
+		
+		#5000;
+		continue_sig = 1;
+		#10;
+		continue_sig = 0;
         
 		// Add stimulus here
 
