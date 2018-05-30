@@ -4,14 +4,14 @@ Net "clk" TNM_NET = sys_clk_pin;
 TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 100000 kHz;
 
 ## 7 segment display
-NET "seg<0>"         LOC = "T17" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L51P_M1DQ12,                    Sch name = CA
-NET "seg<1>"         LOC = "T18" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L51N_M1DQ13,                    Sch name = CB
-NET "seg<2>"         LOC = "U17" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L52P_M1DQ14,                    Sch name = CC
-NET "seg<3>"         LOC = "U18" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L52N_M1DQ15,                    Sch name = CD
-NET "seg<4>"         LOC = "M14" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L53P,                           Sch name = CE
-NET "seg<5>"         LOC = "N14" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L53N_VREF,                      Sch name = CF
-NET "seg<6>"         LOC = "L14" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L61P,                           Sch name = CG
-NET "seg<7>"         LOC = "M13" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L61N,                           Sch name = DP
+NET "seg<7>"         LOC = "T17" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L51P_M1DQ12,                    Sch name = CA
+NET "seg<6>"         LOC = "T18" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L51N_M1DQ13,                    Sch name = CB
+NET "seg<5>"         LOC = "U17" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L52P_M1DQ14,                    Sch name = CC
+NET "seg<4>"         LOC = "U18" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L52N_M1DQ15,                    Sch name = CD
+NET "seg<3>"         LOC = "M14" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L53P,                           Sch name = CE
+NET "seg<2>"         LOC = "N14" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L53N_VREF,                      Sch name = CF
+NET "seg<1>"         LOC = "L14" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L61P,                           Sch name = CG
+NET "seg<0>"         LOC = "M13" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L61N,                           Sch name = DP
 
 NET "sel<3>"          LOC = "N16" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L50N_M1UDQSN,                   Sch name = AN0
 NET "sel<2>"          LOC = "N15" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin name = IO_L50P_M1UDQS,                    Sch name = AN1
@@ -20,6 +20,7 @@ NET "sel<0>"          LOC = "P17" | IOSTANDARD = "LVCMOS33";   #Bank = 1, Pin na
 
 ## Buttons
 NET "rst"         LOC = "B8"  | IOSTANDARD = "LVCMOS33";   #Bank = 0, Pin name = IO_L33P,                           Sch name = BTNS
+NET "mode_change"         LOC = "D9"  | IOSTANDARD = "LVCMOS33";   #Bank = 0, Pin name = IO_L34P_GCLK19,                    Sch name = BTNR
 
 ## Leds
 NET "led<0>"         LOC = "U16" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L2P_CMPCLK,                     Sch name = LD0
@@ -28,3 +29,12 @@ NET "led<2>"         LOC = "U15" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin nam
 NET "led<3>"         LOC = "V15" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L5N,                            Sch name = LD3
 NET "led<4>"         LOC = "M11" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L15P,                           Sch name = LD4
 NET "led<5>"         LOC = "N11" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L15N,    
+NET "high_low"         LOC = "T11" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L16N_VREF,                      Sch name = LD7
+
+## Switches
+NET "addr_in<0>"          LOC = "T10" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L29N_GCLK2,                     Sch name = SW0
+NET "addr_in<1>"          LOC = "T9"  | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L32P_GCLK29,                    Sch name = SW1
+NET "addr_in<2>"          LOC = "V9"  | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L32N_GCLK28,                    Sch name = SW2
+NET "addr_in<3>"          LOC = "M8"  | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L40P,                           Sch name = SW3
+NET "addr_in<4>"          LOC = "N8"  | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L40N,                           Sch name = SW4
+NET "addr_in<5>"          LOC = "U8"  | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L41P,                           Sch name = SW5

@@ -3,32 +3,32 @@ Xilinx Mapping Report File for Design 'top'
 
 Design Information
 ------------------
-Command Line   : map -intstyle ise -p xc6slx25-csg324-3 -w -logic_opt off -ol
+Command Line   : map -intstyle ise -p xc6slx16-csg324-3 -w -logic_opt off -ol
 high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off
 -pr off -lc off -power off -o top_map.ncd top.ngd top.pcf 
-Target Device  : xc6slx25
+Target Device  : xc6slx16
 Target Package : csg324
 Target Speed   : -3
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Tue May 29 21:46:47 2018
+Mapped Date    : Wed May 30 11:43:20 2018
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    0
+Number of warnings:    1
 Slice Logic Utilization:
-  Number of Slice Registers:                   878 out of  30,064    2%
-    Number used as Flip Flops:                 878
+  Number of Slice Registers:                 1,428 out of  18,224    7%
+    Number used as Flip Flops:               1,428
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                      1,958 out of  15,032   13%
-    Number used as logic:                    1,891 out of  15,032   12%
-      Number using O6 output only:           1,502
+  Number of Slice LUTs:                      2,380 out of   9,112   26%
+    Number used as logic:                    2,313 out of   9,112   25%
+      Number using O6 output only:           1,734
       Number using O5 output only:              64
-      Number using O5 and O6:                  325
+      Number using O5 and O6:                  515
       Number used as ROM:                        0
-    Number used as Memory:                      64 out of   3,664    1%
+    Number used as Memory:                      64 out of   2,176    2%
       Number used as Dual Port RAM:             64
         Number using O6 output only:            64
         Number using O5 output only:             0
@@ -41,15 +41,15 @@ Slice Logic Utilization:
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   562 out of   3,758   14%
-  Number of MUXCYs used:                       168 out of   7,516    2%
-  Number of LUT Flip Flop pairs used:        1,961
-    Number with an unused Flip Flop:         1,302 out of   1,961   66%
-    Number with an unused LUT:                   3 out of   1,961    1%
-    Number of fully used LUT-FF pairs:         656 out of   1,961   33%
-    Number of unique control sets:               7
+  Number of occupied Slices:                   746 out of   2,278   32%
+  Number of MUXCYs used:                       200 out of   4,556    4%
+  Number of LUT Flip Flop pairs used:        2,382
+    Number with an unused Flip Flop:         1,316 out of   2,382   55%
+    Number with an unused LUT:                   2 out of   2,382    1%
+    Number of fully used LUT-FF pairs:       1,064 out of   2,382   44%
+    Number of unique control sets:              10
     Number of slice register sites lost
-      to control set restrictions:              18 out of  30,064    1%
+      to control set restrictions:              36 out of  18,224    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -58,29 +58,29 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        20 out of     226    8%
-    Number of LOCed IOBs:                       20 out of      20  100%
+  Number of bonded IOBs:                        28 out of     232   12%
+    Number of LOCed IOBs:                       28 out of      28  100%
     IOB Flip Flops:                              1
 
 Specific Feature Utilization:
-  Number of RAMB16BWERs:                         0 out of      52    0%
-  Number of RAMB8BWERs:                          0 out of     104    0%
+  Number of RAMB16BWERs:                         0 out of      32    0%
+  Number of RAMB8BWERs:                          0 out of      64    0%
   Number of BUFIO2/BUFIO2_2CLKs:                 0 out of      32    0%
   Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
   Number of BUFG/BUFGMUXs:                       1 out of      16    6%
     Number used as BUFGs:                        1
     Number used as BUFGMUX:                      0
   Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
-  Number of ILOGIC2/ISERDES2s:                   0 out of     272    0%
-  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     272    0%
-  Number of OLOGIC2/OSERDES2s:                   1 out of     272    1%
+  Number of ILOGIC2/ISERDES2s:                   0 out of     248    0%
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     248    0%
+  Number of OLOGIC2/OSERDES2s:                   1 out of     248    1%
     Number used as OLOGIC2s:                     1
     Number used as OSERDES2s:                    0
   Number of BSCANs:                              0 out of       4    0%
-  Number of BUFHs:                               0 out of     160    0%
+  Number of BUFHs:                               0 out of     128    0%
   Number of BUFPLLs:                             0 out of       8    0%
   Number of BUFPLL_MCBs:                         0 out of       4    0%
-  Number of DSP48A1s:                            0 out of      38    0%
+  Number of DSP48A1s:                            0 out of      32    0%
   Number of ICAPs:                               0 out of       1    0%
   Number of MCBs:                                0 out of       2    0%
   Number of PCILOGICSEs:                         0 out of       2    0%
@@ -89,11 +89,11 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                5.26
+Average Fanout of Non-Clock Nets:                5.22
 
-Peak Memory Usage:  539 MB
-Total REAL time to MAP completion:  47 secs 
-Total CPU time to MAP completion:   43 secs 
+Peak Memory Usage:  504 MB
+Total REAL time to MAP completion:  43 secs 
+Total CPU time to MAP completion:   42 secs 
 
 Table of Contents
 -----------------
@@ -119,14 +119,18 @@ Section 2 - Warnings
 WARNING:Security:42 - Your software subscription period has lapsed. Your current
 version of Xilinx tools will continue to function, but you no longer qualify for
 Xilinx software updates or new releases.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   mode_change_jitter/button_final is sourced by a combinatorial pin. This is
+   not good design practice. Use the CE pin to control the loading of data into
+   the flip-flop.
 
 Section 3 - Informational
 -------------------------
-INFO:Security:54 - 'xc6slx25' is a WebPack part.
+INFO:Security:54 - 'xc6slx16' is a WebPack part.
 INFO:LIT:243 - Logical network
    cpu_module/instruction_mem/data_memory/U0/xst_options.dist_mem_inst/gen_dp_ra
    m.dpram_inst/qspo_int<31> has no load.
-INFO:LIT:395 - The above info message is repeated 64 more times for the
+INFO:LIT:395 - The above info message is repeated 63 more times for the
    following (max. 5 shown):
    cpu_module/instruction_mem/data_memory/U0/xst_options.dist_mem_inst/gen_dp_ra
    m.dpram_inst/qspo_int<30>,
@@ -153,9 +157,9 @@ INFO:Pack:1650 - Map created a placed design.
 
 Section 4 - Removed Logic Summary
 ---------------------------------
-  65 block(s) removed
-   2 block(s) optimized away
-  65 signal(s) removed
+ 384 block(s) removed
+  13 block(s) optimized away
+ 389 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
@@ -362,9 +366,1941 @@ dpram_inst/qdpo_int<1>" is sourceless and has been removed.
 The signal
 "cpu_module/instruction_mem/data_memory/U0/xst_options.dist_mem_inst/gen_dp_ram.
 dpram_inst/qdpo_int<0>" is sourceless and has been removed.
-The signal "cpu_module/instruction_fetch/instruction_memory/spo<20>" is
-sourceless and has been removed.
-Unused block "cpu_module/instruction_fetch/instruction_memory/XST_GND1" (ZERO)
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "cpu_module/instruction_fetch/instruction[31]_GND_3_o_mux_11_OUT<20>"
+is unused and has been removed.
+The signal "cpu_module/instruction_fetch/instruction[31]_GND_3_o_mux_11_OUT<25>"
+is unused and has been removed.
+The signal "cpu_module/instruction_fetch/instruction[31]_GND_3_o_mux_11_OUT<30>"
+is unused and has been removed.
+The signal "cpu_module/instruction_decode/rs[4]_GND_5_o_mux_29_OUT<4>" is unused
+and has been removed.
+The signal "cpu_module/instruction_decode/rt[4]_GND_5_o_mux_28_OUT<4>" is unused
+and has been removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_7" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_7" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_8" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_8" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_81" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_81" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_9" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_9" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_3" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_3" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_71" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_71" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_83" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_83" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_84" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_84" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_93" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_93" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_31" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_31" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_72" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_72" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_86" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_86" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_87" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_87" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_96" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_96" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_32" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_32" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_73" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_73" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_89" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_89" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_810" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_810" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_99" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_99" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_33" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_33" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_74" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_74" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_812" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_812" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_813" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_813" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_912" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_912" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_34" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_34" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_75" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_75" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_815" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_815" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_816" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_816" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_915" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_915" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_35" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_35" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_76" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_76" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_818" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_818" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_819" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_819" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_918" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_918" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_36" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_36" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_77" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_77" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_821" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_821" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_822" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_822" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_921" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_921" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_37" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_37" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_78" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_78" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_824" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_824" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_825" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_825" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_924" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_924" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_38" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_38" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_79" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_79" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_827" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_827" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_828" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_828" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_927" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_927" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_39" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_39" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_710" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_710" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_830" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_830" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_831" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_831" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_930" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_930" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_310" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_310" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_711" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_711" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_833" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_833" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_834" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_834" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_933" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_933" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_311" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_311" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_712" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_712" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_836" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_836" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_837" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_837" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_936" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_936" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_312" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_312" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_713" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_713" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_839" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_839" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_840" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_840" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_939" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_939" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_313" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_313" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_714" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_714" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_842" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_842" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_843" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_843" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_942" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_942" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_314" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_314" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_715" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_715" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_845" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_845" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_846" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_846" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_945" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_945" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_315" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_315" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_716" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_716" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_848" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_848" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_849" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_849" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_948" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_948" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_316" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_316" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_717" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_717" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_851" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_851" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_852" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_852" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_951" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_951" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_317" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_317" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_718" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_718" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_854" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_854" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_855" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_855" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_954" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_954" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_318" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_318" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_719" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_719" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_857" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_857" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_858" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_858" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_957" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_957" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_319" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_319" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_720" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_720" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_860" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_860" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_861" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_861" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_960" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_960" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_320" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_320" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_721" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_721" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_863" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_863" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_864" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_864" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_963" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_963" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_321" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_321" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_722" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_722" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_866" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_866" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_867" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_867" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_966" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_966" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_322" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_322" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_723" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_723" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_869" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_869" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_870" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_870" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_969" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_969" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_323" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_323" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_724" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_724" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_872" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_872" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_873" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_873" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_972" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_972" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_324" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_324" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_725" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_725" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_875" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_875" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_876" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_876" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_975" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_975" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_325" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_325" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_726" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_726" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_878" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_878" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_879" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_879" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_978" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_978" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_326" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_326" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_727" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_727" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_881" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_881" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_882" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_882" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_981" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_981" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_327" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_327" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_728" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_728" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_884" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_884" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_885" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_885" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_984" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_984" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_328" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_328" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_729" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_729" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_887" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_887" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_888" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_888" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_987" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_987" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_329" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_329" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_730" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_730" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_890" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_890" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_891" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_891" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_990" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_990" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_330" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_330" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_731" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_731" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_893" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_893" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_894" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_894" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_993" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_993" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_331" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr2[4]_data[31][31]_wide_mux_7_OUT_331" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_7" is unused
+and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_7" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_8" is unused
+and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_8" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_81" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_81" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_9" is unused
+and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_9" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_3" is unused
+and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_3" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_71" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_71" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_83" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_83" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_84" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_84" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_93" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_93" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_31" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_31" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_72" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_72" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_86" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_86" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_87" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_87" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_96" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_96" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_32" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_32" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_73" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_73" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_89" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_89" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_810" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_810" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_99" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_99" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_33" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_33" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_74" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_74" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_812" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_812" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_813" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_813" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_912" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_912" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_34" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_34" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_75" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_75" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_815" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_815" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_816" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_816" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_915" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_915" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_35" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_35" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_76" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_76" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_818" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_818" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_819" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_819" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_918" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_918" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_36" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_36" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_77" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_77" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_821" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_821" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_822" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_822" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_921" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_921" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_37" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_37" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_78" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_78" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_824" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_824" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_825" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_825" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_924" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_924" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_38" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_38" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_79" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_79" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_827" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_827" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_828" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_828" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_927" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_927" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_39" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_39" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_710" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_710" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_830" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_830" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_831" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_831" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_930" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_930" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_310" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_310" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_711" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_711" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_833" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_833" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_834" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_834" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_933" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_933" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_311" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_311" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_712" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_712" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_836" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_836" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_837" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_837" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_936" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_936" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_312" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_312" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_713" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_713" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_839" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_839" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_840" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_840" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_939" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_939" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_313" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_313" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_714" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_714" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_842" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_842" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_843" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_843" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_942" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_942" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_314" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_314" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_715" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_715" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_845" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_845" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_846" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_846" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_945" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_945" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_315" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_315" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_716" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_716" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_848" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_848" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_849" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_849" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_948" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_948" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_316" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_316" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_717" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_717" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_851" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_851" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_852" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_852" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_951" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_951" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_317" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_317" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_718" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_718" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_854" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_854" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_855" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_855" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_954" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_954" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_318" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_318" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_719" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_719" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_857" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_857" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_858" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_858" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_957" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_957" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_319" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_319" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_720" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_720" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_860" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_860" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_861" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_861" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_960" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_960" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_320" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_320" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_721" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_721" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_863" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_863" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_864" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_864" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_963" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_963" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_321" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_321" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_722" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_722" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_866" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_866" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_867" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_867" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_966" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_966" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_322" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_322" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_723" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_723" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_869" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_869" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_870" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_870" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_969" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_969" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_323" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_323" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_724" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_724" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_872" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_872" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_873" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_873" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_972" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_972" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_324" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_324" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_725" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_725" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_875" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_875" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_876" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_876" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_975" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_975" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_325" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_325" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_726" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_726" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_878" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_878" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_879" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_879" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_978" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_978" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_326" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_326" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_727" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_727" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_881" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_881" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_882" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_882" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_981" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_981" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_327" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_327" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_728" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_728" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_884" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_884" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_885" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_885" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_984" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_984" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_328" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_328" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_729" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_729" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_887" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_887" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_888" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_888" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_987" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_987" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_329" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_329" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_730" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_730" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_890" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_890" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_891" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_891" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_990" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_990" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_330" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_330" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_731" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_731" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_893" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_893" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_894" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_894" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_993" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_993" (ROM)
+removed.
+The signal
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_331" is
+unused and has been removed.
+ Unused block
+"cpu_module/regfile_stack/Mmux_rAddr[4]_data[31][31]_wide_mux_2_OUT_331" (ROM)
 removed.
 Unused block
 "cpu_module/instruction_mem/data_memory/U0/xst_options.dist_mem_inst/gen_dp_ram.
@@ -563,6 +2499,27 @@ Optimized Block(s):
 TYPE 		BLOCK
 GND 		XST_GND
 VCC 		XST_VCC
+LUT6 		cpu_module/instruction_decode/Mmux_rs[4]_GND_5_o_mux_29_OUT51
+   optimized to 0
+LUT6 		cpu_module/instruction_decode/Mmux_rt[4]_GND_5_o_mux_28_OUT51
+   optimized to 0
+FDC 		cpu_module/instruction_decode/id_ex_rs_4
+   optimized to 0
+FDC 		cpu_module/instruction_decode/id_ex_rt_4
+   optimized to 0
+LUT4 		cpu_module/instruction_fetch/Mmux_instruction[31]_GND_3_o_mux_11_OUT131
+   optimized to 0
+LUT4 		cpu_module/instruction_fetch/Mmux_instruction[31]_GND_3_o_mux_11_OUT181
+   optimized to 0
+LUT4 		cpu_module/instruction_fetch/Mmux_instruction[31]_GND_3_o_mux_11_OUT241
+   optimized to 0
+FDCE 		cpu_module/instruction_fetch/if_id_instruction_20
+   optimized to 0
+FDCE 		cpu_module/instruction_fetch/if_id_instruction_25
+   optimized to 0
+FDCE 		cpu_module/instruction_fetch/if_id_instruction_30
+   optimized to 0
+GND 		cpu_module/instruction_fetch/instruction_memory/XST_GND1
 
 To enable printing of redundant blocks removed and signals merged, set the
 detailed map report option and rerun map.
@@ -574,13 +2531,21 @@ Section 6 - IOB Properties
 | IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
 |                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| addr_in<0>                         | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| addr_in<1>                         | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| addr_in<2>                         | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| addr_in<3>                         | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| addr_in<4>                         | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| addr_in<5>                         | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
 | clk                                | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| high_low                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
 | led<0>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
 | led<1>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
 | led<2>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
 | led<3>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
 | led<4>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
 | led<5>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| mode_change                        | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
 | rst                                | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
 | seg<0>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW | OFF          |          |          |
 | seg<1>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |

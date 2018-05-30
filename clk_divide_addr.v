@@ -29,14 +29,14 @@ module clk_divide_addr(
 	always @(posedge clk or negedge rst_n)
 	 begin
 	  if (~rst_n) cnt_div<=32'h0;
-	  else if (cnt_div == 32'd1_999_999) cnt_div<=32'h0;
+	  else if (cnt_div == 32'd99_999_999) cnt_div<=32'h0;
 	  else cnt_div<=cnt_div+32'h1;
 	 end
 
 	always @(posedge clk or negedge rst_n)
 	 begin
 	 	if (~rst_n) clk_slow<=1'b0;
-	 	else if (cnt_div==32'd1_999_999) clk_slow<=1'b1;
+	 	else if (cnt_div==32'd99_999_999) clk_slow<=1'b1;
 	 	else clk_slow<=1'b0;
 	 end
 

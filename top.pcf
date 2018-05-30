@@ -1,28 +1,36 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Tue May 29 21:47:33 2018
+// Written by: Map P.20131013 on Wed May 30 11:44:03 2018
 //! **************************************************************************
 
 SCHEMATIC START;
 COMP "clk" LOCATE = SITE "V10" LEVEL 1;
 COMP "rst" LOCATE = SITE "B8" LEVEL 1;
+COMP "addr_in<0>" LOCATE = SITE "T10" LEVEL 1;
+COMP "addr_in<1>" LOCATE = SITE "T9" LEVEL 1;
+COMP "addr_in<2>" LOCATE = SITE "V9" LEVEL 1;
+COMP "addr_in<3>" LOCATE = SITE "M8" LEVEL 1;
+COMP "addr_in<4>" LOCATE = SITE "N8" LEVEL 1;
+COMP "addr_in<5>" LOCATE = SITE "U8" LEVEL 1;
 COMP "led<0>" LOCATE = SITE "U16" LEVEL 1;
 COMP "led<1>" LOCATE = SITE "V16" LEVEL 1;
 COMP "led<2>" LOCATE = SITE "U15" LEVEL 1;
 COMP "led<3>" LOCATE = SITE "V15" LEVEL 1;
 COMP "led<4>" LOCATE = SITE "M11" LEVEL 1;
 COMP "led<5>" LOCATE = SITE "N11" LEVEL 1;
-COMP "seg<0>" LOCATE = SITE "T17" LEVEL 1;
-COMP "seg<1>" LOCATE = SITE "T18" LEVEL 1;
-COMP "seg<2>" LOCATE = SITE "U17" LEVEL 1;
-COMP "seg<3>" LOCATE = SITE "U18" LEVEL 1;
-COMP "seg<4>" LOCATE = SITE "M14" LEVEL 1;
-COMP "seg<5>" LOCATE = SITE "N14" LEVEL 1;
-COMP "seg<6>" LOCATE = SITE "L14" LEVEL 1;
-COMP "seg<7>" LOCATE = SITE "M13" LEVEL 1;
+COMP "high_low" LOCATE = SITE "T11" LEVEL 1;
+COMP "seg<0>" LOCATE = SITE "M13" LEVEL 1;
+COMP "seg<1>" LOCATE = SITE "L14" LEVEL 1;
+COMP "seg<2>" LOCATE = SITE "N14" LEVEL 1;
+COMP "seg<3>" LOCATE = SITE "M14" LEVEL 1;
+COMP "seg<4>" LOCATE = SITE "U18" LEVEL 1;
+COMP "seg<5>" LOCATE = SITE "U17" LEVEL 1;
+COMP "seg<6>" LOCATE = SITE "T18" LEVEL 1;
+COMP "seg<7>" LOCATE = SITE "T17" LEVEL 1;
 COMP "sel<0>" LOCATE = SITE "P17" LEVEL 1;
 COMP "sel<1>" LOCATE = SITE "P18" LEVEL 1;
 COMP "sel<2>" LOCATE = SITE "N15" LEVEL 1;
 COMP "sel<3>" LOCATE = SITE "N16" LEVEL 1;
+COMP "mode_change" LOCATE = SITE "D9" LEVEL 1;
 TIMEGRP sys_clk_pin = BEL "clk_slow_seg_gen/clk_slow" BEL
         "clk_slow_change_addr_gen/clk_slow" BEL "clk_slow_seg_gen/cnt_div_0"
         BEL "clk_slow_seg_gen/cnt_div_1" BEL "clk_slow_seg_gen/cnt_div_2" BEL
@@ -347,6 +355,518 @@ TIMEGRP sys_clk_pin = BEL "clk_slow_seg_gen/clk_slow" BEL
         "cpu_module/instruction_execute/ex_mem_ctrl_branch_type_2" BEL
         "cpu_module/instruction_execute/ex_mem_ctrl_branch_type_1" BEL
         "cpu_module/instruction_execute/ex_mem_ctrl_branch_type_0" BEL
+        "cpu_module/regfile_stack/data_0_1023" BEL
+        "cpu_module/regfile_stack/data_0_1022" BEL
+        "cpu_module/regfile_stack/data_0_1021" BEL
+        "cpu_module/regfile_stack/data_0_1020" BEL
+        "cpu_module/regfile_stack/data_0_1019" BEL
+        "cpu_module/regfile_stack/data_0_1018" BEL
+        "cpu_module/regfile_stack/data_0_1017" BEL
+        "cpu_module/regfile_stack/data_0_1016" BEL
+        "cpu_module/regfile_stack/data_0_1015" BEL
+        "cpu_module/regfile_stack/data_0_1014" BEL
+        "cpu_module/regfile_stack/data_0_1013" BEL
+        "cpu_module/regfile_stack/data_0_1012" BEL
+        "cpu_module/regfile_stack/data_0_1011" BEL
+        "cpu_module/regfile_stack/data_0_1010" BEL
+        "cpu_module/regfile_stack/data_0_1009" BEL
+        "cpu_module/regfile_stack/data_0_1008" BEL
+        "cpu_module/regfile_stack/data_0_1007" BEL
+        "cpu_module/regfile_stack/data_0_1006" BEL
+        "cpu_module/regfile_stack/data_0_1005" BEL
+        "cpu_module/regfile_stack/data_0_1004" BEL
+        "cpu_module/regfile_stack/data_0_1003" BEL
+        "cpu_module/regfile_stack/data_0_1002" BEL
+        "cpu_module/regfile_stack/data_0_1001" BEL
+        "cpu_module/regfile_stack/data_0_1000" BEL
+        "cpu_module/regfile_stack/data_0_999" BEL
+        "cpu_module/regfile_stack/data_0_998" BEL
+        "cpu_module/regfile_stack/data_0_997" BEL
+        "cpu_module/regfile_stack/data_0_996" BEL
+        "cpu_module/regfile_stack/data_0_995" BEL
+        "cpu_module/regfile_stack/data_0_994" BEL
+        "cpu_module/regfile_stack/data_0_993" BEL
+        "cpu_module/regfile_stack/data_0_992" BEL
+        "cpu_module/regfile_stack/data_0_991" BEL
+        "cpu_module/regfile_stack/data_0_990" BEL
+        "cpu_module/regfile_stack/data_0_989" BEL
+        "cpu_module/regfile_stack/data_0_988" BEL
+        "cpu_module/regfile_stack/data_0_987" BEL
+        "cpu_module/regfile_stack/data_0_986" BEL
+        "cpu_module/regfile_stack/data_0_985" BEL
+        "cpu_module/regfile_stack/data_0_984" BEL
+        "cpu_module/regfile_stack/data_0_983" BEL
+        "cpu_module/regfile_stack/data_0_982" BEL
+        "cpu_module/regfile_stack/data_0_981" BEL
+        "cpu_module/regfile_stack/data_0_980" BEL
+        "cpu_module/regfile_stack/data_0_979" BEL
+        "cpu_module/regfile_stack/data_0_978" BEL
+        "cpu_module/regfile_stack/data_0_977" BEL
+        "cpu_module/regfile_stack/data_0_976" BEL
+        "cpu_module/regfile_stack/data_0_975" BEL
+        "cpu_module/regfile_stack/data_0_974" BEL
+        "cpu_module/regfile_stack/data_0_973" BEL
+        "cpu_module/regfile_stack/data_0_972" BEL
+        "cpu_module/regfile_stack/data_0_971" BEL
+        "cpu_module/regfile_stack/data_0_970" BEL
+        "cpu_module/regfile_stack/data_0_969" BEL
+        "cpu_module/regfile_stack/data_0_968" BEL
+        "cpu_module/regfile_stack/data_0_967" BEL
+        "cpu_module/regfile_stack/data_0_966" BEL
+        "cpu_module/regfile_stack/data_0_965" BEL
+        "cpu_module/regfile_stack/data_0_964" BEL
+        "cpu_module/regfile_stack/data_0_963" BEL
+        "cpu_module/regfile_stack/data_0_962" BEL
+        "cpu_module/regfile_stack/data_0_961" BEL
+        "cpu_module/regfile_stack/data_0_960" BEL
+        "cpu_module/regfile_stack/data_0_959" BEL
+        "cpu_module/regfile_stack/data_0_958" BEL
+        "cpu_module/regfile_stack/data_0_957" BEL
+        "cpu_module/regfile_stack/data_0_956" BEL
+        "cpu_module/regfile_stack/data_0_955" BEL
+        "cpu_module/regfile_stack/data_0_954" BEL
+        "cpu_module/regfile_stack/data_0_953" BEL
+        "cpu_module/regfile_stack/data_0_952" BEL
+        "cpu_module/regfile_stack/data_0_951" BEL
+        "cpu_module/regfile_stack/data_0_950" BEL
+        "cpu_module/regfile_stack/data_0_949" BEL
+        "cpu_module/regfile_stack/data_0_948" BEL
+        "cpu_module/regfile_stack/data_0_947" BEL
+        "cpu_module/regfile_stack/data_0_946" BEL
+        "cpu_module/regfile_stack/data_0_945" BEL
+        "cpu_module/regfile_stack/data_0_944" BEL
+        "cpu_module/regfile_stack/data_0_943" BEL
+        "cpu_module/regfile_stack/data_0_942" BEL
+        "cpu_module/regfile_stack/data_0_941" BEL
+        "cpu_module/regfile_stack/data_0_940" BEL
+        "cpu_module/regfile_stack/data_0_939" BEL
+        "cpu_module/regfile_stack/data_0_938" BEL
+        "cpu_module/regfile_stack/data_0_937" BEL
+        "cpu_module/regfile_stack/data_0_936" BEL
+        "cpu_module/regfile_stack/data_0_935" BEL
+        "cpu_module/regfile_stack/data_0_934" BEL
+        "cpu_module/regfile_stack/data_0_933" BEL
+        "cpu_module/regfile_stack/data_0_932" BEL
+        "cpu_module/regfile_stack/data_0_931" BEL
+        "cpu_module/regfile_stack/data_0_930" BEL
+        "cpu_module/regfile_stack/data_0_929" BEL
+        "cpu_module/regfile_stack/data_0_928" BEL
+        "cpu_module/regfile_stack/data_0_927" BEL
+        "cpu_module/regfile_stack/data_0_926" BEL
+        "cpu_module/regfile_stack/data_0_925" BEL
+        "cpu_module/regfile_stack/data_0_924" BEL
+        "cpu_module/regfile_stack/data_0_923" BEL
+        "cpu_module/regfile_stack/data_0_922" BEL
+        "cpu_module/regfile_stack/data_0_921" BEL
+        "cpu_module/regfile_stack/data_0_920" BEL
+        "cpu_module/regfile_stack/data_0_919" BEL
+        "cpu_module/regfile_stack/data_0_918" BEL
+        "cpu_module/regfile_stack/data_0_917" BEL
+        "cpu_module/regfile_stack/data_0_916" BEL
+        "cpu_module/regfile_stack/data_0_915" BEL
+        "cpu_module/regfile_stack/data_0_914" BEL
+        "cpu_module/regfile_stack/data_0_913" BEL
+        "cpu_module/regfile_stack/data_0_912" BEL
+        "cpu_module/regfile_stack/data_0_911" BEL
+        "cpu_module/regfile_stack/data_0_910" BEL
+        "cpu_module/regfile_stack/data_0_909" BEL
+        "cpu_module/regfile_stack/data_0_908" BEL
+        "cpu_module/regfile_stack/data_0_907" BEL
+        "cpu_module/regfile_stack/data_0_906" BEL
+        "cpu_module/regfile_stack/data_0_905" BEL
+        "cpu_module/regfile_stack/data_0_904" BEL
+        "cpu_module/regfile_stack/data_0_903" BEL
+        "cpu_module/regfile_stack/data_0_902" BEL
+        "cpu_module/regfile_stack/data_0_901" BEL
+        "cpu_module/regfile_stack/data_0_900" BEL
+        "cpu_module/regfile_stack/data_0_899" BEL
+        "cpu_module/regfile_stack/data_0_898" BEL
+        "cpu_module/regfile_stack/data_0_897" BEL
+        "cpu_module/regfile_stack/data_0_896" BEL
+        "cpu_module/regfile_stack/data_0_895" BEL
+        "cpu_module/regfile_stack/data_0_894" BEL
+        "cpu_module/regfile_stack/data_0_893" BEL
+        "cpu_module/regfile_stack/data_0_892" BEL
+        "cpu_module/regfile_stack/data_0_891" BEL
+        "cpu_module/regfile_stack/data_0_890" BEL
+        "cpu_module/regfile_stack/data_0_889" BEL
+        "cpu_module/regfile_stack/data_0_888" BEL
+        "cpu_module/regfile_stack/data_0_887" BEL
+        "cpu_module/regfile_stack/data_0_886" BEL
+        "cpu_module/regfile_stack/data_0_885" BEL
+        "cpu_module/regfile_stack/data_0_884" BEL
+        "cpu_module/regfile_stack/data_0_883" BEL
+        "cpu_module/regfile_stack/data_0_882" BEL
+        "cpu_module/regfile_stack/data_0_881" BEL
+        "cpu_module/regfile_stack/data_0_880" BEL
+        "cpu_module/regfile_stack/data_0_879" BEL
+        "cpu_module/regfile_stack/data_0_878" BEL
+        "cpu_module/regfile_stack/data_0_877" BEL
+        "cpu_module/regfile_stack/data_0_876" BEL
+        "cpu_module/regfile_stack/data_0_875" BEL
+        "cpu_module/regfile_stack/data_0_874" BEL
+        "cpu_module/regfile_stack/data_0_873" BEL
+        "cpu_module/regfile_stack/data_0_872" BEL
+        "cpu_module/regfile_stack/data_0_871" BEL
+        "cpu_module/regfile_stack/data_0_870" BEL
+        "cpu_module/regfile_stack/data_0_869" BEL
+        "cpu_module/regfile_stack/data_0_868" BEL
+        "cpu_module/regfile_stack/data_0_867" BEL
+        "cpu_module/regfile_stack/data_0_866" BEL
+        "cpu_module/regfile_stack/data_0_865" BEL
+        "cpu_module/regfile_stack/data_0_864" BEL
+        "cpu_module/regfile_stack/data_0_863" BEL
+        "cpu_module/regfile_stack/data_0_862" BEL
+        "cpu_module/regfile_stack/data_0_861" BEL
+        "cpu_module/regfile_stack/data_0_860" BEL
+        "cpu_module/regfile_stack/data_0_859" BEL
+        "cpu_module/regfile_stack/data_0_858" BEL
+        "cpu_module/regfile_stack/data_0_857" BEL
+        "cpu_module/regfile_stack/data_0_856" BEL
+        "cpu_module/regfile_stack/data_0_855" BEL
+        "cpu_module/regfile_stack/data_0_854" BEL
+        "cpu_module/regfile_stack/data_0_853" BEL
+        "cpu_module/regfile_stack/data_0_852" BEL
+        "cpu_module/regfile_stack/data_0_851" BEL
+        "cpu_module/regfile_stack/data_0_850" BEL
+        "cpu_module/regfile_stack/data_0_849" BEL
+        "cpu_module/regfile_stack/data_0_848" BEL
+        "cpu_module/regfile_stack/data_0_847" BEL
+        "cpu_module/regfile_stack/data_0_846" BEL
+        "cpu_module/regfile_stack/data_0_845" BEL
+        "cpu_module/regfile_stack/data_0_844" BEL
+        "cpu_module/regfile_stack/data_0_843" BEL
+        "cpu_module/regfile_stack/data_0_842" BEL
+        "cpu_module/regfile_stack/data_0_841" BEL
+        "cpu_module/regfile_stack/data_0_840" BEL
+        "cpu_module/regfile_stack/data_0_839" BEL
+        "cpu_module/regfile_stack/data_0_838" BEL
+        "cpu_module/regfile_stack/data_0_837" BEL
+        "cpu_module/regfile_stack/data_0_836" BEL
+        "cpu_module/regfile_stack/data_0_835" BEL
+        "cpu_module/regfile_stack/data_0_834" BEL
+        "cpu_module/regfile_stack/data_0_833" BEL
+        "cpu_module/regfile_stack/data_0_832" BEL
+        "cpu_module/regfile_stack/data_0_831" BEL
+        "cpu_module/regfile_stack/data_0_830" BEL
+        "cpu_module/regfile_stack/data_0_829" BEL
+        "cpu_module/regfile_stack/data_0_828" BEL
+        "cpu_module/regfile_stack/data_0_827" BEL
+        "cpu_module/regfile_stack/data_0_826" BEL
+        "cpu_module/regfile_stack/data_0_825" BEL
+        "cpu_module/regfile_stack/data_0_824" BEL
+        "cpu_module/regfile_stack/data_0_823" BEL
+        "cpu_module/regfile_stack/data_0_822" BEL
+        "cpu_module/regfile_stack/data_0_821" BEL
+        "cpu_module/regfile_stack/data_0_820" BEL
+        "cpu_module/regfile_stack/data_0_819" BEL
+        "cpu_module/regfile_stack/data_0_818" BEL
+        "cpu_module/regfile_stack/data_0_817" BEL
+        "cpu_module/regfile_stack/data_0_816" BEL
+        "cpu_module/regfile_stack/data_0_815" BEL
+        "cpu_module/regfile_stack/data_0_814" BEL
+        "cpu_module/regfile_stack/data_0_813" BEL
+        "cpu_module/regfile_stack/data_0_812" BEL
+        "cpu_module/regfile_stack/data_0_811" BEL
+        "cpu_module/regfile_stack/data_0_810" BEL
+        "cpu_module/regfile_stack/data_0_809" BEL
+        "cpu_module/regfile_stack/data_0_808" BEL
+        "cpu_module/regfile_stack/data_0_807" BEL
+        "cpu_module/regfile_stack/data_0_806" BEL
+        "cpu_module/regfile_stack/data_0_805" BEL
+        "cpu_module/regfile_stack/data_0_804" BEL
+        "cpu_module/regfile_stack/data_0_803" BEL
+        "cpu_module/regfile_stack/data_0_802" BEL
+        "cpu_module/regfile_stack/data_0_801" BEL
+        "cpu_module/regfile_stack/data_0_800" BEL
+        "cpu_module/regfile_stack/data_0_799" BEL
+        "cpu_module/regfile_stack/data_0_798" BEL
+        "cpu_module/regfile_stack/data_0_797" BEL
+        "cpu_module/regfile_stack/data_0_796" BEL
+        "cpu_module/regfile_stack/data_0_795" BEL
+        "cpu_module/regfile_stack/data_0_794" BEL
+        "cpu_module/regfile_stack/data_0_793" BEL
+        "cpu_module/regfile_stack/data_0_792" BEL
+        "cpu_module/regfile_stack/data_0_791" BEL
+        "cpu_module/regfile_stack/data_0_790" BEL
+        "cpu_module/regfile_stack/data_0_789" BEL
+        "cpu_module/regfile_stack/data_0_788" BEL
+        "cpu_module/regfile_stack/data_0_787" BEL
+        "cpu_module/regfile_stack/data_0_786" BEL
+        "cpu_module/regfile_stack/data_0_785" BEL
+        "cpu_module/regfile_stack/data_0_784" BEL
+        "cpu_module/regfile_stack/data_0_783" BEL
+        "cpu_module/regfile_stack/data_0_782" BEL
+        "cpu_module/regfile_stack/data_0_781" BEL
+        "cpu_module/regfile_stack/data_0_780" BEL
+        "cpu_module/regfile_stack/data_0_779" BEL
+        "cpu_module/regfile_stack/data_0_778" BEL
+        "cpu_module/regfile_stack/data_0_777" BEL
+        "cpu_module/regfile_stack/data_0_776" BEL
+        "cpu_module/regfile_stack/data_0_775" BEL
+        "cpu_module/regfile_stack/data_0_774" BEL
+        "cpu_module/regfile_stack/data_0_773" BEL
+        "cpu_module/regfile_stack/data_0_772" BEL
+        "cpu_module/regfile_stack/data_0_771" BEL
+        "cpu_module/regfile_stack/data_0_770" BEL
+        "cpu_module/regfile_stack/data_0_769" BEL
+        "cpu_module/regfile_stack/data_0_768" BEL
+        "cpu_module/regfile_stack/data_0_767" BEL
+        "cpu_module/regfile_stack/data_0_766" BEL
+        "cpu_module/regfile_stack/data_0_765" BEL
+        "cpu_module/regfile_stack/data_0_764" BEL
+        "cpu_module/regfile_stack/data_0_763" BEL
+        "cpu_module/regfile_stack/data_0_762" BEL
+        "cpu_module/regfile_stack/data_0_761" BEL
+        "cpu_module/regfile_stack/data_0_760" BEL
+        "cpu_module/regfile_stack/data_0_759" BEL
+        "cpu_module/regfile_stack/data_0_758" BEL
+        "cpu_module/regfile_stack/data_0_757" BEL
+        "cpu_module/regfile_stack/data_0_756" BEL
+        "cpu_module/regfile_stack/data_0_755" BEL
+        "cpu_module/regfile_stack/data_0_754" BEL
+        "cpu_module/regfile_stack/data_0_753" BEL
+        "cpu_module/regfile_stack/data_0_752" BEL
+        "cpu_module/regfile_stack/data_0_751" BEL
+        "cpu_module/regfile_stack/data_0_750" BEL
+        "cpu_module/regfile_stack/data_0_749" BEL
+        "cpu_module/regfile_stack/data_0_748" BEL
+        "cpu_module/regfile_stack/data_0_747" BEL
+        "cpu_module/regfile_stack/data_0_746" BEL
+        "cpu_module/regfile_stack/data_0_745" BEL
+        "cpu_module/regfile_stack/data_0_744" BEL
+        "cpu_module/regfile_stack/data_0_743" BEL
+        "cpu_module/regfile_stack/data_0_742" BEL
+        "cpu_module/regfile_stack/data_0_741" BEL
+        "cpu_module/regfile_stack/data_0_740" BEL
+        "cpu_module/regfile_stack/data_0_739" BEL
+        "cpu_module/regfile_stack/data_0_738" BEL
+        "cpu_module/regfile_stack/data_0_737" BEL
+        "cpu_module/regfile_stack/data_0_736" BEL
+        "cpu_module/regfile_stack/data_0_735" BEL
+        "cpu_module/regfile_stack/data_0_734" BEL
+        "cpu_module/regfile_stack/data_0_733" BEL
+        "cpu_module/regfile_stack/data_0_732" BEL
+        "cpu_module/regfile_stack/data_0_731" BEL
+        "cpu_module/regfile_stack/data_0_730" BEL
+        "cpu_module/regfile_stack/data_0_729" BEL
+        "cpu_module/regfile_stack/data_0_728" BEL
+        "cpu_module/regfile_stack/data_0_727" BEL
+        "cpu_module/regfile_stack/data_0_726" BEL
+        "cpu_module/regfile_stack/data_0_725" BEL
+        "cpu_module/regfile_stack/data_0_724" BEL
+        "cpu_module/regfile_stack/data_0_723" BEL
+        "cpu_module/regfile_stack/data_0_722" BEL
+        "cpu_module/regfile_stack/data_0_721" BEL
+        "cpu_module/regfile_stack/data_0_720" BEL
+        "cpu_module/regfile_stack/data_0_719" BEL
+        "cpu_module/regfile_stack/data_0_718" BEL
+        "cpu_module/regfile_stack/data_0_717" BEL
+        "cpu_module/regfile_stack/data_0_716" BEL
+        "cpu_module/regfile_stack/data_0_715" BEL
+        "cpu_module/regfile_stack/data_0_714" BEL
+        "cpu_module/regfile_stack/data_0_713" BEL
+        "cpu_module/regfile_stack/data_0_712" BEL
+        "cpu_module/regfile_stack/data_0_711" BEL
+        "cpu_module/regfile_stack/data_0_710" BEL
+        "cpu_module/regfile_stack/data_0_709" BEL
+        "cpu_module/regfile_stack/data_0_708" BEL
+        "cpu_module/regfile_stack/data_0_707" BEL
+        "cpu_module/regfile_stack/data_0_706" BEL
+        "cpu_module/regfile_stack/data_0_705" BEL
+        "cpu_module/regfile_stack/data_0_704" BEL
+        "cpu_module/regfile_stack/data_0_703" BEL
+        "cpu_module/regfile_stack/data_0_702" BEL
+        "cpu_module/regfile_stack/data_0_701" BEL
+        "cpu_module/regfile_stack/data_0_700" BEL
+        "cpu_module/regfile_stack/data_0_699" BEL
+        "cpu_module/regfile_stack/data_0_698" BEL
+        "cpu_module/regfile_stack/data_0_697" BEL
+        "cpu_module/regfile_stack/data_0_696" BEL
+        "cpu_module/regfile_stack/data_0_695" BEL
+        "cpu_module/regfile_stack/data_0_694" BEL
+        "cpu_module/regfile_stack/data_0_693" BEL
+        "cpu_module/regfile_stack/data_0_692" BEL
+        "cpu_module/regfile_stack/data_0_691" BEL
+        "cpu_module/regfile_stack/data_0_690" BEL
+        "cpu_module/regfile_stack/data_0_689" BEL
+        "cpu_module/regfile_stack/data_0_688" BEL
+        "cpu_module/regfile_stack/data_0_687" BEL
+        "cpu_module/regfile_stack/data_0_686" BEL
+        "cpu_module/regfile_stack/data_0_685" BEL
+        "cpu_module/regfile_stack/data_0_684" BEL
+        "cpu_module/regfile_stack/data_0_683" BEL
+        "cpu_module/regfile_stack/data_0_682" BEL
+        "cpu_module/regfile_stack/data_0_681" BEL
+        "cpu_module/regfile_stack/data_0_680" BEL
+        "cpu_module/regfile_stack/data_0_679" BEL
+        "cpu_module/regfile_stack/data_0_678" BEL
+        "cpu_module/regfile_stack/data_0_677" BEL
+        "cpu_module/regfile_stack/data_0_676" BEL
+        "cpu_module/regfile_stack/data_0_675" BEL
+        "cpu_module/regfile_stack/data_0_674" BEL
+        "cpu_module/regfile_stack/data_0_673" BEL
+        "cpu_module/regfile_stack/data_0_672" BEL
+        "cpu_module/regfile_stack/data_0_671" BEL
+        "cpu_module/regfile_stack/data_0_670" BEL
+        "cpu_module/regfile_stack/data_0_669" BEL
+        "cpu_module/regfile_stack/data_0_668" BEL
+        "cpu_module/regfile_stack/data_0_667" BEL
+        "cpu_module/regfile_stack/data_0_666" BEL
+        "cpu_module/regfile_stack/data_0_665" BEL
+        "cpu_module/regfile_stack/data_0_664" BEL
+        "cpu_module/regfile_stack/data_0_663" BEL
+        "cpu_module/regfile_stack/data_0_662" BEL
+        "cpu_module/regfile_stack/data_0_661" BEL
+        "cpu_module/regfile_stack/data_0_660" BEL
+        "cpu_module/regfile_stack/data_0_659" BEL
+        "cpu_module/regfile_stack/data_0_658" BEL
+        "cpu_module/regfile_stack/data_0_657" BEL
+        "cpu_module/regfile_stack/data_0_656" BEL
+        "cpu_module/regfile_stack/data_0_655" BEL
+        "cpu_module/regfile_stack/data_0_654" BEL
+        "cpu_module/regfile_stack/data_0_653" BEL
+        "cpu_module/regfile_stack/data_0_652" BEL
+        "cpu_module/regfile_stack/data_0_651" BEL
+        "cpu_module/regfile_stack/data_0_650" BEL
+        "cpu_module/regfile_stack/data_0_649" BEL
+        "cpu_module/regfile_stack/data_0_648" BEL
+        "cpu_module/regfile_stack/data_0_647" BEL
+        "cpu_module/regfile_stack/data_0_646" BEL
+        "cpu_module/regfile_stack/data_0_645" BEL
+        "cpu_module/regfile_stack/data_0_644" BEL
+        "cpu_module/regfile_stack/data_0_643" BEL
+        "cpu_module/regfile_stack/data_0_642" BEL
+        "cpu_module/regfile_stack/data_0_641" BEL
+        "cpu_module/regfile_stack/data_0_640" BEL
+        "cpu_module/regfile_stack/data_0_639" BEL
+        "cpu_module/regfile_stack/data_0_638" BEL
+        "cpu_module/regfile_stack/data_0_637" BEL
+        "cpu_module/regfile_stack/data_0_636" BEL
+        "cpu_module/regfile_stack/data_0_635" BEL
+        "cpu_module/regfile_stack/data_0_634" BEL
+        "cpu_module/regfile_stack/data_0_633" BEL
+        "cpu_module/regfile_stack/data_0_632" BEL
+        "cpu_module/regfile_stack/data_0_631" BEL
+        "cpu_module/regfile_stack/data_0_630" BEL
+        "cpu_module/regfile_stack/data_0_629" BEL
+        "cpu_module/regfile_stack/data_0_628" BEL
+        "cpu_module/regfile_stack/data_0_627" BEL
+        "cpu_module/regfile_stack/data_0_626" BEL
+        "cpu_module/regfile_stack/data_0_625" BEL
+        "cpu_module/regfile_stack/data_0_624" BEL
+        "cpu_module/regfile_stack/data_0_623" BEL
+        "cpu_module/regfile_stack/data_0_622" BEL
+        "cpu_module/regfile_stack/data_0_621" BEL
+        "cpu_module/regfile_stack/data_0_620" BEL
+        "cpu_module/regfile_stack/data_0_619" BEL
+        "cpu_module/regfile_stack/data_0_618" BEL
+        "cpu_module/regfile_stack/data_0_617" BEL
+        "cpu_module/regfile_stack/data_0_616" BEL
+        "cpu_module/regfile_stack/data_0_615" BEL
+        "cpu_module/regfile_stack/data_0_614" BEL
+        "cpu_module/regfile_stack/data_0_613" BEL
+        "cpu_module/regfile_stack/data_0_612" BEL
+        "cpu_module/regfile_stack/data_0_611" BEL
+        "cpu_module/regfile_stack/data_0_610" BEL
+        "cpu_module/regfile_stack/data_0_609" BEL
+        "cpu_module/regfile_stack/data_0_608" BEL
+        "cpu_module/regfile_stack/data_0_607" BEL
+        "cpu_module/regfile_stack/data_0_606" BEL
+        "cpu_module/regfile_stack/data_0_605" BEL
+        "cpu_module/regfile_stack/data_0_604" BEL
+        "cpu_module/regfile_stack/data_0_603" BEL
+        "cpu_module/regfile_stack/data_0_602" BEL
+        "cpu_module/regfile_stack/data_0_601" BEL
+        "cpu_module/regfile_stack/data_0_600" BEL
+        "cpu_module/regfile_stack/data_0_599" BEL
+        "cpu_module/regfile_stack/data_0_598" BEL
+        "cpu_module/regfile_stack/data_0_597" BEL
+        "cpu_module/regfile_stack/data_0_596" BEL
+        "cpu_module/regfile_stack/data_0_595" BEL
+        "cpu_module/regfile_stack/data_0_594" BEL
+        "cpu_module/regfile_stack/data_0_593" BEL
+        "cpu_module/regfile_stack/data_0_592" BEL
+        "cpu_module/regfile_stack/data_0_591" BEL
+        "cpu_module/regfile_stack/data_0_590" BEL
+        "cpu_module/regfile_stack/data_0_589" BEL
+        "cpu_module/regfile_stack/data_0_588" BEL
+        "cpu_module/regfile_stack/data_0_587" BEL
+        "cpu_module/regfile_stack/data_0_586" BEL
+        "cpu_module/regfile_stack/data_0_585" BEL
+        "cpu_module/regfile_stack/data_0_584" BEL
+        "cpu_module/regfile_stack/data_0_583" BEL
+        "cpu_module/regfile_stack/data_0_582" BEL
+        "cpu_module/regfile_stack/data_0_581" BEL
+        "cpu_module/regfile_stack/data_0_580" BEL
+        "cpu_module/regfile_stack/data_0_579" BEL
+        "cpu_module/regfile_stack/data_0_578" BEL
+        "cpu_module/regfile_stack/data_0_577" BEL
+        "cpu_module/regfile_stack/data_0_576" BEL
+        "cpu_module/regfile_stack/data_0_575" BEL
+        "cpu_module/regfile_stack/data_0_574" BEL
+        "cpu_module/regfile_stack/data_0_573" BEL
+        "cpu_module/regfile_stack/data_0_572" BEL
+        "cpu_module/regfile_stack/data_0_571" BEL
+        "cpu_module/regfile_stack/data_0_570" BEL
+        "cpu_module/regfile_stack/data_0_569" BEL
+        "cpu_module/regfile_stack/data_0_568" BEL
+        "cpu_module/regfile_stack/data_0_567" BEL
+        "cpu_module/regfile_stack/data_0_566" BEL
+        "cpu_module/regfile_stack/data_0_565" BEL
+        "cpu_module/regfile_stack/data_0_564" BEL
+        "cpu_module/regfile_stack/data_0_563" BEL
+        "cpu_module/regfile_stack/data_0_562" BEL
+        "cpu_module/regfile_stack/data_0_561" BEL
+        "cpu_module/regfile_stack/data_0_560" BEL
+        "cpu_module/regfile_stack/data_0_559" BEL
+        "cpu_module/regfile_stack/data_0_558" BEL
+        "cpu_module/regfile_stack/data_0_557" BEL
+        "cpu_module/regfile_stack/data_0_556" BEL
+        "cpu_module/regfile_stack/data_0_555" BEL
+        "cpu_module/regfile_stack/data_0_554" BEL
+        "cpu_module/regfile_stack/data_0_553" BEL
+        "cpu_module/regfile_stack/data_0_552" BEL
+        "cpu_module/regfile_stack/data_0_551" BEL
+        "cpu_module/regfile_stack/data_0_550" BEL
+        "cpu_module/regfile_stack/data_0_549" BEL
+        "cpu_module/regfile_stack/data_0_548" BEL
+        "cpu_module/regfile_stack/data_0_547" BEL
+        "cpu_module/regfile_stack/data_0_546" BEL
+        "cpu_module/regfile_stack/data_0_545" BEL
+        "cpu_module/regfile_stack/data_0_544" BEL
+        "cpu_module/regfile_stack/data_0_543" BEL
+        "cpu_module/regfile_stack/data_0_542" BEL
+        "cpu_module/regfile_stack/data_0_541" BEL
+        "cpu_module/regfile_stack/data_0_540" BEL
+        "cpu_module/regfile_stack/data_0_539" BEL
+        "cpu_module/regfile_stack/data_0_538" BEL
+        "cpu_module/regfile_stack/data_0_537" BEL
+        "cpu_module/regfile_stack/data_0_536" BEL
+        "cpu_module/regfile_stack/data_0_535" BEL
+        "cpu_module/regfile_stack/data_0_534" BEL
+        "cpu_module/regfile_stack/data_0_533" BEL
+        "cpu_module/regfile_stack/data_0_532" BEL
+        "cpu_module/regfile_stack/data_0_531" BEL
+        "cpu_module/regfile_stack/data_0_530" BEL
+        "cpu_module/regfile_stack/data_0_529" BEL
+        "cpu_module/regfile_stack/data_0_528" BEL
+        "cpu_module/regfile_stack/data_0_527" BEL
+        "cpu_module/regfile_stack/data_0_526" BEL
+        "cpu_module/regfile_stack/data_0_525" BEL
+        "cpu_module/regfile_stack/data_0_524" BEL
+        "cpu_module/regfile_stack/data_0_523" BEL
+        "cpu_module/regfile_stack/data_0_522" BEL
+        "cpu_module/regfile_stack/data_0_521" BEL
+        "cpu_module/regfile_stack/data_0_520" BEL
+        "cpu_module/regfile_stack/data_0_519" BEL
+        "cpu_module/regfile_stack/data_0_518" BEL
+        "cpu_module/regfile_stack/data_0_517" BEL
+        "cpu_module/regfile_stack/data_0_516" BEL
+        "cpu_module/regfile_stack/data_0_515" BEL
+        "cpu_module/regfile_stack/data_0_514" BEL
+        "cpu_module/regfile_stack/data_0_513" BEL
+        "cpu_module/regfile_stack/data_0_512" BEL
         "cpu_module/regfile_stack/data_0_511" BEL
         "cpu_module/regfile_stack/data_0_510" BEL
         "cpu_module/regfile_stack/data_0_509" BEL
@@ -826,23 +1346,42 @@ TIMEGRP sys_clk_pin = BEL "clk_slow_seg_gen/clk_slow" BEL
         "cpu_module/regfile_stack/data_0_35" BEL
         "cpu_module/regfile_stack/data_0_34" BEL
         "cpu_module/regfile_stack/data_0_33" BEL
-        "cpu_module/regfile_stack/data_0_32" BEL
+        "cpu_module/regfile_stack/data_0_32" BEL "mode_change_jitter/cnt_31"
+        BEL "mode_change_jitter/cnt_30" BEL "mode_change_jitter/cnt_29" BEL
+        "mode_change_jitter/cnt_28" BEL "mode_change_jitter/cnt_27" BEL
+        "mode_change_jitter/cnt_26" BEL "mode_change_jitter/cnt_25" BEL
+        "mode_change_jitter/cnt_24" BEL "mode_change_jitter/cnt_23" BEL
+        "mode_change_jitter/cnt_22" BEL "mode_change_jitter/cnt_21" BEL
+        "mode_change_jitter/cnt_20" BEL "mode_change_jitter/cnt_19" BEL
+        "mode_change_jitter/cnt_18" BEL "mode_change_jitter/cnt_17" BEL
+        "mode_change_jitter/cnt_16" BEL "mode_change_jitter/cnt_15" BEL
+        "mode_change_jitter/cnt_14" BEL "mode_change_jitter/cnt_13" BEL
+        "mode_change_jitter/cnt_12" BEL "mode_change_jitter/cnt_11" BEL
+        "mode_change_jitter/cnt_10" BEL "mode_change_jitter/cnt_9" BEL
+        "mode_change_jitter/cnt_8" BEL "mode_change_jitter/cnt_7" BEL
+        "mode_change_jitter/cnt_6" BEL "mode_change_jitter/cnt_5" BEL
+        "mode_change_jitter/cnt_4" BEL "mode_change_jitter/cnt_3" BEL
+        "mode_change_jitter/cnt_2" BEL "mode_change_jitter/cnt_1" BEL
+        "mode_change_jitter/cnt_0" BEL "mode_change_jitter/cnt_en" BEL
+        "mode_change_jitter/button_final" BEL "mode_change_jitter/button_out"
+        BEL "cpu_module/instruction_mem/mem_wb_rd_3_1" BEL
+        "cpu_module/instruction_mem/mem_wb_rd_4_1" BEL
         "cpu_module/instruction_mem/mem_wb_rd_2_1" BEL
-        "cpu_module/instruction_mem/mem_wb_rd_1_1" BEL
         "cpu_module/instruction_mem/mem_wb_rd_0_1" BEL
-        "cpu_module/instruction_mem/mem_wb_rd_0_2" BEL
+        "cpu_module/instruction_mem/mem_wb_rd_1_1" BEL
         "cpu_module/instruction_mem/mem_wb_rd_1_2" BEL
         "cpu_module/instruction_mem/mem_wb_rd_2_2" BEL
-        "cpu_module/instruction_mem/mem_wb_rd_0_3" BEL
+        "cpu_module/instruction_mem/mem_wb_rd_0_2" BEL
+        "cpu_module/instruction_mem/mem_wb_rd_4_2" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_alu_shift_shamt_1" BEL
+        "cpu_module/instruction_mem/mem_wb_rd_3_2" BEL
+        "cpu_module/instruction_decode/id_ex_ctrl_alu_shift_shamt_2" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_alu_src_1" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_alu_src_2" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_alu_src_3" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_alu_src_4" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_alu_src_5" BEL
-        "cpu_module/instruction_mem/mem_wb_rd_4_1" BEL
-        "cpu_module/instruction_mem/mem_wb_rd_1_3" BEL
-        "cpu_module/instruction_mem/mem_wb_rd_2_3" BEL "clk_BUFGP/BUFG" BEL
+        "clk_BUFGP/BUFG" BEL
         "cpu_module/instruction_mem/data_memory/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/Mram_ram32/SP"
         BEL
         "cpu_module/instruction_mem/data_memory/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/Mram_ram32/DP"

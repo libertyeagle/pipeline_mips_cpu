@@ -4,7 +4,7 @@ run
 -ifn top.prj
 -ofn top
 -ofmt NGC
--p xc6slx25-3-csg324
+-p xc6slx16-3-csg324
 -top top
 -opt_mode Speed
 -opt_level 1
