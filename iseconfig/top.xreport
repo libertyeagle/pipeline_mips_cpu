@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2018-05-30T11:46:04</DateModified>
+  <DateModified>2018-05-30T16:41:13</DateModified>
   <ModuleName>top</ModuleName>
   <SummaryTimeStamp>2018-05-30T11:45:07</SummaryTimeStamp>
   <SavedFilePath>C:/FPGA/pipeline_mips/iseconfig/top.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/FPGA/pipeline_mips</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>C:/FPGA/pipeline_mips\</ImplementationReportsDirectory>
   <DateInitialized>2018-05-29T21:57:09</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

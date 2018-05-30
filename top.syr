@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.22 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.19 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.22 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.19 secs
  
 --> Reading design: top.prj
 
@@ -167,6 +167,7 @@ Elaborating module <if_stage>.
 
 Elaborating module <instr_mem>.
 WARNING:HDLCompiler:1499 - "C:\FPGA\pipeline_mips\ipcore_dir\instr_mem.v" Line 39: Empty module <instr_mem> remains a black box.
+WARNING:HDLCompiler:189 - "C:\FPGA\pipeline_mips\if.v" Line 53: Size mismatch in connection of port <a>. Formal port size is 6-bit while actual signal size is 8-bit.
 
 Elaborating module <id_stage>.
 
@@ -232,7 +233,7 @@ Synthesizing Unit <if_stage>.
     Found 32-bit register for signal <if_id_pc_next>.
     Found 32-bit register for signal <if_id_instruction>.
     Found 32-bit register for signal <pc>.
-    Found 32-bit adder for signal <pc[31]_GND_3_o_add_7_OUT> created at line 74.
+    Found 32-bit adder for signal <pc[31]_GND_3_o_add_7_OUT> created at line 81.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  96 D-type flip-flop(s).
@@ -241,6 +242,10 @@ Unit <if_stage> synthesized.
 
 Synthesizing Unit <id_stage>.
     Related source file is "C:\FPGA\pipeline_mips\id.v".
+        BREAKPOINT_EN = 1'b1
+        BREAKPOINT_ADDR = 32'b00000000000000000000000000110000
+    Found 1-bit register for signal <continue_en>.
+    Found 4-bit register for signal <id_ex_ctrl_alu_control>.
     Found 2-bit register for signal <id_ex_ctrl_store_type>.
     Found 3-bit register for signal <id_ex_ctrl_load_type>.
     Found 3-bit register for signal <id_ex_ctrl_branch_type>.
@@ -250,7 +255,6 @@ Synthesizing Unit <id_stage>.
     Found 5-bit register for signal <id_ex_rt>.
     Found 5-bit register for signal <id_ex_rs>.
     Found 5-bit register for signal <id_ex_shamt>.
-    Found 4-bit register for signal <id_ex_ctrl_alu_control>.
     Found 1-bit register for signal <id_ex_ctrl_reg_dst>.
     Found 1-bit register for signal <id_ex_ctrl_alu_src>.
     Found 1-bit register for signal <id_ex_ctrl_reg_write>.
@@ -260,14 +264,15 @@ Synthesizing Unit <id_stage>.
     Found 1-bit register for signal <id_ex_ctrl_branch>.
     Found 1-bit register for signal <id_ex_ctrl_jump_reg>.
     Found 1-bit register for signal <id_ex_ctrl_alu_shift_shamt>.
-    Found 32-bit adder for signal <PWR_5_o_GND_5_o_add_7_OUT> created at line 102.
-    Found 5-bit comparator equal for signal <id_ex_rt[4]_rs[4]_equal_10_o> created at line 107
-    Found 5-bit comparator equal for signal <id_ex_rt[4]_rt[4]_equal_11_o> created at line 107
+    Found 32-bit subtractor for signal <if_id_pc_next[31]_GND_5_o_sub_1_OUT> created at line 55.
+    Found 32-bit adder for signal <PWR_5_o_GND_5_o_add_9_OUT> created at line 110.
+    Found 5-bit comparator equal for signal <id_ex_rt[4]_rs[4]_equal_12_o> created at line 115
+    Found 5-bit comparator equal for signal <id_ex_rt[4]_rt[4]_equal_13_o> created at line 115
     Summary:
-	inferred   1 Adder/Subtractor(s).
-	inferred 105 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred 106 D-type flip-flop(s).
 	inferred   2 Comparator(s).
-	inferred  39 Multiplexer(s).
+	inferred  58 Multiplexer(s).
 Unit <id_stage> synthesized.
 
 Synthesizing Unit <control>.
@@ -540,41 +545,42 @@ Macro Statistics
  16x8-bit single-port Read Only RAM                    : 4
  32x4-bit single-port Read Only RAM                    : 1
  4x4-bit single-port Read Only RAM                     : 1
-# Adders/Subtractors                                   : 9
+# Adders/Subtractors                                   : 11
  2-bit adder                                           : 1
- 32-bit adder                                          : 6
+ 32-bit adder                                          : 7
  32-bit addsub                                         : 1
+ 32-bit subtractor                                     : 1
  7-bit adder                                           : 1
-# Registers                                            : 65
- 1-bit register                                        : 30
+# Registers                                            : 70
+ 1-bit register                                        : 34
  1024-bit register                                     : 1
  2-bit register                                        : 4
  3-bit register                                        : 5
- 32-bit register                                       : 15
+ 32-bit register                                       : 16
  4-bit register                                        : 2
  5-bit register                                        : 6
  7-bit register                                        : 1
  8-bit register                                        : 1
-# Comparators                                          : 16
- 1-bit comparator not equal                            : 1
+# Comparators                                          : 17
+ 1-bit comparator not equal                            : 2
  2-bit comparator greater                              : 1
  32-bit comparator equal                               : 1
  32-bit comparator greater                             : 4
  5-bit comparator equal                                : 8
  7-bit comparator greater                              : 1
-# Multiplexers                                         : 211
- 1-bit 2-to-1 multiplexer                              : 75
+# Multiplexers                                         : 231
+ 1-bit 2-to-1 multiplexer                              : 84
  1-bit 7-to-1 multiplexer                              : 1
  16-bit 2-to-1 multiplexer                             : 1
- 2-bit 2-to-1 multiplexer                              : 5
- 3-bit 2-to-1 multiplexer                              : 13
- 32-bit 2-to-1 multiplexer                             : 78
+ 2-bit 2-to-1 multiplexer                              : 6
+ 3-bit 2-to-1 multiplexer                              : 15
+ 32-bit 2-to-1 multiplexer                             : 81
  32-bit 3-to-1 multiplexer                             : 1
  32-bit 32-to-1 multiplexer                            : 2
  32-bit 4-to-1 multiplexer                             : 4
  32-bit 7-to-1 multiplexer                             : 1
- 4-bit 2-to-1 multiplexer                              : 17
- 5-bit 2-to-1 multiplexer                              : 10
+ 4-bit 2-to-1 multiplexer                              : 18
+ 5-bit 2-to-1 multiplexer                              : 14
  7-bit 2-to-1 multiplexer                              : 2
  8-bit 4-to-1 multiplexer                              : 1
 # Logic shifters                                       : 3
@@ -662,35 +668,36 @@ Macro Statistics
  16x8-bit single-port distributed Read Only RAM        : 4
  32x4-bit single-port distributed Read Only RAM        : 1
  4x4-bit single-port distributed Read Only RAM         : 1
-# Adders/Subtractors                                   : 5
+# Adders/Subtractors                                   : 6
  2-bit adder                                           : 1
  32-bit adder                                          : 3
  32-bit addsub                                         : 1
-# Counters                                             : 4
- 32-bit up counter                                     : 3
+ 32-bit subtractor                                     : 1
+# Counters                                             : 5
+ 32-bit up counter                                     : 4
  7-bit up counter                                      : 1
-# Registers                                            : 1507
- Flip-Flops                                            : 1507
-# Comparators                                          : 16
- 1-bit comparator not equal                            : 1
+# Registers                                            : 1511
+ Flip-Flops                                            : 1511
+# Comparators                                          : 17
+ 1-bit comparator not equal                            : 2
  2-bit comparator greater                              : 1
  32-bit comparator equal                               : 1
  32-bit comparator greater                             : 4
  5-bit comparator equal                                : 8
  7-bit comparator greater                              : 1
-# Multiplexers                                         : 206
- 1-bit 2-to-1 multiplexer                              : 75
+# Multiplexers                                         : 225
+ 1-bit 2-to-1 multiplexer                              : 84
  1-bit 7-to-1 multiplexer                              : 1
  16-bit 2-to-1 multiplexer                             : 1
- 2-bit 2-to-1 multiplexer                              : 4
- 3-bit 2-to-1 multiplexer                              : 13
- 32-bit 2-to-1 multiplexer                             : 75
+ 2-bit 2-to-1 multiplexer                              : 5
+ 3-bit 2-to-1 multiplexer                              : 15
+ 32-bit 2-to-1 multiplexer                             : 77
  32-bit 3-to-1 multiplexer                             : 1
  32-bit 32-to-1 multiplexer                            : 2
  32-bit 4-to-1 multiplexer                             : 4
  32-bit 7-to-1 multiplexer                             : 1
- 4-bit 2-to-1 multiplexer                              : 17
- 5-bit 2-to-1 multiplexer                              : 10
+ 4-bit 2-to-1 multiplexer                              : 18
+ 5-bit 2-to-1 multiplexer                              : 14
  7-bit 2-to-1 multiplexer                              : 1
  8-bit 4-to-1 multiplexer                              : 1
 # Logic shifters                                       : 3
@@ -705,8 +712,6 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-INFO:Xst:2261 - The FF/Latch <id_ex_shamt_2> in Unit <id_stage> is equivalent to the following FF/Latch, which will be removed : <id_ex_imm_sign_extended_8> 
-INFO:Xst:2261 - The FF/Latch <id_ex_shamt_3> in Unit <id_stage> is equivalent to the following FF/Latch, which will be removed : <id_ex_imm_sign_extended_9> 
 INFO:Xst:2261 - The FF/Latch <id_ex_shamt_4> in Unit <id_stage> is equivalent to the following FF/Latch, which will be removed : <id_ex_imm_sign_extended_10> 
 INFO:Xst:2261 - The FF/Latch <id_ex_rd_0> in Unit <id_stage> is equivalent to the following FF/Latch, which will be removed : <id_ex_imm_sign_extended_11> 
 INFO:Xst:2261 - The FF/Latch <id_ex_rd_1> in Unit <id_stage> is equivalent to the following FF/Latch, which will be removed : <id_ex_imm_sign_extended_12> 
@@ -715,6 +720,33 @@ INFO:Xst:2261 - The FF/Latch <id_ex_rd_3> in Unit <id_stage> is equivalent to th
 INFO:Xst:2261 - The FF/Latch <id_ex_rd_4> in Unit <id_stage> is equivalent to the following 17 FFs/Latches, which will be removed : <id_ex_imm_sign_extended_15> <id_ex_imm_sign_extended_16> <id_ex_imm_sign_extended_17> <id_ex_imm_sign_extended_18> <id_ex_imm_sign_extended_19> <id_ex_imm_sign_extended_20> <id_ex_imm_sign_extended_21> <id_ex_imm_sign_extended_22> <id_ex_imm_sign_extended_23> <id_ex_imm_sign_extended_24> <id_ex_imm_sign_extended_25> <id_ex_imm_sign_extended_26> <id_ex_imm_sign_extended_27> <id_ex_imm_sign_extended_28> <id_ex_imm_sign_extended_29> <id_ex_imm_sign_extended_30> <id_ex_imm_sign_extended_31> 
 INFO:Xst:2261 - The FF/Latch <id_ex_shamt_0> in Unit <id_stage> is equivalent to the following FF/Latch, which will be removed : <id_ex_imm_sign_extended_6> 
 INFO:Xst:2261 - The FF/Latch <id_ex_shamt_1> in Unit <id_stage> is equivalent to the following FF/Latch, which will be removed : <id_ex_imm_sign_extended_7> 
+INFO:Xst:2261 - The FF/Latch <id_ex_shamt_2> in Unit <id_stage> is equivalent to the following FF/Latch, which will be removed : <id_ex_imm_sign_extended_8> 
+INFO:Xst:2261 - The FF/Latch <id_ex_shamt_3> in Unit <id_stage> is equivalent to the following FF/Latch, which will be removed : <id_ex_imm_sign_extended_9> 
+WARNING:Xst:3002 - This design contains one or more registers/latches that are directly
+   incompatible with the Spartan6 architecture. The two primary causes of this is
+   either a register or latch described with both an asynchronous set and
+   asynchronous reset, or a register or latch described with an asynchronous
+   set or reset which however has an initialization value of the opposite 
+   polarity (i.e. asynchronous reset with an initialization value of 1).
+    While this circuit can be built, it creates a sub-optimal implementation
+   in terms of area, power and performance. For a more optimal implementation
+   Xilinx highly recommends one of the following:
+
+          1) Remove either the set or reset from all registers and latches
+             if not needed for required functionality
+          2) Modify the code in order to produce a synchronous set
+             and/or reset (both is preferred)
+          3) Ensure all registers have the same initialization value as the
+             described asynchronous set or reset polarity
+          4) Use the -async_to_sync option to transform the asynchronous
+             set/reset to synchronous operation
+             (timing simulation highly recommended when using this option)
+
+  Please refer to http://www.xilinx.com search string "Spartan6 asynchronous set/reset" for more details.
+
+  List of register instances with asynchronous set and reset:
+    continue_en in unit <id_stage>
+
 
 Optimizing unit <top> ...
 
@@ -737,136 +769,6 @@ Optimizing unit <reg_file> ...
 Optimizing unit <button_jitter> ...
 
 Optimizing unit <seg> ...
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_31> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_30> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_29> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_28> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_27> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_26> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_25> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_24> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_23> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_22> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_21> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_20> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_19> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_18> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_17> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_16> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_15> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_14> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_13> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_12> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_11> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_10> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_9> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_8> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_1> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/if_id_pc_next_0> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_31> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_30> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_29> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_28> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_27> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_26> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_25> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_24> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_23> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_22> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_21> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_20> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_19> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_18> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_17> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_16> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_15> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_14> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_13> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_12> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_11> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_10> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_9> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_8> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_1> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_fetch/pc_0> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_31> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_30> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_29> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_28> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_27> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_26> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_25> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_24> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_23> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_22> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_21> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_20> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_19> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_18> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_17> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_16> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_15> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_14> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_13> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_12> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_11> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_10> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_9> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_8> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_1> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_decode/id_ex_pc_next_0> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_31> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_30> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_29> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_28> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_27> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_26> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_25> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_24> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_23> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_22> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_21> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_20> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_19> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_18> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_17> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_16> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_15> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_14> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_13> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_12> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_11> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_10> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_9> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_8> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_1> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_jump_0> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_31> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_30> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_29> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_28> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_27> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_26> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_25> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_24> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_23> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_22> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_21> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_20> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_19> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_18> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_17> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_16> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_15> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_14> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_13> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_12> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_11> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_10> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_9> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_8> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_1> of sequential type is unconnected in block <top>.
-WARNING:Xst:2677 - Node <cpu_module/instruction_execute/ex_mem_pc_branch_0> of sequential type is unconnected in block <top>.
 WARNING:Xst:1710 - FF/Latch <cpu_module/regfile_stack/data_0_0> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cpu_module/regfile_stack/data_0_1> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <cpu_module/regfile_stack/data_0_2> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
@@ -907,9 +809,12 @@ INFO:Xst:2261 - The FF/Latch <clk_slow_seg_gen/cnt_div_0> in Unit <top> is equiv
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 44.
+Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 48.
 FlipFlop cpu_module/instruction_decode/id_ex_ctrl_alu_shift_shamt has been replicated 2 time(s)
 FlipFlop cpu_module/instruction_decode/id_ex_ctrl_alu_src has been replicated 5 time(s)
+FlipFlop cpu_module/instruction_decode/id_ex_rd_4 has been replicated 3 time(s)
+FlipFlop cpu_module/instruction_decode/id_ex_shamt_1 has been replicated 1 time(s)
+FlipFlop cpu_module/instruction_execute/ex_mem_alu_out_1 has been replicated 1 time(s)
 FlipFlop cpu_module/instruction_mem/mem_wb_rd_0 has been replicated 2 time(s)
 FlipFlop cpu_module/instruction_mem/mem_wb_rd_1 has been replicated 2 time(s)
 FlipFlop cpu_module/instruction_mem/mem_wb_rd_2 has been replicated 2 time(s)
@@ -922,8 +827,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 1434
- Flip-Flops                                            : 1434
+# Registers                                            : 1605
+ Flip-Flops                                            : 1605
 
 =========================================================================
 
@@ -946,31 +851,33 @@ Top Level Output File Name         : top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 3541
+# BELS                             : 4061
 #      GND                         : 2
-#      INV                         : 7
-#      LUT1                        : 66
-#      LUT2                        : 89
-#      LUT3                        : 740
-#      LUT4                        : 317
-#      LUT5                        : 702
-#      LUT6                        : 1193
-#      MUXCY                       : 186
-#      MUXF7                       : 103
+#      INV                         : 37
+#      LUT1                        : 91
+#      LUT2                        : 210
+#      LUT3                        : 747
+#      LUT4                        : 367
+#      LUT5                        : 726
+#      LUT6                        : 1236
+#      MUXCY                       : 298
+#      MUXF7                       : 101
 #      VCC                         : 1
-#      XORCY                       : 135
-# FlipFlops/Latches                : 1498
+#      XORCY                       : 245
+# FlipFlops/Latches                : 1670
 #      FD                          : 64
-#      FDC                         : 396
-#      FDCE                        : 1032
-#      FDRE                        : 6
+#      FDC                         : 512
+#      FDCE                        : 1060
+#      FDP                         : 1
+#      FDRE                        : 32
+#      LDC                         : 1
 # RAMS                             : 32
 #      RAM64X1D                    : 32
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 27
-#      IBUF                        : 8
-#      OBUF                        : 19
+# IO Buffers                       : 29
+#      IBUF                        : 9
+#      OBUF                        : 20
 
 Device utilization summary:
 ---------------------------
@@ -979,22 +886,22 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            1497  out of  18224     8%  
- Number of Slice LUTs:                 3178  out of   9112    34%  
-    Number used as Logic:              3114  out of   9112    34%  
+ Number of Slice Registers:            1669  out of  18224     9%  
+ Number of Slice LUTs:                 3478  out of   9112    38%  
+    Number used as Logic:              3414  out of   9112    37%  
     Number used as Memory:               64  out of   2176     2%  
        Number used as RAM:               64
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   3273
-   Number with an unused Flip Flop:    1776  out of   3273    54%  
-   Number with an unused LUT:            95  out of   3273     2%  
-   Number of fully used LUT-FF pairs:  1402  out of   3273    42%  
-   Number of unique control sets:        10
+ Number of LUT Flip Flop pairs used:   3577
+   Number with an unused Flip Flop:    1908  out of   3577    53%  
+   Number with an unused LUT:            99  out of   3577     2%  
+   Number of fully used LUT-FF pairs:  1570  out of   3577    43%  
+   Number of unique control sets:        14
 
 IO Utilization: 
- Number of IOs:                          28
- Number of bonded IOBs:                  28  out of    232    12%  
+ Number of IOs:                          30
+ Number of bonded IOBs:                  30  out of    232    12%  
     IOB Flip Flops/Latches:               1
 
 Specific Feature Utilization:
@@ -1018,14 +925,15 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
------------------------------------+----------------------------------------------+-------+
-Clock Signal                       | Clock buffer(FF name)                        | Load  |
------------------------------------+----------------------------------------------+-------+
-mode_change_jitter/button_final    | NONE(curr_mode)                              | 1     |
-clk_slow_change_addr_gen/clk_slow  | NONE(read_addr_generator_mode_select/counter)| 8     |
-clk                                | BUFGP                                        | 1507  |
-clk_slow_seg_gen/clk_slow          | NONE(data_displayer/segment_7)               | 14    |
------------------------------------+----------------------------------------------+-------+
+-----------------------------------+----------------------------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)                              | Load  |
+-----------------------------------+----------------------------------------------------+-------+
+mode_change_jitter/button_final    | NONE(curr_mode)                                    | 1     |
+clk_slow_change_addr_gen/clk_slow  | NONE(read_addr_generator_mode_select/counter)      | 8     |
+clk                                | BUFGP                                              | 1678  |
+clk_slow_seg_gen/clk_slow          | NONE(data_displayer/segment_7)                     | 14    |
+continue_sig_jitter/button_final   | NONE(cpu_module/instruction_decode/continue_en_LDC)| 1     |
+-----------------------------------+----------------------------------------------------+-------+
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
@@ -1036,9 +944,9 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 9.209ns (Maximum Frequency: 108.590MHz)
+   Minimum period: 9.230ns (Maximum Frequency: 108.343MHz)
    Minimum input arrival time before clock: 6.923ns
-   Maximum output required time after clock: 5.930ns
+   Maximum output required time after clock: 7.764ns
    Maximum combinational path delay: 5.883ns
 
 Timing Details:
@@ -1061,7 +969,7 @@ Delay:               2.506ns (Levels of Logic = 1)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDC:C->Q             24   0.447   1.172  curr_mode (curr_mode)
-     INV:I->O              1   0.206   0.579  curr_mode_INV_93_o1_INV_0 (curr_mode_INV_93_o)
+     INV:I->O              1   0.206   0.579  curr_mode_INV_101_o1_INV_0 (curr_mode_INV_101_o)
      FDC:D                     0.102          curr_mode
     ----------------------------------------
     Total                      2.506ns (0.755ns logic, 1.751ns route)
@@ -1091,32 +999,32 @@ Delay:               2.506ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 9.209ns (frequency: 108.590MHz)
-  Total number of paths / destination ports: 422026 / 2768
+  Clock period: 9.230ns (frequency: 108.343MHz)
+  Total number of paths / destination ports: 556825 / 2992
 -------------------------------------------------------------------------
-Delay:               9.209ns (Levels of Logic = 8)
-  Source:            cpu_module/instruction_mem/mem_wb_rd_2_1 (FF)
-  Destination:       cpu_module/instruction_execute/ex_mem_alu_out_19 (FF)
+Delay:               9.230ns (Levels of Logic = 8)
+  Source:            cpu_module/instruction_execute/ex_mem_ctrl_reg_write (FF)
+  Destination:       cpu_module/instruction_execute/ex_mem_alu_out_15 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: cpu_module/instruction_mem/mem_wb_rd_2_1 to cpu_module/instruction_execute/ex_mem_alu_out_19
+  Data Path: cpu_module/instruction_execute/ex_mem_ctrl_reg_write to cpu_module/instruction_execute/ex_mem_alu_out_15
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q              2   0.447   0.961  cpu_module/instruction_mem/mem_wb_rd_2_1 (cpu_module/instruction_mem/mem_wb_rd_2_1)
-     LUT5:I0->O            3   0.203   0.879  cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_a_from_wb7_SW0 (N60)
-     LUT6:I3->O            5   0.205   0.943  cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_a_from_wb7_2 (cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_a_from_wb71)
-     LUT5:I2->O            1   0.205   0.684  cpu_module/instruction_execute/alu_src_a<4>1_F (N474)
-     LUT3:I1->O           81   0.203   2.096  cpu_module/instruction_execute/alu_src_a<4>11 (cpu_module/instruction_execute/alu_src_a<4>)
-     LUT5:I0->O            2   0.203   0.721  cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT1110 (cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT113)
-     LUT6:I4->O            1   0.203   0.000  cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT1113_SW3_G (N397)
-     MUXF7:I1->O           1   0.140   0.808  cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT1113_SW3 (N299)
-     LUT6:I3->O            1   0.205   0.000  cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT1114 (cpu_module/instruction_execute/alu_out[31]_GND_7_o_mux_8_OUT<19>)
-     FDC:D                     0.102          cpu_module/instruction_execute/ex_mem_alu_out_19
+     FDC:C->Q              5   0.447   1.059  cpu_module/instruction_execute/ex_mem_ctrl_reg_write (cpu_module/instruction_execute/ex_mem_ctrl_reg_write)
+     LUT5:I0->O            4   0.203   0.912  cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_mem7_SW0 (N67)
+     LUT6:I3->O           15   0.205   0.982  cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_mem7_2 (cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_mem7_1)
+     LUT5:I4->O           19   0.205   1.300  cpu_module/instruction_execute/Mmux_alu_src_b71 (cpu_module/instruction_execute/alu_src_b<15>)
+     LUT6:I3->O            4   0.205   0.788  cpu_module/instruction_execute/CPU_ALU/Sh151 (cpu_module/instruction_execute/CPU_ALU/Sh15)
+     LUT5:I3->O            2   0.203   0.617  cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT72_SW0 (N101)
+     LUT6:I5->O            1   0.205   0.808  cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT73_SW0_SW2 (N316)
+     LUT5:I2->O            1   0.205   0.580  cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT73_SW0 (N99)
+     LUT6:I5->O            1   0.205   0.000  cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT74 (cpu_module/instruction_execute/alu_out[31]_GND_7_o_mux_8_OUT<15>)
+     FDC:D                     0.102          cpu_module/instruction_execute/ex_mem_alu_out_15
     ----------------------------------------
-    Total                      9.209ns (2.116ns logic, 7.093ns route)
-                                       (23.0% logic, 77.0% route)
+    Total                      9.230ns (2.185ns logic, 7.045ns route)
+                                       (23.7% logic, 76.3% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_slow_seg_gen/clk_slow'
@@ -1144,7 +1052,7 @@ Delay:               2.266ns (Levels of Logic = 1)
 Timing constraint: Default OFFSET IN BEFORE for Clock 'mode_change_jitter/button_final'
   Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
-Offset:              3.963ns (Levels of Logic = 1)
+Offset:              4.004ns (Levels of Logic = 1)
   Source:            rst (PAD)
   Destination:       curr_mode (FF)
   Destination Clock: mode_change_jitter/button_final rising
@@ -1153,17 +1061,17 @@ Offset:              3.963ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O          1434   1.222   2.311  rst_IBUF (clk_slow_change_addr_gen/rst_n_inv)
+     IBUF:I->O          1605   1.222   2.352  rst_IBUF (clk_slow_change_addr_gen/rst_n_inv)
      FDC:CLR                   0.430          curr_mode
     ----------------------------------------
-    Total                      3.963ns (1.652ns logic, 2.311ns route)
-                                       (41.7% logic, 58.3% route)
+    Total                      4.004ns (1.652ns logic, 2.352ns route)
+                                       (41.3% logic, 58.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_slow_change_addr_gen/clk_slow'
   Total number of paths / destination ports: 8 / 8
 -------------------------------------------------------------------------
-Offset:              3.963ns (Levels of Logic = 1)
+Offset:              4.004ns (Levels of Logic = 1)
   Source:            rst (PAD)
   Destination:       read_addr_generator_mode_select/counter (FF)
   Destination Clock: clk_slow_change_addr_gen/clk_slow rising
@@ -1172,15 +1080,15 @@ Offset:              3.963ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O          1434   1.222   2.311  rst_IBUF (clk_slow_change_addr_gen/rst_n_inv)
+     IBUF:I->O          1605   1.222   2.352  rst_IBUF (clk_slow_change_addr_gen/rst_n_inv)
      FDC:CLR                   0.430          read_addr_generator_mode_select/counter
     ----------------------------------------
-    Total                      3.963ns (1.652ns logic, 2.311ns route)
-                                       (41.7% logic, 58.3% route)
+    Total                      4.004ns (1.652ns logic, 2.352ns route)
+                                       (41.3% logic, 58.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 1799 / 1639
+  Total number of paths / destination ports: 1973 / 1813
 -------------------------------------------------------------------------
 Offset:              4.235ns (Levels of Logic = 4)
   Source:            addr_in<0> (PAD)
@@ -1225,6 +1133,25 @@ Offset:              6.923ns (Levels of Logic = 7)
     ----------------------------------------
     Total                      6.923ns (2.345ns logic, 4.578ns route)
                                        (33.9% logic, 66.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'continue_sig_jitter/button_final'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.004ns (Levels of Logic = 1)
+  Source:            rst (PAD)
+  Destination:       cpu_module/instruction_decode/continue_en_LDC (LATCH)
+  Destination Clock: continue_sig_jitter/button_final falling
+
+  Data Path: rst to cpu_module/instruction_decode/continue_en_LDC
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O          1605   1.222   2.352  rst_IBUF (clk_slow_change_addr_gen/rst_n_inv)
+     LDC:CLR                   0.430          cpu_module/instruction_decode/continue_en_LDC
+    ----------------------------------------
+    Total                      4.004ns (1.652ns logic, 2.352ns route)
+                                       (41.3% logic, 58.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_slow_seg_gen/clk_slow'
@@ -1286,6 +1213,46 @@ Offset:              5.404ns (Levels of Logic = 2)
                                        (59.6% logic, 40.4% route)
 
 =========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 467 / 1
+-------------------------------------------------------------------------
+Offset:              7.764ns (Levels of Logic = 22)
+  Source:            cpu_module/instruction_fetch/if_id_pc_next_2 (FF)
+  Destination:       at_breakpoint (PAD)
+  Source Clock:      clk rising
+
+  Data Path: cpu_module/instruction_fetch/if_id_pc_next_2 to at_breakpoint
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             2   0.447   0.617  cpu_module/instruction_fetch/if_id_pc_next_2 (cpu_module/instruction_fetch/if_id_pc_next_2)
+     LUT1:I0->O            1   0.205   0.000  cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<2>_rt (cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<2>_rt)
+     MUXCY:S->O            1   0.172   0.000  cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<2> (cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<3> (cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<4> (cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<5> (cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<6> (cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<6>)
+     MUXCY:CI->O           1   0.019   0.000  cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<7> (cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<8> (cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<9> (cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<10> (cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<11> (cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<12> (cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<13> (cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<13>)
+     MUXCY:CI->O           1   0.019   0.000  cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<14> (cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<14>)
+     MUXCY:CI->O           1   0.019   0.000  cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<15> (cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<15>)
+     MUXCY:CI->O           1   0.019   0.000  cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<16> (cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<16>)
+     MUXCY:CI->O           1   0.019   0.000  cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<17> (cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_cy<17>)
+     XORCY:CI->O           1   0.180   0.827  cpu_module/instruction_decode/Msub_if_id_pc_next[31]_GND_5_o_sub_1_OUT_xor<18> (cpu_module/instruction_decode/if_id_pc_next[31]_GND_5_o_sub_1_OUT<18>)
+     LUT4:I0->O            1   0.203   0.580  cpu_module/instruction_decode/stall_breakpoint<31>1 (cpu_module/instruction_decode/stall_breakpoint<31>)
+     LUT6:I5->O            3   0.205   0.651  cpu_module/instruction_decode/stall_breakpoint<31>2 (cpu_module/instruction_decode/stall_breakpoint<31>1)
+     LUT4:I3->O            2   0.205   0.616  cpu_module/instruction_decode/stall_breakpoint<31>8 (at_breakpoint_OBUF)
+     OBUF:I->O                 2.571          at_breakpoint_OBUF (at_breakpoint)
+    ----------------------------------------
+    Total                      7.764ns (4.473ns logic, 3.291ns route)
+                                       (57.6% logic, 42.4% route)
+
+=========================================================================
 Timing constraint: Default path analysis
   Total number of paths / destination ports: 6 / 6
 -------------------------------------------------------------------------
@@ -1314,8 +1281,9 @@ Clock to Setup on destination clock clk
                                  | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                     |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------------------------+---------+---------+---------+---------+
-clk                              |    9.209|         |         |         |
+clk                              |    9.230|         |         |         |
 clk_slow_change_addr_gen/clk_slow|    3.756|         |         |         |
+continue_sig_jitter/button_final |         |    4.779|         |         |
 mode_change_jitter/button_final  |    4.282|         |         |         |
 ---------------------------------+---------+---------+---------+---------+
 
@@ -1349,14 +1317,14 @@ mode_change_jitter/button_final|    2.506|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 30.00 secs
-Total CPU time to Xst completion: 29.26 secs
+Total REAL time to Xst completion: 31.00 secs
+Total CPU time to Xst completion: 31.37 secs
  
 --> 
 
-Total memory usage is 350200 kilobytes
+Total memory usage is 382872 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  166 (   0 filtered)
+Number of warnings :   38 (   0 filtered)
 Number of infos    :   20 (   0 filtered)
 

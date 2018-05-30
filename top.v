@@ -22,14 +22,17 @@ module top(
 	input clk,
 	input rst,
 	input mode_change,
+	input continue_sig,
 	input [5:0] addr_in,
 	output [3:0] sel,
 	output [7:0] seg,
 	output [5:0] led,
-	output high_low
+	output high_low,
+	output at_breakpoint
     );
 	 
 	wire mode_change_stable;
+	wire continue_sig_stable;
 	 
 	wire clk_slow_seg;
 	wire clk_slow_change_addr;
@@ -46,10 +49,11 @@ module top(
 	initial
 		curr_mode <= 1'b0;
 	
-	CPU cpu_module(clk, ~rst, read_addr[6:1], mem_read_result);
+	CPU cpu_module(clk, ~rst, continue_sig_stable, read_addr[6:1], mem_read_result, at_breakpoint);
 	clk_divide clk_slow_seg_gen(clk, ~rst, clk_slow_seg);
 	clk_divide_addr clk_slow_change_addr_gen(clk, ~rst, clk_slow_change_addr);
 	button_jitter mode_change_jitter(clk, ~rst, mode_change, mode_change_stable);
+	button_jitter continue_sig_jitter(clk, ~rst, continue_sig, continue_sig_stable);
 	read_addr_gen read_addr_generator_mode_seq(clk_slow_change_addr, ~rst, read_addr_seq);
 	read_addr_gen_single read_addr_generator_mode_select(clk_slow_change_addr, ~rst, addr_in, read_addr_select);
 	

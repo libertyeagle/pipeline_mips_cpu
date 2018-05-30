@@ -29,19 +29,19 @@ Timing constraint: TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH
 50%;
 For more information, see Period Analysis in the Timing Closure User Guide (UG612).
 
- 391611 paths analyzed, 7217 endpoints analyzed, 0 failing endpoints
+ 520661 paths analyzed, 7961 endpoints analyzed, 0 failing endpoints
  0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
- Minimum period is   9.966ns.
+ Minimum period is   9.891ns.
 --------------------------------------------------------------------------------
 
-Paths for end point cpu_module/instruction_execute/ex_mem_alu_out_31 (SLICE_X28Y42.A2), 1715 paths
+Paths for end point cpu_module/instruction_execute/ex_mem_alu_out_21 (SLICE_X33Y47.B6), 3966 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     0.034ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               cpu_module/instruction_mem/mem_wb_data_2 (FF)
-  Destination:          cpu_module/instruction_execute/ex_mem_alu_out_31 (FF)
+Slack (setup path):     0.109ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               cpu_module/instruction_decode/id_ex_rt_3 (FF)
+  Destination:          cpu_module/instruction_execute/ex_mem_alu_out_21 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      9.938ns (Levels of Logic = 6)
-  Clock Path Skew:      0.007ns (0.355 - 0.348)
+  Data Path Delay:      9.877ns (Levels of Logic = 7)
+  Clock Path Skew:      0.021ns (0.289 - 0.268)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 10.000ns
   Clock Uncertainty:    0.035ns
@@ -52,91 +52,94 @@ Slack (setup path):     0.034ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: cpu_module/instruction_mem/mem_wb_data_2 to cpu_module/instruction_execute/ex_mem_alu_out_31
+  Maximum Data Path at Slow Process Corner: cpu_module/instruction_decode/id_ex_rt_3 to cpu_module/instruction_execute/ex_mem_alu_out_21
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X16Y37.CMUX    Tshcko                0.455   cpu_module/instruction_mem/mem_wb_data<30>
-                                                       cpu_module/instruction_mem/mem_wb_data_2
-    SLICE_X27Y39.A3      net (fanout=5)        1.642   cpu_module/instruction_mem/mem_wb_data<2>
-    SLICE_X27Y39.A       Tilo                  0.259   N301
-                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/Mmux_alu_src_b_reg231_SW2
-    SLICE_X27Y33.D2      net (fanout=1)        1.119   N126
-    SLICE_X27Y33.D       Tilo                  0.259   cpu_module/instruction_execute/alu_src_b<2>
-                                                       cpu_module/instruction_execute/Mmux_alu_src_b231
-    SLICE_X23Y37.D1      net (fanout=12)       1.470   cpu_module/instruction_execute/alu_src_b<2>
-    SLICE_X23Y37.D       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU/Sh99
-                                                       cpu_module/instruction_execute/CPU_ALU/Sh991
-    SLICE_X33Y40.D1      net (fanout=7)        2.234   cpu_module/instruction_execute/CPU_ALU/Sh99
-    SLICE_X33Y40.D       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU/Sh143
-                                                       cpu_module/instruction_execute/CPU_ALU/Sh1431
-    SLICE_X28Y42.CX      net (fanout=3)        0.883   cpu_module/instruction_execute/CPU_ALU/Sh143
-    SLICE_X28Y42.CMUX    Tcxc                  0.163   cpu_module/instruction_execute/ex_mem_alu_out<31>
-                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT254_SW1
-    SLICE_X28Y42.A2      net (fanout=1)        0.595   N374
-    SLICE_X28Y42.CLK     Tas                   0.341   cpu_module/instruction_execute/ex_mem_alu_out<31>
-                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT255
-                                                       cpu_module/instruction_execute/ex_mem_alu_out_31
-    -------------------------------------------------  ---------------------------
-    Total                                      9.938ns (1.995ns logic, 7.943ns route)
-                                                       (20.1% logic, 79.9% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     0.234ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               cpu_module/instruction_mem/mem_wb_rd_1_2 (FF)
-  Destination:          cpu_module/instruction_execute/ex_mem_alu_out_31 (FF)
-  Requirement:          10.000ns
-  Data Path Delay:      9.724ns (Levels of Logic = 7)
-  Clock Path Skew:      -0.007ns (0.265 - 0.272)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 10.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: cpu_module/instruction_mem/mem_wb_rd_1_2 to cpu_module/instruction_execute/ex_mem_alu_out_31
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X25Y35.BQ      Tcko                  0.391   cpu_module/instruction_decode/id_ex_rs<3>
-                                                       cpu_module/instruction_mem/mem_wb_rd_1_2
-    SLICE_X27Y34.D2      net (fanout=2)        1.241   cpu_module/instruction_mem/mem_wb_rd_1_2
-    SLICE_X27Y34.D       Tilo                  0.259   cpu_module/instruction_mem/mem_wb_rd_3_2
+    SLICE_X27Y40.CQ      Tcko                  0.391   cpu_module/instruction_decode/id_ex_rt<3>
+                                                       cpu_module/instruction_decode/id_ex_rt_3
+    SLICE_X28Y38.B2      net (fanout=12)       1.086   cpu_module/instruction_decode/id_ex_rt<3>
+    SLICE_X28Y38.B       Tilo                  0.205   N64
                                                        cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb3
-    SLICE_X29Y37.C2      net (fanout=3)        0.971   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb4
-    SLICE_X29Y37.C       Tilo                  0.259   cpu_module/instruction_decode/id_ex_ctrl_alu_src_5
+    SLICE_X28Y37.D6      net (fanout=3)        0.289   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb4
+    SLICE_X28Y37.D       Tilo                  0.205   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb7_1
                                                        cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb7_2
-    SLICE_X27Y37.A1      net (fanout=16)       0.838   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb7_1
-    SLICE_X27Y37.A       Tilo                  0.259   cpu_module/instruction_decode/id_ex_ctrl_alu_src_4
-                                                       cpu_module/instruction_execute/Mmux_alu_src_b121
-    SLICE_X23Y37.D6      net (fanout=12)       0.772   cpu_module/instruction_execute/alu_src_b<1>
-    SLICE_X23Y37.D       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU/Sh99
-                                                       cpu_module/instruction_execute/CPU_ALU/Sh991
-    SLICE_X33Y40.D1      net (fanout=7)        2.234   cpu_module/instruction_execute/CPU_ALU/Sh99
-    SLICE_X33Y40.D       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU/Sh143
-                                                       cpu_module/instruction_execute/CPU_ALU/Sh1431
-    SLICE_X28Y42.CX      net (fanout=3)        0.883   cpu_module/instruction_execute/CPU_ALU/Sh143
-    SLICE_X28Y42.CMUX    Tcxc                  0.163   cpu_module/instruction_execute/ex_mem_alu_out<31>
-                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT254_SW1
-    SLICE_X28Y42.A2      net (fanout=1)        0.595   N374
-    SLICE_X28Y42.CLK     Tas                   0.341   cpu_module/instruction_execute/ex_mem_alu_out<31>
-                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT255
-                                                       cpu_module/instruction_execute/ex_mem_alu_out_31
+    SLICE_X25Y44.C3      net (fanout=15)       1.163   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb7_1
+    SLICE_X25Y44.C       Tilo                  0.259   cpu_module/instruction_execute/alu_src_b<21>
+                                                       cpu_module/instruction_execute/Mmux_alu_src_b141
+    SLICE_X35Y38.B4      net (fanout=17)       2.497   cpu_module/instruction_execute/alu_src_b<21>
+    SLICE_X35Y38.B       Tilo                  0.259   N380
+                                                       cpu_module/instruction_execute/CPU_ALU/Sh211
+    SLICE_X35Y37.D2      net (fanout=7)        1.523   cpu_module/instruction_execute/CPU_ALU/Sh21
+    SLICE_X35Y37.D       Tilo                  0.259   N381
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out143412_SW2
+    SLICE_X33Y47.A6      net (fanout=1)        1.042   N381
+    SLICE_X33Y47.A       Tilo                  0.259   cpu_module/instruction_execute/ex_mem_alu_out<21>
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT146
+    SLICE_X33Y47.B6      net (fanout=1)        0.118   cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT146
+    SLICE_X33Y47.CLK     Tas                   0.322   cpu_module/instruction_execute/ex_mem_alu_out<21>
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT147
+                                                       cpu_module/instruction_execute/ex_mem_alu_out_21
     -------------------------------------------------  ---------------------------
-    Total                                      9.724ns (2.190ns logic, 7.534ns route)
+    Total                                      9.877ns (2.159ns logic, 7.718ns route)
+                                                       (21.9% logic, 78.1% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.141ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               cpu_module/instruction_decode/id_ex_rt_1 (FF)
+  Destination:          cpu_module/instruction_execute/ex_mem_alu_out_21 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      9.845ns (Levels of Logic = 7)
+  Clock Path Skew:      0.021ns (0.289 - 0.268)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: cpu_module/instruction_decode/id_ex_rt_1 to cpu_module/instruction_execute/ex_mem_alu_out_21
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X27Y40.BQ      Tcko                  0.391   cpu_module/instruction_decode/id_ex_rt<3>
+                                                       cpu_module/instruction_decode/id_ex_rt_1
+    SLICE_X29Y39.D2      net (fanout=7)        0.680   cpu_module/instruction_decode/id_ex_rt<1>
+    SLICE_X29Y39.D       Tilo                  0.259   cpu_module/instruction_mem/mem_wb_rd_2_2
+                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb1
+    SLICE_X28Y37.D3      net (fanout=3)        0.609   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb1
+    SLICE_X28Y37.D       Tilo                  0.205   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb7_1
+                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb7_2
+    SLICE_X25Y44.C3      net (fanout=15)       1.163   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb7_1
+    SLICE_X25Y44.C       Tilo                  0.259   cpu_module/instruction_execute/alu_src_b<21>
+                                                       cpu_module/instruction_execute/Mmux_alu_src_b141
+    SLICE_X35Y38.B4      net (fanout=17)       2.497   cpu_module/instruction_execute/alu_src_b<21>
+    SLICE_X35Y38.B       Tilo                  0.259   N380
+                                                       cpu_module/instruction_execute/CPU_ALU/Sh211
+    SLICE_X35Y37.D2      net (fanout=7)        1.523   cpu_module/instruction_execute/CPU_ALU/Sh21
+    SLICE_X35Y37.D       Tilo                  0.259   N381
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out143412_SW2
+    SLICE_X33Y47.A6      net (fanout=1)        1.042   N381
+    SLICE_X33Y47.A       Tilo                  0.259   cpu_module/instruction_execute/ex_mem_alu_out<21>
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT146
+    SLICE_X33Y47.B6      net (fanout=1)        0.118   cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT146
+    SLICE_X33Y47.CLK     Tas                   0.322   cpu_module/instruction_execute/ex_mem_alu_out<21>
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT147
+                                                       cpu_module/instruction_execute/ex_mem_alu_out_21
+    -------------------------------------------------  ---------------------------
+    Total                                      9.845ns (2.213ns logic, 7.632ns route)
                                                        (22.5% logic, 77.5% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     0.235ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               cpu_module/instruction_execute/ex_mem_rd_1 (FF)
-  Destination:          cpu_module/instruction_execute/ex_mem_alu_out_31 (FF)
+Slack (setup path):     0.175ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               cpu_module/instruction_mem/mem_wb_rd_4_2 (FF)
+  Destination:          cpu_module/instruction_execute/ex_mem_alu_out_21 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      9.715ns (Levels of Logic = 7)
-  Clock Path Skew:      -0.015ns (0.265 - 0.280)
+  Data Path Delay:      9.790ns (Levels of Logic = 7)
+  Clock Path Skew:      0.000ns
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 10.000ns
   Clock Uncertainty:    0.035ns
@@ -147,48 +150,117 @@ Slack (setup path):     0.235ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: cpu_module/instruction_execute/ex_mem_rd_1 to cpu_module/instruction_execute/ex_mem_alu_out_31
+  Maximum Data Path at Slow Process Corner: cpu_module/instruction_mem/mem_wb_rd_4_2 to cpu_module/instruction_execute/ex_mem_alu_out_21
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X26Y34.BQ      Tcko                  0.447   cpu_module/instruction_execute/ex_mem_rd<2>
-                                                       cpu_module/instruction_execute/ex_mem_rd_1
-    SLICE_X23Y36.B1      net (fanout=7)        1.148   cpu_module/instruction_execute/ex_mem_rd<1>
-    SLICE_X23Y36.B       Tilo                  0.259   cpu_module/instruction_mem/mem_wb_rd<2>
-                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_mem3
-    SLICE_X23Y37.A5      net (fanout=3)        0.362   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_mem4
-    SLICE_X23Y37.A       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU/Sh99
-                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_mem7_1
-    SLICE_X27Y33.D3      net (fanout=19)       0.777   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_mem7
-    SLICE_X27Y33.D       Tilo                  0.259   cpu_module/instruction_execute/alu_src_b<2>
-                                                       cpu_module/instruction_execute/Mmux_alu_src_b231
-    SLICE_X23Y37.D1      net (fanout=12)       1.470   cpu_module/instruction_execute/alu_src_b<2>
-    SLICE_X23Y37.D       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU/Sh99
-                                                       cpu_module/instruction_execute/CPU_ALU/Sh991
-    SLICE_X33Y40.D1      net (fanout=7)        2.234   cpu_module/instruction_execute/CPU_ALU/Sh99
-    SLICE_X33Y40.D       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU/Sh143
-                                                       cpu_module/instruction_execute/CPU_ALU/Sh1431
-    SLICE_X28Y42.CX      net (fanout=3)        0.883   cpu_module/instruction_execute/CPU_ALU/Sh143
-    SLICE_X28Y42.CMUX    Tcxc                  0.163   cpu_module/instruction_execute/ex_mem_alu_out<31>
-                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT254_SW1
-    SLICE_X28Y42.A2      net (fanout=1)        0.595   N374
-    SLICE_X28Y42.CLK     Tas                   0.341   cpu_module/instruction_execute/ex_mem_alu_out<31>
+    SLICE_X31Y41.BQ      Tcko                  0.391   cpu_module/instruction_mem/mem_wb_rd_4_2
+                                                       cpu_module/instruction_mem/mem_wb_rd_4_2
+    SLICE_X28Y38.D1      net (fanout=2)        0.888   cpu_module/instruction_mem/mem_wb_rd_4_2
+    SLICE_X28Y38.D       Tilo                  0.205   N64
+                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb7_SW0
+    SLICE_X28Y37.D4      net (fanout=3)        0.400   N64
+    SLICE_X28Y37.D       Tilo                  0.205   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb7_1
+                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb7_2
+    SLICE_X25Y44.C3      net (fanout=15)       1.163   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb7_1
+    SLICE_X25Y44.C       Tilo                  0.259   cpu_module/instruction_execute/alu_src_b<21>
+                                                       cpu_module/instruction_execute/Mmux_alu_src_b141
+    SLICE_X35Y38.B4      net (fanout=17)       2.497   cpu_module/instruction_execute/alu_src_b<21>
+    SLICE_X35Y38.B       Tilo                  0.259   N380
+                                                       cpu_module/instruction_execute/CPU_ALU/Sh211
+    SLICE_X35Y37.D2      net (fanout=7)        1.523   cpu_module/instruction_execute/CPU_ALU/Sh21
+    SLICE_X35Y37.D       Tilo                  0.259   N381
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out143412_SW2
+    SLICE_X33Y47.A6      net (fanout=1)        1.042   N381
+    SLICE_X33Y47.A       Tilo                  0.259   cpu_module/instruction_execute/ex_mem_alu_out<21>
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT146
+    SLICE_X33Y47.B6      net (fanout=1)        0.118   cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT146
+    SLICE_X33Y47.CLK     Tas                   0.322   cpu_module/instruction_execute/ex_mem_alu_out<21>
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT147
+                                                       cpu_module/instruction_execute/ex_mem_alu_out_21
+    -------------------------------------------------  ---------------------------
+    Total                                      9.790ns (2.159ns logic, 7.631ns route)
+                                                       (22.1% logic, 77.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point cpu_module/instruction_execute/ex_mem_alu_out_31 (SLICE_X26Y47.A2), 13427 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.118ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               cpu_module/instruction_mem/mem_wb_rd_4_1 (FF)
+  Destination:          cpu_module/instruction_execute/ex_mem_alu_out_31 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      9.825ns (Levels of Logic = 13)
+  Clock Path Skew:      -0.022ns (0.267 - 0.289)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: cpu_module/instruction_mem/mem_wb_rd_4_1 to cpu_module/instruction_execute/ex_mem_alu_out_31
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X31Y41.AQ      Tcko                  0.391   cpu_module/instruction_mem/mem_wb_rd_4_2
+                                                       cpu_module/instruction_mem/mem_wb_rd_4_1
+    SLICE_X33Y42.D3      net (fanout=2)        0.945   cpu_module/instruction_mem/mem_wb_rd_4_1
+    SLICE_X33Y42.D       Tilo                  0.259   N70
+                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_a_from_wb7_SW0
+    SLICE_X31Y40.A2      net (fanout=3)        0.824   N70
+    SLICE_X31Y40.A       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_a_from_wb
+                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_a_from_wb7_2
+    SLICE_X24Y44.B3      net (fanout=5)        1.235   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_a_from_wb71
+    SLICE_X24Y44.B       Tilo                  0.205   cpu_module/instruction_execute/alu_src_a<3>
+                                                       cpu_module/instruction_execute/alu_src_a<3>1
+    SLICE_X32Y37.D2      net (fanout=103)      2.114   cpu_module/instruction_execute/alu_src_a<3>
+    SLICE_X32Y37.COUT    Topcyd                0.281   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<3>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_A261
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<3>
+    SLICE_X32Y38.CIN     net (fanout=1)        0.003   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<3>
+    SLICE_X32Y38.COUT    Tbyp                  0.076   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<7>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<7>
+    SLICE_X32Y39.CIN     net (fanout=1)        0.003   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<7>
+    SLICE_X32Y39.COUT    Tbyp                  0.076   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<11>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<11>
+    SLICE_X32Y40.CIN     net (fanout=1)        0.082   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<11>
+    SLICE_X32Y40.COUT    Tbyp                  0.076   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<15>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<15>
+    SLICE_X32Y41.CIN     net (fanout=1)        0.003   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<15>
+    SLICE_X32Y41.COUT    Tbyp                  0.076   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<19>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<19>
+    SLICE_X32Y42.CIN     net (fanout=1)        0.003   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<19>
+    SLICE_X32Y42.COUT    Tbyp                  0.076   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<23>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<23>
+    SLICE_X32Y43.CIN     net (fanout=1)        0.003   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<23>
+    SLICE_X32Y43.COUT    Tbyp                  0.076   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<27>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<27>
+    SLICE_X32Y44.CIN     net (fanout=1)        0.003   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<27>
+    SLICE_X32Y44.DMUX    Tcind                 0.272   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_split<31>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_xor<31>
+    SLICE_X26Y47.C1      net (fanout=4)        1.210   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_split<31>
+    SLICE_X26Y47.CMUX    Tilo                  0.361   cpu_module/instruction_execute/ex_mem_alu_out<31>
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT254_SW0_G
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT254_SW0
+    SLICE_X26Y47.A2      net (fanout=1)        0.624   N448
+    SLICE_X26Y47.CLK     Tas                   0.289   cpu_module/instruction_execute/ex_mem_alu_out<31>
                                                        cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT255
                                                        cpu_module/instruction_execute/ex_mem_alu_out_31
     -------------------------------------------------  ---------------------------
-    Total                                      9.715ns (2.246ns logic, 7.469ns route)
-                                                       (23.1% logic, 76.9% route)
+    Total                                      9.825ns (2.773ns logic, 7.052ns route)
+                                                       (28.2% logic, 71.8% route)
 
 --------------------------------------------------------------------------------
-
-Paths for end point cpu_module/instruction_execute/ex_mem_alu_out_19 (SLICE_X23Y42.A1), 9591 paths
---------------------------------------------------------------------------------
-Slack (setup path):     0.049ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               cpu_module/instruction_decode/id_ex_shamt_1 (FF)
-  Destination:          cpu_module/instruction_execute/ex_mem_alu_out_19 (FF)
+Slack (setup path):     0.139ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               cpu_module/instruction_mem/mem_wb_rd_4_1 (FF)
+  Destination:          cpu_module/instruction_execute/ex_mem_alu_out_31 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      9.883ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.033ns (0.248 - 0.281)
+  Data Path Delay:      9.804ns (Levels of Logic = 13)
+  Clock Path Skew:      -0.022ns (0.267 - 0.289)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 10.000ns
   Clock Uncertainty:    0.035ns
@@ -199,42 +271,65 @@ Slack (setup path):     0.049ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: cpu_module/instruction_decode/id_ex_shamt_1 to cpu_module/instruction_execute/ex_mem_alu_out_19
+  Maximum Data Path at Slow Process Corner: cpu_module/instruction_mem/mem_wb_rd_4_1 to cpu_module/instruction_execute/ex_mem_alu_out_31
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X27Y32.BQ      Tcko                  0.391   cpu_module/instruction_decode/id_ex_shamt<1>
-                                                       cpu_module/instruction_decode/id_ex_shamt_1
-    SLICE_X36Y37.B4      net (fanout=32)       1.931   cpu_module/instruction_decode/id_ex_shamt<1>
-    SLICE_X36Y37.B       Tilo                  0.205   N259
-                                                       cpu_module/instruction_execute/alu_src_a<1>1_SW1
-    SLICE_X27Y36.C4      net (fanout=3)        1.086   N259
-    SLICE_X27Y36.C       Tilo                  0.259   N64
-                                                       cpu_module/instruction_execute/alu_src_a<1>2_1
-    SLICE_X27Y40.B1      net (fanout=13)       1.642   cpu_module/instruction_execute/alu_src_a<1>2
-    SLICE_X27Y40.B       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU/Sh1241
-                                                       cpu_module/instruction_execute/CPU_ALU/Sh2151
-    SLICE_X30Y37.C2      net (fanout=5)        1.515   cpu_module/instruction_execute/CPU_ALU/Sh215
-    SLICE_X30Y37.C       Tilo                  0.204   cpu_module/instruction_execute/CPU_ALU/Sh19
-                                                       cpu_module/instruction_execute/CPU_ALU/Sh2431
-    SLICE_X24Y42.CX      net (fanout=3)        1.257   cpu_module/instruction_execute/CPU_ALU/Sh243
-    SLICE_X24Y42.CMUX    Tcxc                  0.163   cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT113
-                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT1113_SW3
-    SLICE_X23Y42.A1      net (fanout=1)        0.649   N299
-    SLICE_X23Y42.CLK     Tas                   0.322   cpu_module/instruction_execute/ex_mem_alu_out<20>
-                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT1114
-                                                       cpu_module/instruction_execute/ex_mem_alu_out_19
+    SLICE_X31Y41.AQ      Tcko                  0.391   cpu_module/instruction_mem/mem_wb_rd_4_2
+                                                       cpu_module/instruction_mem/mem_wb_rd_4_1
+    SLICE_X33Y42.D3      net (fanout=2)        0.945   cpu_module/instruction_mem/mem_wb_rd_4_1
+    SLICE_X33Y42.D       Tilo                  0.259   N70
+                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_a_from_wb7_SW0
+    SLICE_X31Y40.A2      net (fanout=3)        0.824   N70
+    SLICE_X31Y40.A       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_a_from_wb
+                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_a_from_wb7_2
+    SLICE_X24Y44.B3      net (fanout=5)        1.235   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_a_from_wb71
+    SLICE_X24Y44.B       Tilo                  0.205   cpu_module/instruction_execute/alu_src_a<3>
+                                                       cpu_module/instruction_execute/alu_src_a<3>1
+    SLICE_X32Y37.D2      net (fanout=103)      2.114   cpu_module/instruction_execute/alu_src_a<3>
+    SLICE_X32Y37.COUT    Topcyd                0.260   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<3>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_lut<3>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<3>
+    SLICE_X32Y38.CIN     net (fanout=1)        0.003   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<3>
+    SLICE_X32Y38.COUT    Tbyp                  0.076   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<7>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<7>
+    SLICE_X32Y39.CIN     net (fanout=1)        0.003   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<7>
+    SLICE_X32Y39.COUT    Tbyp                  0.076   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<11>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<11>
+    SLICE_X32Y40.CIN     net (fanout=1)        0.082   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<11>
+    SLICE_X32Y40.COUT    Tbyp                  0.076   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<15>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<15>
+    SLICE_X32Y41.CIN     net (fanout=1)        0.003   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<15>
+    SLICE_X32Y41.COUT    Tbyp                  0.076   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<19>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<19>
+    SLICE_X32Y42.CIN     net (fanout=1)        0.003   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<19>
+    SLICE_X32Y42.COUT    Tbyp                  0.076   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<23>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<23>
+    SLICE_X32Y43.CIN     net (fanout=1)        0.003   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<23>
+    SLICE_X32Y43.COUT    Tbyp                  0.076   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<27>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<27>
+    SLICE_X32Y44.CIN     net (fanout=1)        0.003   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<27>
+    SLICE_X32Y44.DMUX    Tcind                 0.272   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_split<31>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_xor<31>
+    SLICE_X26Y47.C1      net (fanout=4)        1.210   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_split<31>
+    SLICE_X26Y47.CMUX    Tilo                  0.361   cpu_module/instruction_execute/ex_mem_alu_out<31>
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT254_SW0_G
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT254_SW0
+    SLICE_X26Y47.A2      net (fanout=1)        0.624   N448
+    SLICE_X26Y47.CLK     Tas                   0.289   cpu_module/instruction_execute/ex_mem_alu_out<31>
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT255
+                                                       cpu_module/instruction_execute/ex_mem_alu_out_31
     -------------------------------------------------  ---------------------------
-    Total                                      9.883ns (1.803ns logic, 8.080ns route)
-                                                       (18.2% logic, 81.8% route)
+    Total                                      9.804ns (2.752ns logic, 7.052ns route)
+                                                       (28.1% logic, 71.9% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     0.086ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               cpu_module/instruction_execute/ex_mem_rd_3 (FF)
-  Destination:          cpu_module/instruction_execute/ex_mem_alu_out_19 (FF)
+Slack (setup path):     0.158ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               cpu_module/instruction_mem/mem_wb_ctrl_reg_write (FF)
+  Destination:          cpu_module/instruction_execute/ex_mem_alu_out_31 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      9.849ns (Levels of Logic = 7)
-  Clock Path Skew:      -0.030ns (0.248 - 0.278)
+  Data Path Delay:      9.799ns (Levels of Logic = 13)
+  Clock Path Skew:      -0.008ns (0.267 - 0.275)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 10.000ns
   Clock Uncertainty:    0.035ns
@@ -245,45 +340,68 @@ Slack (setup path):     0.086ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: cpu_module/instruction_execute/ex_mem_rd_3 to cpu_module/instruction_execute/ex_mem_alu_out_19
+  Maximum Data Path at Slow Process Corner: cpu_module/instruction_mem/mem_wb_ctrl_reg_write to cpu_module/instruction_execute/ex_mem_alu_out_31
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X26Y35.DQ      Tcko                  0.447   cpu_module/instruction_execute/ex_mem_rd<3>
-                                                       cpu_module/instruction_execute/ex_mem_rd_3
-    SLICE_X27Y35.D1      net (fanout=11)       1.046   cpu_module/instruction_execute/ex_mem_rd<3>
-    SLICE_X27Y35.D       Tilo                  0.259   cpu_module/instruction_mem/mem_wb_rd_0_2
-                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_a_from_mem3
-    SLICE_X28Y37.A2      net (fanout=3)        0.953   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_a_from_mem4
-    SLICE_X28Y37.A       Tilo                  0.205   cpu_module/instruction_execute/alu_src_a_reg<3>
-                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_a_from_mem7_1
-    SLICE_X27Y36.C2      net (fanout=7)        0.669   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_a_from_mem7
-    SLICE_X27Y36.C       Tilo                  0.259   N64
-                                                       cpu_module/instruction_execute/alu_src_a<1>2_1
-    SLICE_X27Y40.B1      net (fanout=13)       1.642   cpu_module/instruction_execute/alu_src_a<1>2
-    SLICE_X27Y40.B       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU/Sh1241
-                                                       cpu_module/instruction_execute/CPU_ALU/Sh2151
-    SLICE_X30Y37.C2      net (fanout=5)        1.515   cpu_module/instruction_execute/CPU_ALU/Sh215
-    SLICE_X30Y37.C       Tilo                  0.204   cpu_module/instruction_execute/CPU_ALU/Sh19
-                                                       cpu_module/instruction_execute/CPU_ALU/Sh2431
-    SLICE_X24Y42.CX      net (fanout=3)        1.257   cpu_module/instruction_execute/CPU_ALU/Sh243
-    SLICE_X24Y42.CMUX    Tcxc                  0.163   cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT113
-                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT1113_SW3
-    SLICE_X23Y42.A1      net (fanout=1)        0.649   N299
-    SLICE_X23Y42.CLK     Tas                   0.322   cpu_module/instruction_execute/ex_mem_alu_out<20>
-                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT1114
-                                                       cpu_module/instruction_execute/ex_mem_alu_out_19
+    SLICE_X29Y40.AQ      Tcko                  0.391   cpu_module/instruction_mem/mem_wb_ctrl_reg_write
+                                                       cpu_module/instruction_mem/mem_wb_ctrl_reg_write
+    SLICE_X33Y42.D4      net (fanout=5)        0.919   cpu_module/instruction_mem/mem_wb_ctrl_reg_write
+    SLICE_X33Y42.D       Tilo                  0.259   N70
+                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_a_from_wb7_SW0
+    SLICE_X31Y40.A2      net (fanout=3)        0.824   N70
+    SLICE_X31Y40.A       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_a_from_wb
+                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_a_from_wb7_2
+    SLICE_X24Y44.B3      net (fanout=5)        1.235   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_a_from_wb71
+    SLICE_X24Y44.B       Tilo                  0.205   cpu_module/instruction_execute/alu_src_a<3>
+                                                       cpu_module/instruction_execute/alu_src_a<3>1
+    SLICE_X32Y37.D2      net (fanout=103)      2.114   cpu_module/instruction_execute/alu_src_a<3>
+    SLICE_X32Y37.COUT    Topcyd                0.281   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<3>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_A261
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<3>
+    SLICE_X32Y38.CIN     net (fanout=1)        0.003   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<3>
+    SLICE_X32Y38.COUT    Tbyp                  0.076   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<7>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<7>
+    SLICE_X32Y39.CIN     net (fanout=1)        0.003   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<7>
+    SLICE_X32Y39.COUT    Tbyp                  0.076   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<11>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<11>
+    SLICE_X32Y40.CIN     net (fanout=1)        0.082   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<11>
+    SLICE_X32Y40.COUT    Tbyp                  0.076   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<15>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<15>
+    SLICE_X32Y41.CIN     net (fanout=1)        0.003   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<15>
+    SLICE_X32Y41.COUT    Tbyp                  0.076   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<19>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<19>
+    SLICE_X32Y42.CIN     net (fanout=1)        0.003   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<19>
+    SLICE_X32Y42.COUT    Tbyp                  0.076   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<23>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<23>
+    SLICE_X32Y43.CIN     net (fanout=1)        0.003   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<23>
+    SLICE_X32Y43.COUT    Tbyp                  0.076   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<27>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<27>
+    SLICE_X32Y44.CIN     net (fanout=1)        0.003   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_cy<27>
+    SLICE_X32Y44.DMUX    Tcind                 0.272   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_split<31>
+                                                       cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_rs_xor<31>
+    SLICE_X26Y47.C1      net (fanout=4)        1.210   cpu_module/instruction_execute/CPU_ALU/Mmux_alu_out3_split<31>
+    SLICE_X26Y47.CMUX    Tilo                  0.361   cpu_module/instruction_execute/ex_mem_alu_out<31>
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT254_SW0_G
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT254_SW0
+    SLICE_X26Y47.A2      net (fanout=1)        0.624   N448
+    SLICE_X26Y47.CLK     Tas                   0.289   cpu_module/instruction_execute/ex_mem_alu_out<31>
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT255
+                                                       cpu_module/instruction_execute/ex_mem_alu_out_31
     -------------------------------------------------  ---------------------------
-    Total                                      9.849ns (2.118ns logic, 7.731ns route)
-                                                       (21.5% logic, 78.5% route)
+    Total                                      9.799ns (2.773ns logic, 7.026ns route)
+                                                       (28.3% logic, 71.7% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     0.167ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               cpu_module/instruction_decode/id_ex_shamt_1 (FF)
-  Destination:          cpu_module/instruction_execute/ex_mem_alu_out_19 (FF)
+
+Paths for end point cpu_module/instruction_execute/ex_mem_alu_out_26 (SLICE_X28Y45.C1), 2303 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.128ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               cpu_module/instruction_decode/id_ex_rt_3 (FF)
+  Destination:          cpu_module/instruction_execute/ex_mem_alu_out_26 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      9.765ns (Levels of Logic = 6)
-  Clock Path Skew:      -0.033ns (0.248 - 0.281)
+  Data Path Delay:      9.841ns (Levels of Logic = 6)
+  Clock Path Skew:      0.004ns (0.272 - 0.268)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 10.000ns
   Clock Uncertainty:    0.035ns
@@ -294,146 +412,43 @@ Slack (setup path):     0.167ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: cpu_module/instruction_decode/id_ex_shamt_1 to cpu_module/instruction_execute/ex_mem_alu_out_19
+  Maximum Data Path at Slow Process Corner: cpu_module/instruction_decode/id_ex_rt_3 to cpu_module/instruction_execute/ex_mem_alu_out_26
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X27Y32.BQ      Tcko                  0.391   cpu_module/instruction_decode/id_ex_shamt<1>
-                                                       cpu_module/instruction_decode/id_ex_shamt_1
-    SLICE_X15Y36.A6      net (fanout=32)       1.924   cpu_module/instruction_decode/id_ex_shamt<1>
-    SLICE_X15Y36.A       Tilo                  0.259   cpu_module/instruction_write_back/Mmux_final_data_reg_write451
-                                                       cpu_module/instruction_execute/alu_src_a<1>1_SW0
-    SLICE_X27Y36.C5      net (fanout=3)        0.921   N258
-    SLICE_X27Y36.C       Tilo                  0.259   N64
-                                                       cpu_module/instruction_execute/alu_src_a<1>2_1
-    SLICE_X27Y40.B1      net (fanout=13)       1.642   cpu_module/instruction_execute/alu_src_a<1>2
-    SLICE_X27Y40.B       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU/Sh1241
-                                                       cpu_module/instruction_execute/CPU_ALU/Sh2151
-    SLICE_X30Y37.C2      net (fanout=5)        1.515   cpu_module/instruction_execute/CPU_ALU/Sh215
-    SLICE_X30Y37.C       Tilo                  0.204   cpu_module/instruction_execute/CPU_ALU/Sh19
-                                                       cpu_module/instruction_execute/CPU_ALU/Sh2431
-    SLICE_X24Y42.CX      net (fanout=3)        1.257   cpu_module/instruction_execute/CPU_ALU/Sh243
-    SLICE_X24Y42.CMUX    Tcxc                  0.163   cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT113
-                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT1113_SW3
-    SLICE_X23Y42.A1      net (fanout=1)        0.649   N299
-    SLICE_X23Y42.CLK     Tas                   0.322   cpu_module/instruction_execute/ex_mem_alu_out<20>
-                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT1114
-                                                       cpu_module/instruction_execute/ex_mem_alu_out_19
-    -------------------------------------------------  ---------------------------
-    Total                                      9.765ns (1.857ns logic, 7.908ns route)
-                                                       (19.0% logic, 81.0% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point cpu_module/instruction_execute/ex_mem_alu_out_15 (SLICE_X36Y38.B6), 3937 paths
---------------------------------------------------------------------------------
-Slack (setup path):     0.086ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               cpu_module/instruction_mem/mem_wb_data_2 (FF)
-  Destination:          cpu_module/instruction_execute/ex_mem_alu_out_15 (FF)
-  Requirement:          10.000ns
-  Data Path Delay:      9.908ns (Levels of Logic = 7)
-  Clock Path Skew:      0.029ns (0.377 - 0.348)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 10.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: cpu_module/instruction_mem/mem_wb_data_2 to cpu_module/instruction_execute/ex_mem_alu_out_15
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X16Y37.CMUX    Tshcko                0.455   cpu_module/instruction_mem/mem_wb_data<30>
-                                                       cpu_module/instruction_mem/mem_wb_data_2
-    SLICE_X27Y39.A3      net (fanout=5)        1.642   cpu_module/instruction_mem/mem_wb_data<2>
-    SLICE_X27Y39.A       Tilo                  0.259   N301
-                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/Mmux_alu_src_b_reg231_SW2
-    SLICE_X27Y33.D2      net (fanout=1)        1.119   N126
-    SLICE_X27Y33.D       Tilo                  0.259   cpu_module/instruction_execute/alu_src_b<2>
-                                                       cpu_module/instruction_execute/Mmux_alu_src_b231
-    SLICE_X23Y37.D1      net (fanout=12)       1.470   cpu_module/instruction_execute/alu_src_b<2>
-    SLICE_X23Y37.D       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU/Sh99
-                                                       cpu_module/instruction_execute/CPU_ALU/Sh991
-    SLICE_X33Y40.D1      net (fanout=7)        2.234   cpu_module/instruction_execute/CPU_ALU/Sh99
-    SLICE_X33Y40.D       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU/Sh143
-                                                       cpu_module/instruction_execute/CPU_ALU/Sh1431
-    SLICE_X33Y40.C6      net (fanout=3)        0.131   cpu_module/instruction_execute/CPU_ALU/Sh143
-    SLICE_X33Y40.C       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU/Sh143
-                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT73_SW0_SW0
-    SLICE_X36Y38.A2      net (fanout=1)        0.898   N294
-    SLICE_X36Y38.A       Tilo                  0.205   cpu_module/instruction_execute/ex_mem_alu_out<15>
-                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT73_SW0
-    SLICE_X36Y38.B6      net (fanout=1)        0.118   N89
-    SLICE_X36Y38.CLK     Tas                   0.341   cpu_module/instruction_execute/ex_mem_alu_out<15>
-                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT74
-                                                       cpu_module/instruction_execute/ex_mem_alu_out_15
-    -------------------------------------------------  ---------------------------
-    Total                                      9.908ns (2.296ns logic, 7.612ns route)
-                                                       (23.2% logic, 76.8% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     0.286ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               cpu_module/instruction_mem/mem_wb_rd_1_2 (FF)
-  Destination:          cpu_module/instruction_execute/ex_mem_alu_out_15 (FF)
-  Requirement:          10.000ns
-  Data Path Delay:      9.694ns (Levels of Logic = 8)
-  Clock Path Skew:      0.015ns (0.287 - 0.272)
-  Source Clock:         clk_BUFGP rising at 0.000ns
-  Destination Clock:    clk_BUFGP rising at 10.000ns
-  Clock Uncertainty:    0.035ns
-
-  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Total Input Jitter (TIJ):   0.000ns
-    Discrete Jitter (DJ):       0.000ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: cpu_module/instruction_mem/mem_wb_rd_1_2 to cpu_module/instruction_execute/ex_mem_alu_out_15
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X25Y35.BQ      Tcko                  0.391   cpu_module/instruction_decode/id_ex_rs<3>
-                                                       cpu_module/instruction_mem/mem_wb_rd_1_2
-    SLICE_X27Y34.D2      net (fanout=2)        1.241   cpu_module/instruction_mem/mem_wb_rd_1_2
-    SLICE_X27Y34.D       Tilo                  0.259   cpu_module/instruction_mem/mem_wb_rd_3_2
+    SLICE_X27Y40.CQ      Tcko                  0.391   cpu_module/instruction_decode/id_ex_rt<3>
+                                                       cpu_module/instruction_decode/id_ex_rt_3
+    SLICE_X28Y38.B2      net (fanout=12)       1.086   cpu_module/instruction_decode/id_ex_rt<3>
+    SLICE_X28Y38.B       Tilo                  0.205   N64
                                                        cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb3
-    SLICE_X29Y37.C2      net (fanout=3)        0.971   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb4
-    SLICE_X29Y37.C       Tilo                  0.259   cpu_module/instruction_decode/id_ex_ctrl_alu_src_5
-                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb7_2
-    SLICE_X27Y37.A1      net (fanout=16)       0.838   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb7_1
-    SLICE_X27Y37.A       Tilo                  0.259   cpu_module/instruction_decode/id_ex_ctrl_alu_src_4
-                                                       cpu_module/instruction_execute/Mmux_alu_src_b121
-    SLICE_X23Y37.D6      net (fanout=12)       0.772   cpu_module/instruction_execute/alu_src_b<1>
-    SLICE_X23Y37.D       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU/Sh99
-                                                       cpu_module/instruction_execute/CPU_ALU/Sh991
-    SLICE_X33Y40.D1      net (fanout=7)        2.234   cpu_module/instruction_execute/CPU_ALU/Sh99
-    SLICE_X33Y40.D       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU/Sh143
-                                                       cpu_module/instruction_execute/CPU_ALU/Sh1431
-    SLICE_X33Y40.C6      net (fanout=3)        0.131   cpu_module/instruction_execute/CPU_ALU/Sh143
-    SLICE_X33Y40.C       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU/Sh143
-                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT73_SW0_SW0
-    SLICE_X36Y38.A2      net (fanout=1)        0.898   N294
-    SLICE_X36Y38.A       Tilo                  0.205   cpu_module/instruction_execute/ex_mem_alu_out<15>
-                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT73_SW0
-    SLICE_X36Y38.B6      net (fanout=1)        0.118   N89
-    SLICE_X36Y38.CLK     Tas                   0.341   cpu_module/instruction_execute/ex_mem_alu_out<15>
-                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT74
-                                                       cpu_module/instruction_execute/ex_mem_alu_out_15
+    SLICE_X29Y39.C1      net (fanout=3)        0.697   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb4
+    SLICE_X29Y39.C       Tilo                  0.259   cpu_module/instruction_mem/mem_wb_rd_2_2
+                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb7_1
+    SLICE_X34Y43.A2      net (fanout=17)       2.001   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb7
+    SLICE_X34Y43.A       Tilo                  0.203   cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT19
+                                                       cpu_module/instruction_execute/Mmux_alu_src_b210
+    SLICE_X30Y38.A4      net (fanout=16)       1.493   cpu_module/instruction_execute/alu_src_b<10>
+    SLICE_X30Y38.A       Tilo                  0.203   cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT154
+                                                       cpu_module/instruction_execute/CPU_ALU/Sh1061
+    SLICE_X34Y40.C3      net (fanout=5)        1.344   cpu_module/instruction_execute/CPU_ALU/Sh106
+    SLICE_X34Y40.CMUX    Tilo                  0.361   N349
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT192_G
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT192
+    SLICE_X28Y45.C1      net (fanout=1)        1.257   cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT191
+    SLICE_X28Y45.CLK     Tas                   0.341   cpu_module/instruction_execute/ex_mem_alu_out<26>
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT194
+                                                       cpu_module/instruction_execute/ex_mem_alu_out_26
     -------------------------------------------------  ---------------------------
-    Total                                      9.694ns (2.491ns logic, 7.203ns route)
-                                                       (25.7% logic, 74.3% route)
+    Total                                      9.841ns (1.963ns logic, 7.878ns route)
+                                                       (19.9% logic, 80.1% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     0.287ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               cpu_module/instruction_execute/ex_mem_rd_1 (FF)
-  Destination:          cpu_module/instruction_execute/ex_mem_alu_out_15 (FF)
+Slack (setup path):     0.369ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               cpu_module/instruction_mem/mem_wb_rd_4_2 (FF)
+  Destination:          cpu_module/instruction_execute/ex_mem_alu_out_26 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      9.685ns (Levels of Logic = 8)
-  Clock Path Skew:      0.007ns (0.287 - 0.280)
+  Data Path Delay:      9.579ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.017ns (0.272 - 0.289)
   Source Clock:         clk_BUFGP rising at 0.000ns
   Destination Clock:    clk_BUFGP rising at 10.000ns
   Clock Uncertainty:    0.035ns
@@ -444,78 +459,93 @@ Slack (setup path):     0.287ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.000ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: cpu_module/instruction_execute/ex_mem_rd_1 to cpu_module/instruction_execute/ex_mem_alu_out_15
+  Maximum Data Path at Slow Process Corner: cpu_module/instruction_mem/mem_wb_rd_4_2 to cpu_module/instruction_execute/ex_mem_alu_out_26
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X26Y34.BQ      Tcko                  0.447   cpu_module/instruction_execute/ex_mem_rd<2>
-                                                       cpu_module/instruction_execute/ex_mem_rd_1
-    SLICE_X23Y36.B1      net (fanout=7)        1.148   cpu_module/instruction_execute/ex_mem_rd<1>
-    SLICE_X23Y36.B       Tilo                  0.259   cpu_module/instruction_mem/mem_wb_rd<2>
-                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_mem3
-    SLICE_X23Y37.A5      net (fanout=3)        0.362   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_mem4
-    SLICE_X23Y37.A       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU/Sh99
-                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_mem7_1
-    SLICE_X27Y33.D3      net (fanout=19)       0.777   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_mem7
-    SLICE_X27Y33.D       Tilo                  0.259   cpu_module/instruction_execute/alu_src_b<2>
-                                                       cpu_module/instruction_execute/Mmux_alu_src_b231
-    SLICE_X23Y37.D1      net (fanout=12)       1.470   cpu_module/instruction_execute/alu_src_b<2>
-    SLICE_X23Y37.D       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU/Sh99
-                                                       cpu_module/instruction_execute/CPU_ALU/Sh991
-    SLICE_X33Y40.D1      net (fanout=7)        2.234   cpu_module/instruction_execute/CPU_ALU/Sh99
-    SLICE_X33Y40.D       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU/Sh143
-                                                       cpu_module/instruction_execute/CPU_ALU/Sh1431
-    SLICE_X33Y40.C6      net (fanout=3)        0.131   cpu_module/instruction_execute/CPU_ALU/Sh143
-    SLICE_X33Y40.C       Tilo                  0.259   cpu_module/instruction_execute/CPU_ALU/Sh143
-                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT73_SW0_SW0
-    SLICE_X36Y38.A2      net (fanout=1)        0.898   N294
-    SLICE_X36Y38.A       Tilo                  0.205   cpu_module/instruction_execute/ex_mem_alu_out<15>
-                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT73_SW0
-    SLICE_X36Y38.B6      net (fanout=1)        0.118   N89
-    SLICE_X36Y38.CLK     Tas                   0.341   cpu_module/instruction_execute/ex_mem_alu_out<15>
-                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT74
-                                                       cpu_module/instruction_execute/ex_mem_alu_out_15
+    SLICE_X31Y41.BQ      Tcko                  0.391   cpu_module/instruction_mem/mem_wb_rd_4_2
+                                                       cpu_module/instruction_mem/mem_wb_rd_4_2
+    SLICE_X28Y38.D1      net (fanout=2)        0.888   cpu_module/instruction_mem/mem_wb_rd_4_2
+    SLICE_X28Y38.D       Tilo                  0.205   N64
+                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb7_SW0
+    SLICE_X29Y39.C4      net (fanout=3)        0.633   N64
+    SLICE_X29Y39.C       Tilo                  0.259   cpu_module/instruction_mem/mem_wb_rd_2_2
+                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb7_1
+    SLICE_X34Y43.A2      net (fanout=17)       2.001   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb7
+    SLICE_X34Y43.A       Tilo                  0.203   cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT19
+                                                       cpu_module/instruction_execute/Mmux_alu_src_b210
+    SLICE_X30Y38.A4      net (fanout=16)       1.493   cpu_module/instruction_execute/alu_src_b<10>
+    SLICE_X30Y38.A       Tilo                  0.203   cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT154
+                                                       cpu_module/instruction_execute/CPU_ALU/Sh1061
+    SLICE_X34Y40.C3      net (fanout=5)        1.344   cpu_module/instruction_execute/CPU_ALU/Sh106
+    SLICE_X34Y40.CMUX    Tilo                  0.361   N349
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT192_G
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT192
+    SLICE_X28Y45.C1      net (fanout=1)        1.257   cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT191
+    SLICE_X28Y45.CLK     Tas                   0.341   cpu_module/instruction_execute/ex_mem_alu_out<26>
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT194
+                                                       cpu_module/instruction_execute/ex_mem_alu_out_26
     -------------------------------------------------  ---------------------------
-    Total                                      9.685ns (2.547ns logic, 7.138ns route)
-                                                       (26.3% logic, 73.7% route)
+    Total                                      9.579ns (1.963ns logic, 7.616ns route)
+                                                       (20.5% logic, 79.5% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.492ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               cpu_module/instruction_mem/mem_wb_rd_2_2 (FF)
+  Destination:          cpu_module/instruction_execute/ex_mem_alu_out_26 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      9.470ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.003ns (0.272 - 0.275)
+  Source Clock:         clk_BUFGP rising at 0.000ns
+  Destination Clock:    clk_BUFGP rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: cpu_module/instruction_mem/mem_wb_rd_2_2 to cpu_module/instruction_execute/ex_mem_alu_out_26
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X29Y39.DQ      Tcko                  0.391   cpu_module/instruction_mem/mem_wb_rd_2_2
+                                                       cpu_module/instruction_mem/mem_wb_rd_2_2
+    SLICE_X28Y38.D2      net (fanout=2)        0.779   cpu_module/instruction_mem/mem_wb_rd_2_2
+    SLICE_X28Y38.D       Tilo                  0.205   N64
+                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb7_SW0
+    SLICE_X29Y39.C4      net (fanout=3)        0.633   N64
+    SLICE_X29Y39.C       Tilo                  0.259   cpu_module/instruction_mem/mem_wb_rd_2_2
+                                                       cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb7_1
+    SLICE_X34Y43.A2      net (fanout=17)       2.001   cpu_module/instruction_execute/CPU_ALU_FORWARDING/bypass_b_from_wb7
+    SLICE_X34Y43.A       Tilo                  0.203   cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT19
+                                                       cpu_module/instruction_execute/Mmux_alu_src_b210
+    SLICE_X30Y38.A4      net (fanout=16)       1.493   cpu_module/instruction_execute/alu_src_b<10>
+    SLICE_X30Y38.A       Tilo                  0.203   cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT154
+                                                       cpu_module/instruction_execute/CPU_ALU/Sh1061
+    SLICE_X34Y40.C3      net (fanout=5)        1.344   cpu_module/instruction_execute/CPU_ALU/Sh106
+    SLICE_X34Y40.CMUX    Tilo                  0.361   N349
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT192_G
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT192
+    SLICE_X28Y45.C1      net (fanout=1)        1.257   cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT191
+    SLICE_X28Y45.CLK     Tas                   0.341   cpu_module/instruction_execute/ex_mem_alu_out<26>
+                                                       cpu_module/instruction_execute/Mmux_alu_out[31]_GND_7_o_mux_8_OUT194
+                                                       cpu_module/instruction_execute/ex_mem_alu_out_26
+    -------------------------------------------------  ---------------------------
+    Total                                      9.470ns (1.963ns logic, 7.507ns route)
+                                                       (20.7% logic, 79.3% route)
 
 --------------------------------------------------------------------------------
 
 Hold Paths: TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 50%;
 --------------------------------------------------------------------------------
 
-Paths for end point cpu_module/instruction_mem/mem_wb_ctrl_reg_write (SLICE_X22Y32.AX), 1 path
---------------------------------------------------------------------------------
-Slack (hold path):      0.405ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               cpu_module/instruction_execute/ex_mem_ctrl_reg_write (FF)
-  Destination:          cpu_module/instruction_mem/mem_wb_ctrl_reg_write (FF)
-  Requirement:          0.000ns
-  Data Path Delay:      0.407ns (Levels of Logic = 0)
-  Clock Path Skew:      0.002ns (0.045 - 0.043)
-  Source Clock:         clk_BUFGP rising at 10.000ns
-  Destination Clock:    clk_BUFGP rising at 10.000ns
-  Clock Uncertainty:    0.000ns
-
-  Minimum Data Path at Fast Process Corner: cpu_module/instruction_execute/ex_mem_ctrl_reg_write to cpu_module/instruction_mem/mem_wb_ctrl_reg_write
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X23Y32.AQ      Tcko                  0.198   cpu_module/instruction_execute/ex_mem_ctrl_reg_write
-                                                       cpu_module/instruction_execute/ex_mem_ctrl_reg_write
-    SLICE_X22Y32.AX      net (fanout=5)        0.168   cpu_module/instruction_execute/ex_mem_ctrl_reg_write
-    SLICE_X22Y32.CLK     Tckdi       (-Th)    -0.041   cpu_module/instruction_mem/mem_wb_ctrl_reg_write
-                                                       cpu_module/instruction_mem/mem_wb_ctrl_reg_write
-    -------------------------------------------------  ---------------------------
-    Total                                      0.407ns (0.239ns logic, 0.168ns route)
-                                                       (58.7% logic, 41.3% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point cpu_module/regfile_stack/data_0_694 (SLICE_X4Y23.A6), 1 path
+Paths for end point cpu_module/regfile_stack/data_0_755 (SLICE_X0Y28.D6), 1 path
 --------------------------------------------------------------------------------
 Slack (hold path):      0.407ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               cpu_module/regfile_stack/data_0_694 (FF)
-  Destination:          cpu_module/regfile_stack/data_0_694 (FF)
+  Source:               cpu_module/regfile_stack/data_0_755 (FF)
+  Destination:          cpu_module/regfile_stack/data_0_755 (FF)
   Requirement:          0.000ns
   Data Path Delay:      0.407ns (Levels of Logic = 1)
   Clock Path Skew:      0.000ns
@@ -523,27 +553,27 @@ Slack (hold path):      0.407ns (requirement - (clock path skew + uncertainty - 
   Destination Clock:    clk_BUFGP rising at 10.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: cpu_module/regfile_stack/data_0_694 to cpu_module/regfile_stack/data_0_694
+  Minimum Data Path at Fast Process Corner: cpu_module/regfile_stack/data_0_755 to cpu_module/regfile_stack/data_0_755
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X4Y23.AQ       Tcko                  0.200   cpu_module/regfile_stack/data_0<697>
-                                                       cpu_module/regfile_stack/data_0_694
-    SLICE_X4Y23.A6       net (fanout=1)        0.017   cpu_module/regfile_stack/data_0<694>
-    SLICE_X4Y23.CLK      Tah         (-Th)    -0.190   cpu_module/regfile_stack/data_0<697>
-                                                       cpu_module/regfile_stack/Mmux_data[21][31]_wIn[31]_mux_22_OUT151
-                                                       cpu_module/regfile_stack/data_0_694
+    SLICE_X0Y28.DQ       Tcko                  0.200   cpu_module/regfile_stack/data_0<755>
+                                                       cpu_module/regfile_stack/data_0_755
+    SLICE_X0Y28.D6       net (fanout=1)        0.017   cpu_module/regfile_stack/data_0<755>
+    SLICE_X0Y28.CLK      Tah         (-Th)    -0.190   cpu_module/regfile_stack/data_0<755>
+                                                       cpu_module/regfile_stack/Mmux_data[23][31]_wIn[31]_mux_20_OUT111
+                                                       cpu_module/regfile_stack/data_0_755
     -------------------------------------------------  ---------------------------
     Total                                      0.407ns (0.390ns logic, 0.017ns route)
                                                        (95.8% logic, 4.2% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point cpu_module/regfile_stack/data_0_697 (SLICE_X4Y23.D6), 1 path
+Paths for end point cpu_module/regfile_stack/data_0_760 (SLICE_X0Y31.A6), 1 path
 --------------------------------------------------------------------------------
 Slack (hold path):      0.407ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               cpu_module/regfile_stack/data_0_697 (FF)
-  Destination:          cpu_module/regfile_stack/data_0_697 (FF)
+  Source:               cpu_module/regfile_stack/data_0_760 (FF)
+  Destination:          cpu_module/regfile_stack/data_0_760 (FF)
   Requirement:          0.000ns
   Data Path Delay:      0.407ns (Levels of Logic = 1)
   Clock Path Skew:      0.000ns
@@ -551,16 +581,44 @@ Slack (hold path):      0.407ns (requirement - (clock path skew + uncertainty - 
   Destination Clock:    clk_BUFGP rising at 10.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: cpu_module/regfile_stack/data_0_697 to cpu_module/regfile_stack/data_0_697
+  Minimum Data Path at Fast Process Corner: cpu_module/regfile_stack/data_0_760 to cpu_module/regfile_stack/data_0_760
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X4Y23.DQ       Tcko                  0.200   cpu_module/regfile_stack/data_0<697>
-                                                       cpu_module/regfile_stack/data_0_697
-    SLICE_X4Y23.D6       net (fanout=1)        0.017   cpu_module/regfile_stack/data_0<697>
-    SLICE_X4Y23.CLK      Tah         (-Th)    -0.190   cpu_module/regfile_stack/data_0<697>
-                                                       cpu_module/regfile_stack/Mmux_data[21][31]_wIn[31]_mux_22_OUT181
-                                                       cpu_module/regfile_stack/data_0_697
+    SLICE_X0Y31.AQ       Tcko                  0.200   cpu_module/regfile_stack/data_0<763>
+                                                       cpu_module/regfile_stack/data_0_760
+    SLICE_X0Y31.A6       net (fanout=1)        0.017   cpu_module/regfile_stack/data_0<760>
+    SLICE_X0Y31.CLK      Tah         (-Th)    -0.190   cpu_module/regfile_stack/data_0<763>
+                                                       cpu_module/regfile_stack/Mmux_data[23][31]_wIn[31]_mux_20_OUT171
+                                                       cpu_module/regfile_stack/data_0_760
+    -------------------------------------------------  ---------------------------
+    Total                                      0.407ns (0.390ns logic, 0.017ns route)
+                                                       (95.8% logic, 4.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point cpu_module/regfile_stack/data_0_763 (SLICE_X0Y31.D6), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.407ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               cpu_module/regfile_stack/data_0_763 (FF)
+  Destination:          cpu_module/regfile_stack/data_0_763 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.407ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         clk_BUFGP rising at 10.000ns
+  Destination Clock:    clk_BUFGP rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: cpu_module/regfile_stack/data_0_763 to cpu_module/regfile_stack/data_0_763
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y31.DQ       Tcko                  0.200   cpu_module/regfile_stack/data_0<763>
+                                                       cpu_module/regfile_stack/data_0_763
+    SLICE_X0Y31.D6       net (fanout=1)        0.017   cpu_module/regfile_stack/data_0<763>
+    SLICE_X0Y31.CLK      Tah         (-Th)    -0.190   cpu_module/regfile_stack/data_0<763>
+                                                       cpu_module/regfile_stack/Mmux_data[23][31]_wIn[31]_mux_20_OUT201
+                                                       cpu_module/regfile_stack/data_0_763
     -------------------------------------------------  ---------------------------
     Total                                      0.407ns (0.390ns logic, 0.017ns route)
                                                        (95.8% logic, 4.2% route)
@@ -580,17 +638,17 @@ Slack: 8.270ns (period - min period limit)
 Slack: 8.962ns (period - min period limit)
   Period: 10.000ns
   Min period limit: 1.038ns (963.391MHz) (Tcp)
-  Physical resource: cpu_module/instruction_mem/data_mem_read<29>/CLK
-  Logical resource: cpu_module/instruction_mem/data_memory/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/Mram_ram29/DP/CLK
-  Location pin: SLICE_X10Y31.CLK
+  Physical resource: cpu_module/instruction_mem/data_mem_read<23>/CLK
+  Logical resource: cpu_module/instruction_mem/data_memory/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/Mram_ram23/DP/CLK
+  Location pin: SLICE_X14Y34.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 Slack: 8.962ns (period - min period limit)
   Period: 10.000ns
   Min period limit: 1.038ns (963.391MHz) (Tcp)
-  Physical resource: cpu_module/instruction_mem/data_mem_read<29>/CLK
-  Logical resource: cpu_module/instruction_mem/data_memory/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/Mram_ram30/DP/CLK
-  Location pin: SLICE_X10Y31.CLK
+  Physical resource: cpu_module/instruction_mem/data_mem_read<23>/CLK
+  Logical resource: cpu_module/instruction_mem/data_memory/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/Mram_ram24/DP/CLK
+  Location pin: SLICE_X14Y34.CLK
   Clock network: clk_BUFGP
 --------------------------------------------------------------------------------
 
@@ -607,7 +665,7 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    9.966|         |         |         |
+clk            |    9.891|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
@@ -616,23 +674,23 @@ Timing summary:
 
 Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
 
-Constraints cover 391611 paths, 0 nets, and 12202 connections
+Constraints cover 520661 paths, 0 nets, and 13099 connections
 
 Design statistics:
-   Minimum period:   9.966ns{1}   (Maximum frequency: 100.341MHz)
+   Minimum period:   9.891ns{1}   (Maximum frequency: 101.102MHz)
 
 
 ------------------------------------Footnotes-----------------------------------
 1)  The minimum period statistic assumes all single cycle delays.
 
-Analysis completed Wed May 30 11:44:35 2018 
+Analysis completed Wed May 30 17:02:17 2018 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 316 MB
+Peak Memory Usage: 318 MB
 
 
 

@@ -21,8 +21,10 @@
 module CPU(
 	 input clk,
 	 input rst_n,
+	 input continue_sig,
 	 input [5:0] board_mem_read_addr,
-	 output [31:0] board_mem_read_result
+	 output [31:0] board_mem_read_result,
+	 output at_breakpoint
 );
 	  
 	 wire jump_taken;
@@ -52,6 +54,8 @@ module CPU(
 	 wire id_ex_ctrl_mem_write;
 	 wire id_ex_ctrl_reg_dst;
 	 wire id_ex_ctrl_reg_write;
+	 
+	 assign at_breakpoint = stall_breakpoint;
 	 	
 	 wire ex_mem_alu_beq_sig;
 	 wire ex_mem_alu_bgez_sig;
@@ -92,6 +96,8 @@ module CPU(
 	 wire flush_id;
 	 wire flush_ex;
 	 wire stall;
+	 wire stall_breakpoint;
+	 wire continue_en;
 	 
 	 if_stage instruction_fetch (
     .clk(clk), 
@@ -103,7 +109,9 @@ module CPU(
     .if_id_instruction(if_id_instruction), 
     .if_id_pc_next(if_id_pc_next),
 	 .flush_if(flush_if),
-	 .stall(stall)
+	 .stall(stall),
+	 .stall_breakpoint(stall_breakpoint),
+	 .continue_en(continue_en)
     );
 
 	 id_stage instruction_decode (
@@ -131,7 +139,10 @@ module CPU(
     .id_ex_ctrl_reg_dst(id_ex_ctrl_reg_dst), 
     .id_ex_ctrl_reg_write(id_ex_ctrl_reg_write), 
     .stall(stall),
-	 .flush_id(flush_id)
+	 .flush_id(flush_id),
+	 .stall_breakpoint(stall_breakpoint),
+	 .continue_sig(continue_sig),
+	 .continue_en(continue_en)
     );
 	 
 	 ex_stage instruction_execute (

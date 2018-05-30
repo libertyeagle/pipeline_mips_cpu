@@ -24,6 +24,7 @@ module id_stage(
     input [31:0] if_id_instruction,
     input [31:0] if_id_pc_next,
 	 input flush_id,
+    input continue_sig,
     output reg [4:0] id_ex_rs,
     output reg [4:0] id_ex_rt,
     output reg [4:0] id_ex_rd,
@@ -43,8 +44,15 @@ module id_stage(
     output reg id_ex_ctrl_mem_write,
     output reg id_ex_ctrl_reg_dst,
     output reg id_ex_ctrl_reg_write,
-    output stall
+    output stall,
+    output stall_breakpoint,
+    output reg continue_en
 );
+
+    parameter BREAKPOINT_EN = 1'b1;
+    parameter BREAKPOINT_ADDR = 32'd48; // for fibonacci program, breakpoint at `add $t2, $t3, $t4` 
+
+    assign stall_breakpoint = (BREAKPOINT_EN && (if_id_pc_next - 32'd4 == BREAKPOINT_ADDR)) ? 1'b1 : 1'b0;
 
     wire [4:0] rs;
     wire [4:0] rt;
@@ -106,6 +114,16 @@ module id_stage(
     // if last insturction is LW and the register re
     assign stall = (id_ex_ctrl_mem_to_reg) && (id_ex_rt == rs || id_ex_rt == rt);
 
+    initial 
+        continue_en <= 1'b0;
+
+    always @(posedge clk or posedge continue_sig or negedge rst_n)
+    begin
+        if (~rst_n) continue_en <= 1'b0;
+        else if (continue_sig) continue_en <= 1'b1;
+		  else continue_en <= 1'b0;
+    end
+
     always @(posedge clk or negedge rst_n)
     begin
         if (~rst_n)
@@ -157,6 +175,29 @@ module id_stage(
         else if (stall)
         begin
             // insert a bubble to the pipeline
+            id_ex_ctrl_alu_control <= 3'b0;
+            id_ex_ctrl_reg_dst <= 1'b0;
+            id_ex_ctrl_alu_src <= 1'b0;
+            id_ex_ctrl_reg_write <= 1'b0;
+            id_ex_ctrl_mem_to_reg <= 1'b0;
+            id_ex_ctrl_mem_write <= 1'b0;
+            id_ex_ctrl_jump <= 1'b0;
+            id_ex_ctrl_branch <= 1'b0;
+            id_ex_ctrl_jump_reg <= 1'b0;
+            id_ex_ctrl_alu_shift_shamt <= 1'b0;
+            id_ex_ctrl_store_type <= 2'b0;
+            id_ex_ctrl_load_type <= 2'b0;
+            id_ex_ctrl_branch_type <= 2'b0;
+
+            id_ex_imm_sign_extended <= 32'b0;
+            id_ex_pc_next <= 32'b0;
+            id_ex_rd <= 5'b0;
+            id_ex_rt <= 5'b0;
+            id_ex_rs <= 5'b0;
+            id_ex_shamt <= 5'b0;
+        end
+        else if (stall_breakpoint & ~continue_en)
+        begin
             id_ex_ctrl_alu_control <= 3'b0;
             id_ex_ctrl_reg_dst <= 1'b0;
             id_ex_ctrl_alu_src <= 1'b0;

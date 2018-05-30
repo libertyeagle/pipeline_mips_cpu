@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Wed May 30 11:44:03 2018
+// Written by: Map P.20131013 on Wed May 30 17:01:43 2018
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -30,26 +30,13 @@ COMP "sel<0>" LOCATE = SITE "P17" LEVEL 1;
 COMP "sel<1>" LOCATE = SITE "P18" LEVEL 1;
 COMP "sel<2>" LOCATE = SITE "N15" LEVEL 1;
 COMP "sel<3>" LOCATE = SITE "N16" LEVEL 1;
+COMP "at_breakpoint" LOCATE = SITE "R11" LEVEL 1;
 COMP "mode_change" LOCATE = SITE "D9" LEVEL 1;
+COMP "continue_sig" LOCATE = SITE "C4" LEVEL 1;
 TIMEGRP sys_clk_pin = BEL "clk_slow_seg_gen/clk_slow" BEL
-        "clk_slow_change_addr_gen/clk_slow" BEL "clk_slow_seg_gen/cnt_div_0"
-        BEL "clk_slow_seg_gen/cnt_div_1" BEL "clk_slow_seg_gen/cnt_div_2" BEL
-        "clk_slow_seg_gen/cnt_div_3" BEL "clk_slow_seg_gen/cnt_div_4" BEL
-        "clk_slow_seg_gen/cnt_div_5" BEL "clk_slow_seg_gen/cnt_div_6" BEL
-        "clk_slow_seg_gen/cnt_div_7" BEL "clk_slow_seg_gen/cnt_div_8" BEL
-        "clk_slow_seg_gen/cnt_div_9" BEL "clk_slow_seg_gen/cnt_div_10" BEL
-        "clk_slow_seg_gen/cnt_div_11" BEL "clk_slow_seg_gen/cnt_div_12" BEL
-        "clk_slow_seg_gen/cnt_div_13" BEL "clk_slow_seg_gen/cnt_div_14" BEL
-        "clk_slow_seg_gen/cnt_div_15" BEL "clk_slow_seg_gen/cnt_div_16" BEL
-        "clk_slow_seg_gen/cnt_div_17" BEL "clk_slow_seg_gen/cnt_div_18" BEL
-        "clk_slow_seg_gen/cnt_div_19" BEL "clk_slow_seg_gen/cnt_div_20" BEL
-        "clk_slow_seg_gen/cnt_div_21" BEL "clk_slow_seg_gen/cnt_div_22" BEL
-        "clk_slow_seg_gen/cnt_div_23" BEL "clk_slow_seg_gen/cnt_div_24" BEL
-        "clk_slow_seg_gen/cnt_div_25" BEL "clk_slow_seg_gen/cnt_div_26" BEL
-        "clk_slow_seg_gen/cnt_div_27" BEL "clk_slow_seg_gen/cnt_div_28" BEL
-        "clk_slow_seg_gen/cnt_div_29" BEL "clk_slow_seg_gen/cnt_div_30" BEL
-        "clk_slow_seg_gen/cnt_div_31" BEL "clk_slow_change_addr_gen/cnt_div_5"
-        BEL "clk_slow_change_addr_gen/cnt_div_6" BEL
+        "clk_slow_change_addr_gen/clk_slow" BEL
+        "clk_slow_change_addr_gen/cnt_div_5" BEL
+        "clk_slow_change_addr_gen/cnt_div_6" BEL
         "clk_slow_change_addr_gen/cnt_div_7" BEL
         "clk_slow_change_addr_gen/cnt_div_8" BEL
         "clk_slow_change_addr_gen/cnt_div_9" BEL
@@ -74,50 +61,65 @@ TIMEGRP sys_clk_pin = BEL "clk_slow_seg_gen/clk_slow" BEL
         "clk_slow_change_addr_gen/cnt_div_28" BEL
         "clk_slow_change_addr_gen/cnt_div_29" BEL
         "clk_slow_change_addr_gen/cnt_div_30" BEL
-        "clk_slow_change_addr_gen/cnt_div_31" BEL
-        "cpu_module/id_ex_reg_a_data_31" BEL "cpu_module/id_ex_reg_a_data_30"
-        BEL "cpu_module/id_ex_reg_a_data_29" BEL
-        "cpu_module/id_ex_reg_a_data_28" BEL "cpu_module/id_ex_reg_a_data_27"
-        BEL "cpu_module/id_ex_reg_a_data_26" BEL
-        "cpu_module/id_ex_reg_a_data_25" BEL "cpu_module/id_ex_reg_a_data_24"
-        BEL "cpu_module/id_ex_reg_a_data_23" BEL
-        "cpu_module/id_ex_reg_a_data_22" BEL "cpu_module/id_ex_reg_a_data_21"
-        BEL "cpu_module/id_ex_reg_a_data_20" BEL
-        "cpu_module/id_ex_reg_a_data_19" BEL "cpu_module/id_ex_reg_a_data_18"
-        BEL "cpu_module/id_ex_reg_a_data_17" BEL
-        "cpu_module/id_ex_reg_a_data_16" BEL "cpu_module/id_ex_reg_a_data_15"
-        BEL "cpu_module/id_ex_reg_a_data_14" BEL
-        "cpu_module/id_ex_reg_a_data_13" BEL "cpu_module/id_ex_reg_a_data_12"
-        BEL "cpu_module/id_ex_reg_a_data_11" BEL
-        "cpu_module/id_ex_reg_a_data_10" BEL "cpu_module/id_ex_reg_a_data_9"
-        BEL "cpu_module/id_ex_reg_a_data_8" BEL
-        "cpu_module/id_ex_reg_a_data_7" BEL "cpu_module/id_ex_reg_a_data_6"
-        BEL "cpu_module/id_ex_reg_a_data_5" BEL
-        "cpu_module/id_ex_reg_a_data_4" BEL "cpu_module/id_ex_reg_a_data_3"
-        BEL "cpu_module/id_ex_reg_a_data_2" BEL
-        "cpu_module/id_ex_reg_a_data_1" BEL "cpu_module/id_ex_reg_a_data_0"
-        BEL "cpu_module/id_ex_reg_b_data_31" BEL
-        "cpu_module/id_ex_reg_b_data_30" BEL "cpu_module/id_ex_reg_b_data_29"
-        BEL "cpu_module/id_ex_reg_b_data_28" BEL
-        "cpu_module/id_ex_reg_b_data_27" BEL "cpu_module/id_ex_reg_b_data_26"
-        BEL "cpu_module/id_ex_reg_b_data_25" BEL
-        "cpu_module/id_ex_reg_b_data_24" BEL "cpu_module/id_ex_reg_b_data_23"
-        BEL "cpu_module/id_ex_reg_b_data_22" BEL
-        "cpu_module/id_ex_reg_b_data_21" BEL "cpu_module/id_ex_reg_b_data_20"
-        BEL "cpu_module/id_ex_reg_b_data_19" BEL
-        "cpu_module/id_ex_reg_b_data_18" BEL "cpu_module/id_ex_reg_b_data_17"
-        BEL "cpu_module/id_ex_reg_b_data_16" BEL
-        "cpu_module/id_ex_reg_b_data_15" BEL "cpu_module/id_ex_reg_b_data_14"
-        BEL "cpu_module/id_ex_reg_b_data_13" BEL
-        "cpu_module/id_ex_reg_b_data_12" BEL "cpu_module/id_ex_reg_b_data_11"
-        BEL "cpu_module/id_ex_reg_b_data_10" BEL
-        "cpu_module/id_ex_reg_b_data_9" BEL "cpu_module/id_ex_reg_b_data_8"
-        BEL "cpu_module/id_ex_reg_b_data_7" BEL
-        "cpu_module/id_ex_reg_b_data_6" BEL "cpu_module/id_ex_reg_b_data_5"
-        BEL "cpu_module/id_ex_reg_b_data_4" BEL
-        "cpu_module/id_ex_reg_b_data_3" BEL "cpu_module/id_ex_reg_b_data_2"
-        BEL "cpu_module/id_ex_reg_b_data_1" BEL
-        "cpu_module/id_ex_reg_b_data_0" BEL
+        "clk_slow_change_addr_gen/cnt_div_31" BEL "clk_slow_seg_gen/cnt_div_0"
+        BEL "clk_slow_seg_gen/cnt_div_1" BEL "clk_slow_seg_gen/cnt_div_2" BEL
+        "clk_slow_seg_gen/cnt_div_3" BEL "clk_slow_seg_gen/cnt_div_4" BEL
+        "clk_slow_seg_gen/cnt_div_5" BEL "clk_slow_seg_gen/cnt_div_6" BEL
+        "clk_slow_seg_gen/cnt_div_7" BEL "clk_slow_seg_gen/cnt_div_8" BEL
+        "clk_slow_seg_gen/cnt_div_9" BEL "clk_slow_seg_gen/cnt_div_10" BEL
+        "clk_slow_seg_gen/cnt_div_11" BEL "clk_slow_seg_gen/cnt_div_12" BEL
+        "clk_slow_seg_gen/cnt_div_13" BEL "clk_slow_seg_gen/cnt_div_14" BEL
+        "clk_slow_seg_gen/cnt_div_15" BEL "clk_slow_seg_gen/cnt_div_16" BEL
+        "clk_slow_seg_gen/cnt_div_17" BEL "clk_slow_seg_gen/cnt_div_18" BEL
+        "clk_slow_seg_gen/cnt_div_19" BEL "clk_slow_seg_gen/cnt_div_20" BEL
+        "clk_slow_seg_gen/cnt_div_21" BEL "clk_slow_seg_gen/cnt_div_22" BEL
+        "clk_slow_seg_gen/cnt_div_23" BEL "clk_slow_seg_gen/cnt_div_24" BEL
+        "clk_slow_seg_gen/cnt_div_25" BEL "clk_slow_seg_gen/cnt_div_26" BEL
+        "clk_slow_seg_gen/cnt_div_27" BEL "clk_slow_seg_gen/cnt_div_28" BEL
+        "clk_slow_seg_gen/cnt_div_29" BEL "clk_slow_seg_gen/cnt_div_30" BEL
+        "clk_slow_seg_gen/cnt_div_31" BEL "cpu_module/id_ex_reg_a_data_31" BEL
+        "cpu_module/id_ex_reg_a_data_30" BEL "cpu_module/id_ex_reg_a_data_29"
+        BEL "cpu_module/id_ex_reg_a_data_28" BEL
+        "cpu_module/id_ex_reg_a_data_27" BEL "cpu_module/id_ex_reg_a_data_26"
+        BEL "cpu_module/id_ex_reg_a_data_25" BEL
+        "cpu_module/id_ex_reg_a_data_24" BEL "cpu_module/id_ex_reg_a_data_23"
+        BEL "cpu_module/id_ex_reg_a_data_22" BEL
+        "cpu_module/id_ex_reg_a_data_21" BEL "cpu_module/id_ex_reg_a_data_20"
+        BEL "cpu_module/id_ex_reg_a_data_19" BEL
+        "cpu_module/id_ex_reg_a_data_18" BEL "cpu_module/id_ex_reg_a_data_17"
+        BEL "cpu_module/id_ex_reg_a_data_16" BEL
+        "cpu_module/id_ex_reg_a_data_15" BEL "cpu_module/id_ex_reg_a_data_14"
+        BEL "cpu_module/id_ex_reg_a_data_13" BEL
+        "cpu_module/id_ex_reg_a_data_12" BEL "cpu_module/id_ex_reg_a_data_11"
+        BEL "cpu_module/id_ex_reg_a_data_10" BEL
+        "cpu_module/id_ex_reg_a_data_9" BEL "cpu_module/id_ex_reg_a_data_8"
+        BEL "cpu_module/id_ex_reg_a_data_7" BEL
+        "cpu_module/id_ex_reg_a_data_6" BEL "cpu_module/id_ex_reg_a_data_5"
+        BEL "cpu_module/id_ex_reg_a_data_4" BEL
+        "cpu_module/id_ex_reg_a_data_3" BEL "cpu_module/id_ex_reg_a_data_2"
+        BEL "cpu_module/id_ex_reg_a_data_1" BEL
+        "cpu_module/id_ex_reg_a_data_0" BEL "cpu_module/id_ex_reg_b_data_31"
+        BEL "cpu_module/id_ex_reg_b_data_30" BEL
+        "cpu_module/id_ex_reg_b_data_29" BEL "cpu_module/id_ex_reg_b_data_28"
+        BEL "cpu_module/id_ex_reg_b_data_27" BEL
+        "cpu_module/id_ex_reg_b_data_26" BEL "cpu_module/id_ex_reg_b_data_25"
+        BEL "cpu_module/id_ex_reg_b_data_24" BEL
+        "cpu_module/id_ex_reg_b_data_23" BEL "cpu_module/id_ex_reg_b_data_22"
+        BEL "cpu_module/id_ex_reg_b_data_21" BEL
+        "cpu_module/id_ex_reg_b_data_20" BEL "cpu_module/id_ex_reg_b_data_19"
+        BEL "cpu_module/id_ex_reg_b_data_18" BEL
+        "cpu_module/id_ex_reg_b_data_17" BEL "cpu_module/id_ex_reg_b_data_16"
+        BEL "cpu_module/id_ex_reg_b_data_15" BEL
+        "cpu_module/id_ex_reg_b_data_14" BEL "cpu_module/id_ex_reg_b_data_13"
+        BEL "cpu_module/id_ex_reg_b_data_12" BEL
+        "cpu_module/id_ex_reg_b_data_11" BEL "cpu_module/id_ex_reg_b_data_10"
+        BEL "cpu_module/id_ex_reg_b_data_9" BEL
+        "cpu_module/id_ex_reg_b_data_8" BEL "cpu_module/id_ex_reg_b_data_7"
+        BEL "cpu_module/id_ex_reg_b_data_6" BEL
+        "cpu_module/id_ex_reg_b_data_5" BEL "cpu_module/id_ex_reg_b_data_4"
+        BEL "cpu_module/id_ex_reg_b_data_3" BEL
+        "cpu_module/id_ex_reg_b_data_2" BEL "cpu_module/id_ex_reg_b_data_1"
+        BEL "cpu_module/id_ex_reg_b_data_0" BEL
         "cpu_module/instruction_mem/mem_wb_data_31" BEL
         "cpu_module/instruction_mem/mem_wb_data_30" BEL
         "cpu_module/instruction_mem/mem_wb_data_29" BEL
@@ -191,18 +193,70 @@ TIMEGRP sys_clk_pin = BEL "clk_slow_seg_gen/clk_slow" BEL
         "cpu_module/instruction_fetch/if_id_instruction_2" BEL
         "cpu_module/instruction_fetch/if_id_instruction_1" BEL
         "cpu_module/instruction_fetch/if_id_instruction_0" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_31" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_30" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_29" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_28" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_27" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_26" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_25" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_24" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_23" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_22" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_21" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_20" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_19" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_18" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_17" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_16" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_15" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_14" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_13" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_12" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_11" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_10" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_9" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_8" BEL
         "cpu_module/instruction_fetch/if_id_pc_next_7" BEL
         "cpu_module/instruction_fetch/if_id_pc_next_6" BEL
         "cpu_module/instruction_fetch/if_id_pc_next_5" BEL
         "cpu_module/instruction_fetch/if_id_pc_next_4" BEL
         "cpu_module/instruction_fetch/if_id_pc_next_3" BEL
         "cpu_module/instruction_fetch/if_id_pc_next_2" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_1" BEL
+        "cpu_module/instruction_fetch/if_id_pc_next_0" BEL
+        "cpu_module/instruction_fetch/pc_31" BEL
+        "cpu_module/instruction_fetch/pc_30" BEL
+        "cpu_module/instruction_fetch/pc_29" BEL
+        "cpu_module/instruction_fetch/pc_28" BEL
+        "cpu_module/instruction_fetch/pc_27" BEL
+        "cpu_module/instruction_fetch/pc_26" BEL
+        "cpu_module/instruction_fetch/pc_25" BEL
+        "cpu_module/instruction_fetch/pc_24" BEL
+        "cpu_module/instruction_fetch/pc_23" BEL
+        "cpu_module/instruction_fetch/pc_22" BEL
+        "cpu_module/instruction_fetch/pc_21" BEL
+        "cpu_module/instruction_fetch/pc_20" BEL
+        "cpu_module/instruction_fetch/pc_19" BEL
+        "cpu_module/instruction_fetch/pc_18" BEL
+        "cpu_module/instruction_fetch/pc_17" BEL
+        "cpu_module/instruction_fetch/pc_16" BEL
+        "cpu_module/instruction_fetch/pc_15" BEL
+        "cpu_module/instruction_fetch/pc_14" BEL
+        "cpu_module/instruction_fetch/pc_13" BEL
+        "cpu_module/instruction_fetch/pc_12" BEL
+        "cpu_module/instruction_fetch/pc_11" BEL
+        "cpu_module/instruction_fetch/pc_10" BEL
+        "cpu_module/instruction_fetch/pc_9" BEL
+        "cpu_module/instruction_fetch/pc_8" BEL
         "cpu_module/instruction_fetch/pc_7" BEL
         "cpu_module/instruction_fetch/pc_6" BEL
         "cpu_module/instruction_fetch/pc_5" BEL
         "cpu_module/instruction_fetch/pc_4" BEL
         "cpu_module/instruction_fetch/pc_3" BEL
         "cpu_module/instruction_fetch/pc_2" BEL
+        "cpu_module/instruction_fetch/pc_1" BEL
+        "cpu_module/instruction_fetch/pc_0" BEL
         "cpu_module/instruction_decode/id_ex_imm_sign_extended_5" BEL
         "cpu_module/instruction_decode/id_ex_imm_sign_extended_4" BEL
         "cpu_module/instruction_decode/id_ex_imm_sign_extended_3" BEL
@@ -212,24 +266,24 @@ TIMEGRP sys_clk_pin = BEL "clk_slow_seg_gen/clk_slow" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_alu_shift_shamt" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_jump_reg" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_branch" BEL
-        "cpu_module/instruction_decode/id_ex_ctrl_jump" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_mem_write" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_mem_to_reg" BEL
+        "cpu_module/instruction_decode/id_ex_ctrl_jump" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_reg_write" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_alu_src" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_reg_dst" BEL
+        "cpu_module/instruction_decode/id_ex_ctrl_branch_type_2" BEL
+        "cpu_module/instruction_decode/id_ex_ctrl_branch_type_1" BEL
+        "cpu_module/instruction_decode/id_ex_ctrl_branch_type_0" BEL
+        "cpu_module/instruction_decode/id_ex_ctrl_store_type_1" BEL
+        "cpu_module/instruction_decode/id_ex_ctrl_store_type_0" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_alu_control_3" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_alu_control_2" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_alu_control_1" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_alu_control_0" BEL
-        "cpu_module/instruction_decode/id_ex_ctrl_branch_type_2" BEL
-        "cpu_module/instruction_decode/id_ex_ctrl_branch_type_1" BEL
-        "cpu_module/instruction_decode/id_ex_ctrl_branch_type_0" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_load_type_2" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_load_type_1" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_load_type_0" BEL
-        "cpu_module/instruction_decode/id_ex_ctrl_store_type_1" BEL
-        "cpu_module/instruction_decode/id_ex_ctrl_store_type_0" BEL
         "cpu_module/instruction_decode/id_ex_shamt_4" BEL
         "cpu_module/instruction_decode/id_ex_shamt_3" BEL
         "cpu_module/instruction_decode/id_ex_shamt_2" BEL
@@ -248,12 +302,38 @@ TIMEGRP sys_clk_pin = BEL "clk_slow_seg_gen/clk_slow" BEL
         "cpu_module/instruction_decode/id_ex_rd_2" BEL
         "cpu_module/instruction_decode/id_ex_rd_1" BEL
         "cpu_module/instruction_decode/id_ex_rd_0" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_31" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_30" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_29" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_28" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_27" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_26" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_25" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_24" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_23" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_22" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_21" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_20" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_19" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_18" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_17" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_16" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_15" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_14" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_13" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_12" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_11" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_10" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_9" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_8" BEL
         "cpu_module/instruction_decode/id_ex_pc_next_7" BEL
         "cpu_module/instruction_decode/id_ex_pc_next_6" BEL
         "cpu_module/instruction_decode/id_ex_pc_next_5" BEL
         "cpu_module/instruction_decode/id_ex_pc_next_4" BEL
         "cpu_module/instruction_decode/id_ex_pc_next_3" BEL
         "cpu_module/instruction_decode/id_ex_pc_next_2" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_1" BEL
+        "cpu_module/instruction_decode/id_ex_pc_next_0" BEL
         "cpu_module/instruction_execute/ex_mem_reg_b_data_31" BEL
         "cpu_module/instruction_execute/ex_mem_reg_b_data_30" BEL
         "cpu_module/instruction_execute/ex_mem_reg_b_data_29" BEL
@@ -292,12 +372,38 @@ TIMEGRP sys_clk_pin = BEL "clk_slow_seg_gen/clk_slow" BEL
         "cpu_module/instruction_execute/ex_mem_alu_bgez_sig" BEL
         "cpu_module/instruction_execute/ex_mem_alu_beq_sig" BEL
         "cpu_module/instruction_execute/ex_mem_alu_bgtz_sig" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_31" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_30" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_29" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_28" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_27" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_26" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_25" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_24" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_23" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_22" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_21" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_20" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_19" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_18" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_17" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_16" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_15" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_14" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_13" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_12" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_11" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_10" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_9" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_8" BEL
         "cpu_module/instruction_execute/ex_mem_pc_jump_7" BEL
         "cpu_module/instruction_execute/ex_mem_pc_jump_6" BEL
         "cpu_module/instruction_execute/ex_mem_pc_jump_5" BEL
         "cpu_module/instruction_execute/ex_mem_pc_jump_4" BEL
         "cpu_module/instruction_execute/ex_mem_pc_jump_3" BEL
         "cpu_module/instruction_execute/ex_mem_pc_jump_2" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_1" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_jump_0" BEL
         "cpu_module/instruction_execute/ex_mem_alu_out_31" BEL
         "cpu_module/instruction_execute/ex_mem_alu_out_30" BEL
         "cpu_module/instruction_execute/ex_mem_alu_out_29" BEL
@@ -335,12 +441,38 @@ TIMEGRP sys_clk_pin = BEL "clk_slow_seg_gen/clk_slow" BEL
         "cpu_module/instruction_execute/ex_mem_rd_2" BEL
         "cpu_module/instruction_execute/ex_mem_rd_1" BEL
         "cpu_module/instruction_execute/ex_mem_rd_0" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_31" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_30" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_29" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_28" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_27" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_26" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_25" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_24" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_23" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_22" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_21" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_20" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_19" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_18" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_17" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_16" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_15" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_14" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_13" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_12" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_11" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_10" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_9" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_8" BEL
         "cpu_module/instruction_execute/ex_mem_pc_branch_7" BEL
         "cpu_module/instruction_execute/ex_mem_pc_branch_6" BEL
         "cpu_module/instruction_execute/ex_mem_pc_branch_5" BEL
         "cpu_module/instruction_execute/ex_mem_pc_branch_4" BEL
         "cpu_module/instruction_execute/ex_mem_pc_branch_3" BEL
         "cpu_module/instruction_execute/ex_mem_pc_branch_2" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_1" BEL
+        "cpu_module/instruction_execute/ex_mem_pc_branch_0" BEL
         "cpu_module/instruction_execute/ex_mem_ctrl_reg_write" BEL
         "cpu_module/instruction_execute/ex_mem_ctrl_jump_reg" BEL
         "cpu_module/instruction_execute/ex_mem_ctrl_jump" BEL
@@ -1346,8 +1478,26 @@ TIMEGRP sys_clk_pin = BEL "clk_slow_seg_gen/clk_slow" BEL
         "cpu_module/regfile_stack/data_0_35" BEL
         "cpu_module/regfile_stack/data_0_34" BEL
         "cpu_module/regfile_stack/data_0_33" BEL
-        "cpu_module/regfile_stack/data_0_32" BEL "mode_change_jitter/cnt_31"
-        BEL "mode_change_jitter/cnt_30" BEL "mode_change_jitter/cnt_29" BEL
+        "cpu_module/regfile_stack/data_0_32" BEL "continue_sig_jitter/cnt_31"
+        BEL "continue_sig_jitter/cnt_30" BEL "continue_sig_jitter/cnt_29" BEL
+        "continue_sig_jitter/cnt_28" BEL "continue_sig_jitter/cnt_27" BEL
+        "continue_sig_jitter/cnt_26" BEL "continue_sig_jitter/cnt_25" BEL
+        "continue_sig_jitter/cnt_24" BEL "continue_sig_jitter/cnt_23" BEL
+        "continue_sig_jitter/cnt_22" BEL "continue_sig_jitter/cnt_21" BEL
+        "continue_sig_jitter/cnt_20" BEL "continue_sig_jitter/cnt_19" BEL
+        "continue_sig_jitter/cnt_18" BEL "continue_sig_jitter/cnt_17" BEL
+        "continue_sig_jitter/cnt_16" BEL "continue_sig_jitter/cnt_15" BEL
+        "continue_sig_jitter/cnt_14" BEL "continue_sig_jitter/cnt_13" BEL
+        "continue_sig_jitter/cnt_12" BEL "continue_sig_jitter/cnt_11" BEL
+        "continue_sig_jitter/cnt_10" BEL "continue_sig_jitter/cnt_9" BEL
+        "continue_sig_jitter/cnt_8" BEL "continue_sig_jitter/cnt_7" BEL
+        "continue_sig_jitter/cnt_6" BEL "continue_sig_jitter/cnt_5" BEL
+        "continue_sig_jitter/cnt_4" BEL "continue_sig_jitter/cnt_3" BEL
+        "continue_sig_jitter/cnt_2" BEL "continue_sig_jitter/cnt_1" BEL
+        "continue_sig_jitter/cnt_0" BEL "continue_sig_jitter/cnt_en" BEL
+        "continue_sig_jitter/button_final" BEL
+        "continue_sig_jitter/button_out" BEL "mode_change_jitter/cnt_31" BEL
+        "mode_change_jitter/cnt_30" BEL "mode_change_jitter/cnt_29" BEL
         "mode_change_jitter/cnt_28" BEL "mode_change_jitter/cnt_27" BEL
         "mode_change_jitter/cnt_26" BEL "mode_change_jitter/cnt_25" BEL
         "mode_change_jitter/cnt_24" BEL "mode_change_jitter/cnt_23" BEL
@@ -1364,7 +1514,8 @@ TIMEGRP sys_clk_pin = BEL "clk_slow_seg_gen/clk_slow" BEL
         "mode_change_jitter/cnt_2" BEL "mode_change_jitter/cnt_1" BEL
         "mode_change_jitter/cnt_0" BEL "mode_change_jitter/cnt_en" BEL
         "mode_change_jitter/button_final" BEL "mode_change_jitter/button_out"
-        BEL "cpu_module/instruction_mem/mem_wb_rd_3_1" BEL
+        BEL "cpu_module/instruction_decode/continue_en_P" BEL
+        "cpu_module/instruction_mem/mem_wb_rd_3_1" BEL
         "cpu_module/instruction_mem/mem_wb_rd_4_1" BEL
         "cpu_module/instruction_mem/mem_wb_rd_2_1" BEL
         "cpu_module/instruction_mem/mem_wb_rd_0_1" BEL
@@ -1374,14 +1525,18 @@ TIMEGRP sys_clk_pin = BEL "clk_slow_seg_gen/clk_slow" BEL
         "cpu_module/instruction_mem/mem_wb_rd_0_2" BEL
         "cpu_module/instruction_mem/mem_wb_rd_4_2" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_alu_shift_shamt_1" BEL
+        "cpu_module/instruction_execute/ex_mem_alu_out_1_1" BEL
         "cpu_module/instruction_mem/mem_wb_rd_3_2" BEL
+        "cpu_module/instruction_decode/id_ex_shamt_1_1" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_alu_shift_shamt_2" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_alu_src_1" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_alu_src_2" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_alu_src_3" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_alu_src_4" BEL
         "cpu_module/instruction_decode/id_ex_ctrl_alu_src_5" BEL
-        "clk_BUFGP/BUFG" BEL
+        "cpu_module/instruction_decode/id_ex_rd_4_1" BEL
+        "cpu_module/instruction_decode/id_ex_rd_4_2" BEL
+        "cpu_module/instruction_decode/id_ex_rd_4_3" BEL "clk_BUFGP/BUFG" BEL
         "cpu_module/instruction_mem/data_memory/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/Mram_ram32/SP"
         BEL
         "cpu_module/instruction_mem/data_memory/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/Mram_ram32/DP"

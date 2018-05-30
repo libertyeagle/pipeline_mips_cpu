@@ -27,6 +27,8 @@ module if_stage(
     input [31:0] pc_branch,
 	 input flush_if,
 	 input stall,
+    input stall_breakpoint,
+    input continue_en,
     output reg [31:0] if_id_instruction,
     output reg [31:0] if_id_pc_next
 );
@@ -41,14 +43,14 @@ module if_stage(
         if (~rst_n) pc <= 32'b0;
         else
         begin
-            if (stall) pc <= pc;
+            if (stall || (stall_breakpoint && ~continue_en)) pc <= pc;
             else if (jump_taken) pc <= pc_jump;
             else if (branch_taken) pc <= pc_branch;
             else pc <= pc + 32'h4;
         end
 
     instr_mem instruction_memory(
-        .a(pc[7:2]),
+        .a(pc[9:2]),
         .spo(instruction)
     );
 
@@ -65,6 +67,11 @@ module if_stage(
             if_id_instruction <= 32'b0;
 		  end
         else if (stall)
+        begin
+            if_id_pc_next <= if_id_pc_next;
+            if_id_instruction <= if_id_instruction;
+        end
+        else if (stall_breakpoint && ~continue_en)
         begin
             if_id_pc_next <= if_id_pc_next;
             if_id_instruction <= if_id_instruction;
